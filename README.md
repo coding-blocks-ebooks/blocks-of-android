@@ -1,3 +1,3 @@
-# My Awesome Book
+# Blocks of Android
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+This book should be a comprehensive reference manual for learning Android App development.
