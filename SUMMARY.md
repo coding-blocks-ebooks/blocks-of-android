@@ -11,4 +11,5 @@
 * [4. Databases](04-databases/intro.md)
 * [Android Project Structure](AndroidProjectStructure/android-project-structure.md)
 * [BasicAndroidWidgets](BasicAndroidWidgets/intro.md)
+* [BasicAndroidWidgets](basicandroidwidgets.md)
 
