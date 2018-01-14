@@ -10,4 +10,5 @@
   * [3.3 Bound Services](03-services/03-3-bound-services.md)
 * [4. Databases](04-databases/intro.md)
 * [Android Project Structure](AndroidProjectStructure/android-project-structure.md)
+* [BasicAndroidWidgets](BasicAndroidWidgets/intro.md)
 
