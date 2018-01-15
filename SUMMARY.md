@@ -11,4 +11,4 @@
 * [4. Databases](04-databases/intro.md)
 * [Android Project Structure](AndroidProjectStructure/android-project-structure.md)
 * [BasicAndroidWidgets](AndroidWidgets/basicandroidwidgets.md)
-
+* [RecyclerView](RecyclerView/RecycerView.md)
