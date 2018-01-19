@@ -59,7 +59,6 @@ To use RecyclerView we need to follow 6 steps which are explained in detail belo
         android:layout_margin="10dp"
         android:orientation="vertical">
 
-
         <TextView
             android:id="@+id/tvCourseName"
             android:layout_width="match_parent"
@@ -143,7 +142,6 @@ We have to implement three methods as follows -
 
         // Provide a direct reference to each of the views within a data item
         public class ViewHolder extends RecyclerView.ViewHolder{
-
 
             TextView tvCourseName, tvInstructorName, tvBatchStrength;
 
