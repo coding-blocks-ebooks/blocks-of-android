@@ -25,14 +25,16 @@ exclude module: 'okhttp'
 compile 'com.google.code.gson:gson:2.6.2'
 compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-compile 'com.squareup.okhttp3:okhttp:3.4.1' ````
+compile 'com.squareup.okhttp3:okhttp:3.4.1' 
+```
 
 * The logging-interceptor generates a log string of the entire response that’s returned.
 
 * Add the permission to access internet in the AndroidManifest.xml file.
 
-```java
-<uses-permission android:name="android.permission.INTERNET"></uses-permission>```
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
 
 #OkHttp Interceptors
 
@@ -58,15 +60,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 class APIClient {
-private static Retrofit retrofit = null;
-static Retrofit getClient() { HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+    private static Retrofit retrofit = null;
+    static Retrofit getClient() { 
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-OkHttpClient client=newOkHttpClient.Builder().addInterceptor(interceptor).build();
-retrofit = new Retrofit.Builder() .baseUrl("https://reqres.in") .addConverterFactory(GsonConverterFactory.create()).client(client).build();
-return retrofit;
+        OkHttpClient client=newOkHttpClient.Builder().addInterceptor(interceptor).build();
+        retrofit = new Retrofit.Builder() .baseUrl("https://reqres.in") .addConverterFactory(GsonConverterFactory.create()).client(client).build();
+        return retrofit;
+    }
 }
-}```
+```
 
 * Create a class ```APIInterface.java``` .
 
@@ -98,7 +102,8 @@ Call<UserList> doGetUserList(@Query("page") String page);
 @FormUrlEncoded
 @POST("/api/users?")
 Call<UserList> doCreateUserWithField(@Field("name") String name, @Field("job") String job);
-}```
+}
+```
 
 * In the above class, we’ve defined some methods that perform HTTP requests with annotation.
 
@@ -140,7 +145,8 @@ public Integer year;
 public String pantoneValue;
 
 }
-}```
+}
+```
 
 `@SerializedName` annotation is used to specify the name of the field that’s in the JSON Response.
 

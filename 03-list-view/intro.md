@@ -12,7 +12,7 @@ examples : Contacts , Gmail , Messages  .
 
 * Build a new Android project .
 
-* Open up ```activity_main.xml``` & add ```ListView``` into it . 
+* Open up `activity_main.xml` & add `ListView` into it .
 
 * Set height and width to ```match_parent``` & give that view a respective Id . (So , that your list can be displayed in full screen) .
 
