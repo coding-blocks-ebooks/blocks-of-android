@@ -18,7 +18,7 @@ examples : Contacts , Gmail , Messages  .
 
 Now , You'll get a list rendered on your design pane of the android .
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,7 +35,8 @@ Now , You'll get a list rendered on your design pane of the android .
 
     </ListView>
     
-    </RelativeLayout>```
+    </RelativeLayout>
+```
     
     
 Great , Now we've a list view let's add the contents that you want to display into the list .
