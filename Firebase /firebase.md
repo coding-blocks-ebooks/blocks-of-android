@@ -1,4 +1,4 @@
-#Firebase
+# Firebase
 
 Firebase is a cloud-based framework and NoSQL database for mobile applications which, through the API, allows development companies to store and synchronize data between clients.
 
