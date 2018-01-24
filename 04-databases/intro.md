@@ -1,6 +1,6 @@
 # Database
 
-//todo .
+In software applications, it is mostly required to save information for some internal use or off course to provide user to great features depending on the data. And when we talk about android so SQLite is that default feature which is used as a database and also used as a local database for any application. .
 
 # Implementation of SQLiteOpenHelper
 
