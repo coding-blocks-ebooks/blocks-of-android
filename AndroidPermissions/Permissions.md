@@ -41,13 +41,51 @@ It indicates that there's no great risk to the user's privacy or security in let
 <uses-permission android:name="android.permission.BLUETOOTH"/>```
 
 
-* Create a new project in Android Studi New Project and fill the project details.
+* Create a new project in Android Studio
 
-* Open `strings.xml` and add the string values.
+* Open up your `Main_Activity.java`
+
+```java
+package com.stonedcoder.coding-blocks.permissions;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
+
+public class MainActivity extends AppCompatActivity {
+
+private static String TAG = "Permission ";
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_permission_demo);
+
+int permission = ContextCompat.checkSelfPermission(this,
+Manifest.permission.RECORD_AUDIO);
+
+if (permission != PackageManager.PERMISSION_GRANTED) {
+Log.i(TAG, "Permission to record denied");
+}
+}
+}```
+
+* An app before 6.0 attempts to make use of a feature that requires approval of a dangerous permission, and regardless of whether or not permission was previously granted, the code must check that the permission has been granted.
+
+* This can be achieved via a call to the `checkSelfPermission()` method of the ContextCompat class, passing through as arguments a reference to the current activity and the permission being requested. The method will check whether the permission has been previously granted and return an integer value matching `PackageManager.PERMISSION_GRANTED` or `PackageManager.PERMISSION_DENIED` . 
+
+* Run the app on a device running a version of Android 6.0 and check the log cat output within Android Studio.
+
+* After the app has launched, the output should include the **“Permission to record denied”** message.
+
+* Now open up `AndroidManifest.xml`
 
 ```xml
-<resources>
-<string name="app_name">M Permissions</string>
-<string name="action_settings">Settings</string>
-<string name="single_permission_text">(Click on FAB to check Single permission)</string>
-</resources>```
+<uses-permission android:name="android.permission.RECORD_AUDIO" />```
+
+* Compile and run the app once again and note that this time the permission denial message does not appear.
+
+* However, and note that even though permission has been added to the manifest file, the check still reports that permission has been denied. This is because Android 6 requires that the app also request dangerous permissions at runtime.
