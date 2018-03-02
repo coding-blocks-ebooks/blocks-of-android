@@ -15,3 +15,8 @@
 * [8. Network Operations](08-network-operations/intro.md)
 * [9. RecyclerView](09-recycler-view/intro.md)
 * [10. Retrofit](10-retrofit/intro.md)
+* [11. Permissions](11-permissions/intro.md)
+  * [11.1 Runtime Permissions](11-permissions/11-1-runtime-permissions.md)
+* [12. Fragments](12-fragments/intro.md)
+  * [12.1 Static Fragments](12-fragments/12-1-static-fragments.md)
+  * [12.2 Dynamic Fragments](12-fragments/12-2-dynamic-fragments.md)

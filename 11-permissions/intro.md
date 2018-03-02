@@ -43,7 +43,7 @@ It indicates that there's no great risk to the user's privacy or security in let
 
 * Create a new project in Android Studio
 
-* Open up your `Main_Activity.java`
+* Open up your `Main_Activity.java`  
 
 ```java
 package com.stonedcoder.coding-blocks.permissions;
@@ -71,7 +71,8 @@ if (permission != PackageManager.PERMISSION_GRANTED) {
 Log.i(TAG, "Permission to record denied");
 }
 }
-}```
+}
+```
 
 * An app before 6.0 attempts to make use of a feature that requires approval of a dangerous permission, and regardless of whether or not permission was previously granted, the code must check that the permission has been granted.
 

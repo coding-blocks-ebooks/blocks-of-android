@@ -40,17 +40,24 @@ Create a new Java class and name it as Products .
 ```java
 public class Products {
 
-private int _id;
+    private int _id;
+    private String _productname;
 
-private String _productname;
+public void Products(){
 
-public void Products(){}
+}
 
-public Products(String productname) {this._productname = productname;}
+public Products(String productname) {
+  this._productname = productname;
+}
 
-public int get_id() {return _id;}
+public int get_id() {
+  return _id;
+}
 
-public String get_productname() {return _productname;}
+public String get_productname() {
+  return _productname;
+}
 
 public void set_id(int _id) {this._id = _id;}
 
@@ -166,29 +173,19 @@ Once you're done with adding and deleting the only thing which is left behind wa
 ```java
 public String databasetostring(){
 
-String dbString="";
-
-SQLiteDatabase db= getWritableDatabase();
-
-String query = "SELECT * FROM " + TABLE_PRODUCTS + " WHERE 1";
-
-Cursor c =db.rawQuery(query,null);
-c.moveToFirst();
-while (!c.isAfterLast())
-{
-if(c.getString(c.getColumnIndex("productname"))!=null){
-dbString+= c.getString(c.getColumnIndex("productname"));
-dbString+="\n";
+  String dbString="";
+  SQLiteDatabase db= getWritableDatabase();
+  String query = "SELECT * FROM " + TABLE_PRODUCTS + " WHERE 1";
+  Cursor c = db.rawQuery(query,null);
+  c.moveToFirst();
+  while (!c.isAfterLast()) {
+    if(c.getString(c.getColumnIndex("productname"))!=null) {
+      dbString+= c.getString(c.getColumnIndex("productname"));
+      dbString+="\n";
+    }
+    c.moveToNext();
+  }
+  db.close();
+  return dbString;
 }
-c.moveToNext();
-}
-db.close();
-return dbString;
-   }    
-}```
-
-
-8
-
-
-
+```

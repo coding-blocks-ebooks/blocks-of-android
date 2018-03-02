@@ -4,9 +4,9 @@ This book should be a comprehensive reference manual for learning Android App de
 
 # Authors
 This book was originally conceived and written at **[Coding Blocks](https://codingblocks.com)**  
-Since this is open sourced, any one can contribute to this book. 
+Since this is open sourced, anyone can contribute to this book.
 
-Authors with most contributions are - 
+Authors with most contributions are -
 
  - Arnav Gupta
  - Nimit Agarwal

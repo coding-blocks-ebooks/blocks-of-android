@@ -14,12 +14,13 @@ We can customize the UI at the runtime using Fragments. Say for example you acti
 
 * So now we just need to know the orientation of the device. That you can get by
 ```java
-int displaymode = getResources().getConfiguration().orientation;```
+int displaymode = getResources().getConfiguration().orientation;
+```
 
 * if displaymode =1 then device is in portrait mode else it’s in landscape mode.
 
 
-**Fragment1.xml**
+### Fragment1.xml
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,9 +37,10 @@ android:gravity="center"
 android:background="#5eff6a"
 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</LinearLayout>```
+</LinearLayout>
+```
 
-**Fragment2.xml**
+### Fragment2.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -56,9 +58,11 @@ android:gravity="center"
 android:background="#ff9e5e"
 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</LinearLayout>```
+</LinearLayout>
+```
 
-**activity_main.xml**
+### activity_main.xml
+
 ```xml
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -67,9 +71,10 @@ android:id="@+id/LinearLayout1"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="horizontal" >
-</LinearLayout>```
+</LinearLayout>
+```
 
-**Fragment1.java**
+### Fragment1.java
 
 ```java
 package com.Stonedcoder.coding-blocks.dynamicfragments.
@@ -85,10 +90,11 @@ public View onCreateView(LayoutInflater inflater, ViewGroup vg,
 Bundle savedInstanceState) {
 return inflater.inflate(R.layout.fragment1, vg, false);
 }
-}```
+}
+```
 
 
-**Fragment2.java**
+### Fragment2.java
 ```java
 
 package com.Stonedcoder.coding-blocks.dynamicfragments;
@@ -106,7 +112,7 @@ return inflater.inflate(R.layout.fragment2, vg, false);
 }
 ```
 
-**MainActivity.java**
+### MainActivity.java
 
 ```java
 package com.Stonedcoder.coding-blocks.dynamicfragments;
