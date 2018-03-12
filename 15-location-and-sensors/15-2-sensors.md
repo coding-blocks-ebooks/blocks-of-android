@@ -1,10 +1,8 @@
-## **Sensors**
+# **Sensors**
 
 Different devices have avariety of sensorsthat can be accessed via the Sensor framework.
 
 Link:[http://developer.android.com/guide/topics/sensors/sensors\_overview.html](http://developer.android.com/guide/topics/sensors/sensors_overview.html)
-
-
 
 ### Possible tasks related to sensors include:
 
@@ -12,8 +10,6 @@ Link:[http://developer.android.com/guide/topics/sensors/sensors\_overview.html](
 2. Determine sensor capabilities \(range, resolution, etc.\)
 3. Acquire raw sensor data
 4. Register sensor event listeners
-
-
 
 Common sensors that devices have available are for temperature, light, pressure, acceleration, motion, and orientation. Here's a list of guides:
 
@@ -25,7 +21,7 @@ Common sensors that devices have available are for temperature, light, pressure,
 
 ![](/assets/sensor-coordinate.png)
 
-A list of steps involved with getting data from sensors are : 
+A list of steps involved with getting data from sensors are :
 
 #### **Initiate a SensorManager:**
 
@@ -87,7 +83,7 @@ private SensorEventListener lightSensorListener = newSensorEventListener() {
         Log.d("MY_APP", event.toString());
         Log.e("event", event.values[0] +""); //the values array is a float array representing the value across different coordinate systems
     }
-    
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         Log.d("MY_APP", sensor.toString() +" - "+ accuracy);
@@ -108,9 +104,9 @@ Accuracy is represented by one of four status constants:
 * [SENSOR\_STATUS\_ACCURACY\_HIGH](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_HIGH)
 * [SENSOR\_STATUS\_UNRELIABLE](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_UNRELIABLE)
 
-  2. **A sensor reports a new value: **
+  1. **A sensor reports a new value: **
 
-In this case the system invokes the [onSensorChanged\(\)](http://developer.android.com/reference/android/hardware/SensorEventListener.html#onSensorChanged%28android.hardware.SensorEvent%29) method, providing you with a [SensorEvent](http://developer.android.com/reference/android/hardware/SensorEvent.html) object.   
+In this case the system invokes the [onSensorChanged\(\)](http://developer.android.com/reference/android/hardware/SensorEventListener.html#onSensorChanged%28android.hardware.SensorEvent%29) method, providing you with a [SensorEvent](http://developer.android.com/reference/android/hardware/SensorEvent.html) object.  
 A [SensorEvent](http://developer.android.com/reference/android/hardware/SensorEvent.html) object contains information about the new sensor data, including:
 
 * The accuracy of the data
