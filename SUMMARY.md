@@ -1,4 +1,4 @@
-# Contents
+# Summary
 
 * [Introduction](README.md)
 * [1. Project Structure](01-project-structure/intro.md)
@@ -26,3 +26,4 @@
 * [14. Google Maps](14-google-maps/intro.md)
   * [14.1 Google Maps API](14-google-maps/14-1-maps-api.md)
   * [14.2 Creating Maps](14-google-maps/14-2-creating-maps.md)
+
