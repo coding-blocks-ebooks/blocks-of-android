@@ -1,5 +1,7 @@
 # Location
 
+Some key considerations to keep in mind while dealing with locations are : 
+
 a. **Location Information**: There are a Multitude of location sources:
 
 GPS, Cell-ID, and Wi-Fi can each provide a clue to users’ location. Determining which to use and trust is a matter of trade-offs in accuracy, speed, and battery-efficiency.
@@ -14,7 +16,11 @@ a. In case we need to define precise location, we had to switch between network 
 
 b. Proximity alerts were used to notify a user about proximity to a location, and this took its toll on the battery life.
 
-Instead of using the default framework apis for location, we will be using FusedLocationAPI for the same.
+
+
+Hence, instead of using the default framework apis for location, we will be using **FusedLocationAPI** for the same.
+
+
 
 Advantages of Using FusedLocationAPI:
 
@@ -28,11 +34,13 @@ d. **Versatility**: Meets a wide range of needs, from foreground uses that need 
 
 _**Note**: Make sure Google Play services is properly installed and working in our device. Please don’t test this location api in emulator because this api is not working in the emulator_
 
+### 
+
 ### Getting the **Last Know**n Location:
 
 * ** **Import the google-play-services dependencies via gradle
 
-`implementation `**`'com.google.android.gms:play-services-location:8.4.0'`**
+`implementation'com.google.android.gms:play-services-location:8.4.0'`
 
 * ** **Add location Permissions to the Manifest file
 
@@ -94,7 +102,7 @@ public void onConnected(@Nullable Bundle bundle) {
 
 ### **Setting Up Location Updates: **
 
-In order to set up, we need to create a LocationRequest Object which takes some parameters.   
+In order to set up, we need to create a LocationRequest Object which takes some parameters.  
 The parameters determine the level of accuracy for location requests:
 
 #### i. Update interval
@@ -103,15 +111,11 @@ The parameters determine the level of accuracy for location requests:
 
 Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#setInterval%28long%29
 
-
-
 #### ii. Fastest update interval
 
 **setFastestInterval\(long interval\)** - This method sets the fastest rate in milliseconds at which your app can handle location updates. You need to set this rate because other apps also affect the rate at which updates are sent. The Google Play services location APIs send out updates at the fastest rate that any app has requested with setInterval\(\). If this rate is faster than your app can handle, you may encounter problems with UI flicker or data overflow. To prevent this, call setFastestInterval\(\) to set an upper limit to the update rate.
 
 Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#setFastestInterval%28long%29
-
-
 
 #### iii. Priority
 
@@ -135,9 +139,7 @@ Link:developers.google.com/android/reference/com/google/android/gms/location/Loc
 
 iv. **Priority No Power**: Use this setting if you need negligible impact on power consumption, but want to receive location updates when available. With this setting, your app does not trigger any location updates, but receives locations triggered by other apps. Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY\_NO\_POWER
 
-
-
-### Getting the location updates : 
+### Getting the location updates :
 
 In the onConnected method,, check if you are already registered to listen to updates and if not, start listening to updates:
 
