@@ -23,13 +23,15 @@ classpath 'com.google.gms:google-services:3.0.0'
 
 }
 
-}```
+}
+```
 
 * Add the following line to the end of the build.gradle file.
 
 ```java
 apply plugin: 'com.google.gms.google-services
 ```
+
 * Now we add the Firebase dependencies .
 
 ```java
@@ -37,9 +39,8 @@ apply plugin: 'com.google.gms.google-services
 
 dependencies {
 
-compile 'com.google.Firebase:Firebase-core:10.2.1' //The string required for Firebase integration
-
-compile 'com.google.Firebase:Firebase-messaging:10.2.1' //The string required to make Firebase Cloud Messaging available
+  compile 'com.google.Firebase:Firebase-core:10.2.1' //The string required for Firebase integration
+  compile 'com.google.Firebase:Firebase-messaging:10.2.1' //The string required to make Firebase Cloud Messaging available
 
 }
 ```
@@ -55,7 +56,8 @@ android {
 defaultConfig{
 applicationId "com.example.my.app" //your app’s id
 }
-}```
+}
+```
 
 * Add the Service to the Application .
 
@@ -81,6 +83,7 @@ Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBo
 }
 }
 ```
+
 * Next, add the service to `AndroidManifest.xml`
 
 ```xml
