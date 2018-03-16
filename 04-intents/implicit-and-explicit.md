@@ -95,7 +95,7 @@ For example, in a stocks app we might want to pass the company’s ticker symbol
 
 Here is the sample code on caller side:
 
-```
+```java
 Intent i =newIntent();
 i.setClass(getApplicationContext(), DetailedActivity.class);
 i.putExtra("company_name", c.name);
@@ -106,7 +106,7 @@ On the callee side we can use the getExtras function to get an object of class B
 
 Here is the sample code on callee side:
 
-```
+```java
 Intent i = getIntent();
 Bundle b = i.getExtras();
 String companyName = b.getString("company_name");
@@ -120,7 +120,7 @@ Caller also needs to implement onActivityResult method, which gets called once t
 
 Here are the functions:
 
-```
+```java
 startActivityForResult(intent, requestCode);
 onActivityResult(int requestCode , int resultCode, Intent data);
 ```
@@ -133,7 +133,7 @@ For example, our main activity could have called Activity A in one function and 
 On the callee side, you need to set the resultCode and data to be sent back.   
 You can add any kind of data to be sent back in intent extras, similar to what we did while sending data from caller to callee.
 
-```
+```java
 Intent data =newIntent();
 data.putExtras(“extra_data”, “done”);
 setResult(resultCode, data);
