@@ -6,7 +6,7 @@ A project which consists of different type of files, requires a build tool to bu
 
 Various tools like Ninja, Maven, MAKE and Gradle can be used to build different type of projects. Earlier maven was used to build Android applications in Eclipse. Android applications at the OS level are built using MAKE. Generally, now we use Gradle to build Android applications.
 
-Gradle is also a build tool and it configures how an app is built. There are certain tasks which need to be performed to build an Android Application. These tasks include Javac compiling java files, encoding the XML files, compressing images etc. Gradle manages all this build system and performs these necessary tasks.
+Gradle is also a build tool and it configures how an app is built. There are certain tasks which need to be performed to build an Android Application. These tasks include Javac compiling java files, encoding the XML files, compressing img etc. Gradle manages all this build system and performs these necessary tasks.
 
 Now we understand the role of Gradle in building an Android application, we can move to understand the basic project structure.
 
@@ -32,9 +32,9 @@ The basic structure of an Android Application built using Gradle is shown below.
 
   * **Gradle**
 
-    ![](images/gradle.png)
+    ![](img/gradle.png)
 
-    ![](images/gradleWrapper.png)  
+    ![](img/gradleWrapper.png)  
     [File Link](./AndroidDemo/gradle/wrapper/gradle-wrapper.properties)
 
     In Gradle folder, we have a wrapper folder, which has a file for gradle properties. It denotes the version of gradle that is to be used to build the project. Android Studio automatically makes it to the latest version available.
@@ -55,11 +55,11 @@ The basic structure of an Android Application built using Gradle is shown below.
 
     This is the default application/module folder named as 'app'. It has all the folders and files associated with our apllication.
 
-    ![](images/app.png)
+    ![](img/app.png)
 
     * [**build.gradle**](./AndroidDemo/app/build.gradle)
 
-      ![](images/appgradle.png)
+      ![](img/appgradle.png)
 
       This is the Gradle file pertaining to the module. Gradle files are written in a language known as Groovy. The various components of the file are described below -
 
@@ -79,7 +79,7 @@ The basic structure of an Android Application built using Gradle is shown below.
 
       This folder contains all the source files of the project.  MultiFlavor of the app.
 
-      ![](images/src.png)
+      ![](img/src.png)
 
       * **androidTest**
 
@@ -93,7 +93,7 @@ The basic structure of an Android Application built using Gradle is shown below.
 
         This contains the main source code of the application. Whenever an apk is generated it contains source code present in this folder. So this forms the core components of the app.
 
-        ![](images/main.png)
+        ![](img/main.png)
 
         * [**Android Manifest**](./AndroidDemo/app/src/main/AndroidManifest.xml)
 
@@ -107,12 +107,12 @@ The basic structure of an Android Application built using Gradle is shown below.
 
         * **res**
 
-          ![](images/res.png)
+          ![](img/res.png)
 
           This contains all the resource files required in our application. The filse are logically segregated into their respective folders.
 
-          Images needed in the app should be put in the drawable folder.  
-            Images required by the OS associated with our app are put in mipmap eg launcher Icon.
+          img needed in the app should be put in the drawable folder.  
+            img required by the OS associated with our app are put in mipmap eg launcher Icon.
 
           Layout folder contains the Android XML layout files which can be used in activities or fragment.
 
