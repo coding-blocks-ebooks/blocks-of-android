@@ -14,18 +14,18 @@
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-<TextView
-android:id="@+id/textView1"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:text="Iam fragment ONE"
-android:gravity="center"
-android:background="#5eff6a"
-android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#5eff6a"
+        android:gravity="center"
+        android:text="Iam fragment ONE"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>```
 
@@ -34,18 +34,18 @@ android:textAppearance="?android:attr/textAppearanceLarge" />
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-<TextView
-android:id="@+id/textView1"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:text="Iam fragment TWO"
-android:gravity="center"
-android:background="#ff9e5e"
-android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="Iam fragment TWO"
+        android:gravity="center"
+        android:background="#ff9e5e"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
 ```
@@ -53,32 +53,32 @@ android:textAppearance="?android:attr/textAppearanceLarge" />
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/LinearLayout1"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="horizontal" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
 
-<fragment
-android:id="@+id/fragment1"
-android:name="com.Stonedcoder.coding-blocks.staticfragments.Fragment1"
-android:layout_width="match_parent"
-android:layout_height="fill_parent"
-android:layout_weight="1" />
-<fragment
-android:id="@+id/fragment2"
-android:name="com.Stonedcoder.coding-blocks.staticfragments.Fragment2"
-android:layout_marginLeft="5sp"
-android:layout_width="match_parent"
-android:layout_height="fill_parent"
-android:layout_weight="1" />
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.stonedcoder.codingblocks.staticfragments.Fragment1"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.stonedcoder.codingblocks.staticfragments.Fragment2"
+        android:layout_marginLeft="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" />
 
 </LinearLayout>
 ```
 * Now open up `Fragment1.java`
 
 ```java
-package com.Stonedcoder.coding-blocks.staticfragments ;
+package com.stonedcoder.codingblocks.staticfragments;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
@@ -89,16 +89,17 @@ import android.view.ViewGroup;
 
 @SuppressLint("NewApi")
 public class Fragment1 extends Fragment {
-public View onCreateView(LayoutInflater inflater, ViewGroup vg, Bundle savedInstanceState){
-return inflater.inflate(R.layout.fragment1, vg,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup vg, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment1, vg, false);
 
+    }
 }
-}```
+```
 
-* Now open up `Fragment2.java`
+* Now open up `Fragment2.java `
 
 ```java
-package com.Stonedcoder.coding-blocks.staticfragments ;
+package com.stonedcoder.codingblocks.staticfragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -107,8 +108,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class Fragment2 extends Fragment {
-public View onCreateView(LayoutInflater inflater, ViewGroup vg, Bundle savedInstanceState){
-return inflater.inflate(R.layout.fragment2, vg,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup vg, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment2, vg, false);
 
-}
+    }
 }```

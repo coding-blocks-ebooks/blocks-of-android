@@ -1,8 +1,8 @@
-## Foreground Service. 
+## Foreground Service.
 
 Foreground Service in android is a background service which keeps running even after the parent application is closed. And useful when you need user interface while performing long running operations.
 
-Examples : 
+Examples :
 
 *  Downloading a file in background from a server.
 * Playing songs in background in a music player app.
@@ -10,40 +10,40 @@ Examples :
 
 
 
-## Implementation of Foreground Service. 
+## Implementation of Foreground Service.
 
 * Build a new Android project .
 
-* Open up ```activity_main.xml```. 
+* Open up ```activity_main.xml```.
 
 * Now , we're going to add 2 buttons , which is startService and stopService .
 
-```
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.codingblocks_projects.stoned_coder.ForegroundServices.MainActivity">
-            
-    <Button android:id="@+id/btnStartService" 
-    android:layout_width="0dp" 
-    android:layout_weight="1"
-    android:layout_height="wrap_content" 
-    android:text="Start Service" />
-     
-    <Button android:id="@+id/btnStopService" 
-    android:layout_width="0dp" 
-    android:layout_weight="1"
-    android:layout_height="wrap_content" 
-    android:text="Start Service" />
 
-   
-    </LinearLayout>```
-    
-    
+    <Button android:id="@+id/btnStartService"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Start Service" />
+
+    <Button android:id="@+id/btnStopService"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Start Service" />
+
+</LinearLayout>
+```
+
+
 
 * create a ```customview.xml``` in which we're going to create some custom views for our notification panel .
 
@@ -75,7 +75,7 @@ Examples :
 </RelativeLayout>```
 
 * Now in the ```MainActivity.java``` file inside ``onCreate`` , we'll be geting refrence fo the buttons and defining 2 intents , one for start and the other being stop .
- 
+
  ```java
    startButton=(Button)findViewById(R.id.btnStartService);
  stopButton =(Button)findViewById(R.id.btnStopService);
@@ -100,7 +100,7 @@ Examples :
 ```
 
 We'll create a new class and name that as ```Constants.java```
-* This class will contain 2 interfaces one for ```Actions``` and other for ```ServiceID``` 
+* This class will contain 2 interfaces one for ```Actions``` and other for ```ServiceID```
 
  ```java
  public class Constants {
@@ -119,7 +119,7 @@ We'll create a new class and name that as ```Constants.java```
 
 * Now we'll create another class and name that ```ForegroundService``` which holds the logic for custom notification views and service .
 
-```java 
+```java
 class ForegroundService extends Service {
     private static final String LOG_TAG = "ForegroundService";
 
@@ -267,6 +267,5 @@ class ForegroundService extends Service {
         <receiver android:name=".ForegroundService$NotificationPlayButtonHandler" />
         <receiver android:name=".ForegroundService$NotificationPrevButtonHandler" />
         <receiver android:name=".ForegroundService$NotificationSkipButtonHandler" />
- 
+
         <service android:name=".ForegroundService" />````
-  

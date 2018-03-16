@@ -57,26 +57,26 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
-private static String TAG = "Permission ";
+    private static String TAG = "Permission ";
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_permission_demo);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_permission_demo);
 
-int permission = ContextCompat.checkSelfPermission(this,
-Manifest.permission.RECORD_AUDIO);
+        int permission = ContextCompat.checkSelfPermission(this,
+            Manifest.permission.RECORD_AUDIO);
 
-if (permission != PackageManager.PERMISSION_GRANTED) {
-Log.i(TAG, "Permission to record denied");
-}
-}
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, "Permission to record denied");
+        }
+    }
 }
 ```
 
 * An app before 6.0 attempts to make use of a feature that requires approval of a dangerous permission, and regardless of whether or not permission was previously granted, the code must check that the permission has been granted.
 
-* This can be achieved via a call to the `checkSelfPermission()` method of the ContextCompat class, passing through as arguments a reference to the current activity and the permission being requested. The method will check whether the permission has been previously granted and return an integer value matching `PackageManager.PERMISSION_GRANTED` or `PackageManager.PERMISSION_DENIED` . 
+* This can be achieved via a call to the `checkSelfPermission()` method of the ContextCompat class, passing through as arguments a reference to the current activity and the permission being requested. The method will check whether the permission has been previously granted and return an integer value matching `PackageManager.PERMISSION_GRANTED` or `PackageManager.PERMISSION_DENIED` .
 
 * Run the app on a device running a version of Android 6.0 and check the log cat output within Android Studio.
 

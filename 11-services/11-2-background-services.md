@@ -1,8 +1,8 @@
-## Background Service. 
+## Background Service.
 
 Background Service in android is a service which performs an operation that isn't directly noticed by the user.
 
-Examples : 
+Examples :
 
 *  Downloading a file in background from a server.
 * Playing songs in background in a music player app.
@@ -10,72 +10,118 @@ Examples :
 
 
 
-## Implementation of Background Service. 
+## Implementation of Background Service.
 
 * Build a new Android project .
 
-* Open up ```activity_main.xml```. 
+* Open up ```activity_main.xml```.
 
 * Now , we're going to add 2 buttons , which is startService and stopService .
 
-```
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.codingblocks_projects.stoned_coder.ForegroundServices.MainActivity">
-            
-    <Button android:id="@+id/btnStartService" 
-    android:layout_width="0dp" 
-    android:layout_weight="1"
-    android:layout_height="wrap_content" 
-    android:text="Start Service" />
-     
-    <Button android:id="@+id/btnStopService" 
-    android:layout_width="0dp" 
-    android:layout_weight="1"
-    android:layout_height="wrap_content" 
-    android:text="Start Service" />
 
-   
-    </LinearLayout>```
-    
-    
+    <Button android:id="@+id/btnStartService"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Start Service" />
+
+    <Button android:id="@+id/btnStopService"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Start Service" />
+</LinearLayout>
+```      
 
 * create a ```customview.xml``` in which we're going to create some custom views for our notification panel .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/notification" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notification"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_toLeftOf="@+id/llPlayControls" android:padding="10dp" android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/llPlayControls"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <TextView android:textColor="#787878" android:id="@+id/notification_text_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" android:text="Song Title" android:textStyle="bold" android:ellipsize="end" android:lines="1" />
+        <TextView
+            android:id="@+id/notification_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:singleLine="true"
+            android:text="Song Title"
+            android:textColor="#787878"
+            android:textStyle="bold" />
 
-        <TextView android:textColor="#787878" android:id="@+id/notification_text_artist" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="artist" android:lines="1" android:ellipsize="end" android:singleLine="true" />
+        <TextView
+            android:id="@+id/notification_text_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:singleLine="true"
+            android:text="artist"
+            android:textColor="#787878" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/llPlayControls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
 
-    <LinearLayout android:id="@+id/llPlayControls" android:layout_alignParentRight="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/notification_button_prev"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_media_previous" />
 
-        <ImageView android:id="@+id/notification_button_prev" android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_media_previous" />
-        <ImageView android:id="@+id/notification_button_play" android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_media_play" />
+        <ImageView
+            android:id="@+id/notification_button_play"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_media_play" />
 
-        <ImageView android:id="@+id/notification_button_skip" android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_media_next" />
-        <ImageView android:id="@+id/notification_button_close" android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_close_clear_cancel" />
+        <ImageView
+            android:id="@+id/notification_button_skip"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_media_next" />
+
+        <ImageView
+            android:id="@+id/notification_button_close"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel" />
     </LinearLayout>
-
-
 
 
 </RelativeLayout>```
 
 * Now in the ```MainActivity.java``` file inside ``onCreate`` , we'll be geting refrence fo the buttons and defining 2 intents , one for start and the other being stop .
- 
+
  ```java
    startButton=(Button)findViewById(R.id.btnStartService);
  stopButton =(Button)findViewById(R.id.btnStopService);
@@ -100,7 +146,7 @@ Examples :
 ```
 
 We'll create a new class and name that as ```Constants.java```
-* This class will contain 2 interfaces one for ```Actions``` and other for ```ServiceID``` 
+* This class will contain 2 interfaces one for ```Actions``` and other for ```ServiceID```
 
  ```java
  public class Constants {
@@ -119,7 +165,7 @@ We'll create a new class and name that as ```Constants.java```
 
 * Now we'll create another class and name that ```ForegroundService``` which holds the logic for custom notification views and service .
 
-```java 
+```java
 class ForegroundService extends Service {
     private static final String LOG_TAG = "ForegroundService";
 
@@ -267,6 +313,5 @@ class ForegroundService extends Service {
         <receiver android:name=".ForegroundService$NotificationPlayButtonHandler" />
         <receiver android:name=".ForegroundService$NotificationPrevButtonHandler" />
         <receiver android:name=".ForegroundService$NotificationSkipButtonHandler" />
- 
+
         <service android:name=".ForegroundService" />````
-  

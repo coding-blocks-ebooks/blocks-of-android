@@ -1,4 +1,4 @@
-\#Retrofit
+# Retrofit
 
 Retrofit is a REST Client for Android and Java by Square. It makes it relatively easy to retrieve and upload JSON \(or other structured data\) via a REST based webservice. In Retrofit you configure which converter is used for the data serialization. Typically for JSON you use GSon, but you can add custom converters to process XML or other protocols. Retrofit uses the OkHttp library for HTTP requests.
 
@@ -59,7 +59,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 class APIClient {
     private static Retrofit retrofit = null;
-    static Retrofit getClient() { 
+    static Retrofit getClient() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -427,4 +427,3 @@ call.cancel();
 To map the Model class to the response we use:
 
 `MultipleResource resource = response.body();`
-

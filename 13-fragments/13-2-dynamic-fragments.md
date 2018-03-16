@@ -24,18 +24,18 @@ int displaymode = getResources().getConfiguration().orientation;
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-<TextView
-android:id="@+id/textView1"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:text="Iam fragment ONE"
-android:gravity="center"
-android:background="#5eff6a"
-android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="Iam fragment ONE"
+        android:gravity="center"
+        android:background="#5eff6a"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
 ```
@@ -45,18 +45,18 @@ android:textAppearance="?android:attr/textAppearanceLarge" />
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-<TextView
-android:id="@+id/textView1"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:text="Iam fragment TWO"
-android:gravity="center"
-android:background="#ff9e5e"
-android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="Iam fragment TWO"
+        android:gravity="center"
+        android:background="#ff9e5e"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
 ```
@@ -64,20 +64,19 @@ android:textAppearance="?android:attr/textAppearanceLarge" />
 ### activity_main.xml
 
 ```xml
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/LinearLayout1"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="horizontal" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
 </LinearLayout>
 ```
 
 ### Fragment1.java
 
 ```java
-package com.Stonedcoder.coding-blocks.dynamicfragments.
+package com.stonedcoder.codingblocks.dynamicfragments.
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -85,37 +84,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.scorekeeper2.R;
+
 public class Fragment1 extends Fragment {
-public View onCreateView(LayoutInflater inflater, ViewGroup vg,
-Bundle savedInstanceState) {
-return inflater.inflate(R.layout.fragment1, vg, false);
-}
+    public View onCreateView(LayoutInflater inflater, ViewGroup vg,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment1, vg, false);
+    }
 }
 ```
 
 
 ### Fragment2.java
 ```java
-
-package com.Stonedcoder.coding-blocks.dynamicfragments;
+package com.stonedcoder.codingblocks.dynamicfragments;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android.scorekeeper2.R;
+
 public class Fragment2 extends Fragment {
-public View onCreateView(LayoutInflater inflater, ViewGroup vg,
-Bundle savedInstanceState) {
-return inflater.inflate(R.layout.fragment2, vg, false);
-}
+    public View onCreateView(LayoutInflater inflater, ViewGroup vg,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment2, vg, false);
+    }
 }
 ```
 
 ### MainActivity.java
 
 ```java
-package com.Stonedcoder.coding-blocks.dynamicfragments;
+package com.stonedcoder.codingblocks.dynamicfragments;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.Fragment;
@@ -127,27 +129,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.android.scorekeeper2.R;
+
 public class MainActivity extends ActionBarActivity {
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
 
-FragmentManager fm = getFragmentManager();
-FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
 
-// get the display mode
-int displaymode = getResources().getConfiguration().orientation;
-if (displaymode == 1) { // it portrait mode
-Fragment1 f1 = new Fragment1();
-fragmentTransaction.replace(android.R.id.content, f1);
-} else {// its landscape
-Fragment2 f2 = new Fragment2();
-fragmentTransaction.replace(android.R.id.content, f2);
-}
-fragmentTransaction.commit();
-
-}
+        // get the display mode
+        int displaymode = getResources().getConfiguration().orientation;
+        if (displaymode == 1) { // it portrait mode
+            Fragment1 f1 = new Fragment1();
+            fragmentTransaction.replace(android.R.id.content, f1);
+        } else {// its landscape
+            Fragment2 f2 = new Fragment2();
+            fragmentTransaction.replace(android.R.id.content, f2);
+        }
+        fragmentTransaction.commit();
+    }
 }
 ```

@@ -13,7 +13,7 @@ Android 6.0 Marshmallow (API 23) introduced a new runtime permission model. If y
 * Modify the `MainActivity.java` file to declare a request code and request recording permission in the event that the permission check failed .
 
 ```java
-package com.stonedcoder.coding-blocks.permissions;
+package com.stonedcoder.coding - blocks.permissions;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -25,27 +25,29 @@ import android.support.v4.app.ActivityCompat;
 
 public class PermissionDemoActivity extends AppCompatActivity {
 
-private static String TAG = "PermissionDemo";
-private static final int RECORD_REQUEST_CODE = 101;
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_permission_demo);
+    private static String TAG = "PermissionDemo";
+    private static final int RECORD_REQUEST_CODE = 101;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_permission_demo);
 
-int permission = ContextCompat.checkSelfPermission(this,
-Manifest.permission.RECORD_AUDIO);
+        int permission = ContextCompat.checkSelfPermission(this,
+            Manifest.permission.RECORD_AUDIO);
 
-if (permission != PackageManager.PERMISSION_GRANTED) {
-Log.i(TAG, "Permission to record denied");
-makeRequest();
-}
-}
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, "Permission to record denied");
+            makeRequest();
+        }
+    }
 
-protected void makeRequest() {
-ActivityCompat.requestPermissions(this,
-new String[]{Manifest.permission.RECORD_AUDIO},
-RECORD_REQUEST_CODE);
-}
+    protected void makeRequest() {
+        ActivityCompat.requestPermissions(this,
+            new String[] {
+                Manifest.permission.RECORD_AUDIO
+            },
+            RECORD_REQUEST_CODE);
+    }
 }```
 
 * Now implement the onRequestPermissionsResult() method.
@@ -53,21 +55,22 @@ RECORD_REQUEST_CODE);
 ```java
 @Override
 public void onRequestPermissionsResult(int requestCode,
-String permissions[], int[] grantResults) {
-switch (requestCode) {
-case RECORD_REQUEST_CODE: {
+    String permissions[], int[] grantResults) {
+    switch (requestCode) {
+        case RECORD_REQUEST_CODE:
+            {
 
-if (grantResults.length == 0
-|| grantResults[0] !=
-PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length == 0 ||
+                    grantResults[0] !=
+                    PackageManager.PERMISSION_GRANTED) {
 
-Log.i(TAG, "Permission has been denied by user");
-} else {
-Log.i(TAG, "Permission has been granted by user");
-}
-return;
-}
-}
+                    Log.i(TAG, "Permission has been denied by user");
+                } else {
+                    Log.i(TAG, "Permission has been granted by user");
+                }
+                return;
+            }
+    }
 }
 ```
 
