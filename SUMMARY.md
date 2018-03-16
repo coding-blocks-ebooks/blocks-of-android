@@ -5,6 +5,9 @@
 * [2. Basic Widgets](02-basic-widgets/basicandroidwidgets.md)
 * [3. List View](03-list-view/intro.md)
   * [3.1 Custom Adapter](03-list-view/03-1-custom-adapter.md)
+* [Intents](https://www.gitbook.com/book/coding-blocks/blocks-of-android/edit#/edit/master/04-intents/implicit-and-explicit.md?_k=yqoc7d)
+  * [4.1 Implicit and Explicit intents](https://www.gitbook.com/book/coding-blocks/blocks-of-android/edit#/edit/master/04-intents/implicit-and-explicit.md?_k=7kvaqv)
+  * [4.2 Assignments](https://www.gitbook.com/book/coding-blocks/blocks-of-android/edit#/edit/master/04-intents/assignments.md?_k=sdfc6u)
 * [4. Databases](04-databases/intro.md)
 * [5. Services](05-services/intro.md)
   * [5.1 Foreground Services](05-services/03-1-foreground-services.md)
@@ -26,4 +29,6 @@
 * [14. Google Maps](14-google-maps/intro.md)
   * [14.1 Google Maps API](14-google-maps/14-1-maps-api.md)
   * [14.2 Creating Maps](14-google-maps/14-2-creating-maps.md)
+* 
+
 
