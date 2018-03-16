@@ -19,7 +19,7 @@ Common sensors that devices have available are for temperature, light, pressure,
 
 ### **Sensor Coordinate System**
 
-![](/assets/sensor-coordinate.png)
+![](img/sensor-coordinate.png)
 
 A list of steps involved with getting data from sensors are :
 
@@ -119,10 +119,9 @@ For every sensor, event contains an array of values, each of which has a differe
 _**Note** : To declare that a sensor is absolutely required by your application:_
 
 ```
-<uses-feature 
+<uses-feature
     android:name="android.hardware.sensor.accelerometer"
     android:required="true"/>
 ```
 
 _If the device does not support the above hardware, your application won’t show in their play store \(incompatible\)_
-

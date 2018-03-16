@@ -12,7 +12,7 @@ Now we understand the role of Gradle in building an Android application, we can 
 
 The basic structure of an Android Application built using Gradle is shown below. It has many folders inside Project folder\(AndroidDemo\), we would study each of them in detail. \('app' folder is explained at the end\)
 
-![](images/projStructure.png)
+![](img/projStructure.png)
 
 * **AndroidDemo**
 
@@ -122,6 +122,3 @@ The basic structure of an Android Application built using Gradle is shown below.
             Folder name followed by a hyphen followed by a specifier is used to create such folders.  
             Eg. values-land, values defined in this folder would be specific to landscape orientation of the phone. For portrait mode default values in 'values' folder will be used.  
             Specific folders just override the value if the phone is in that specific environment otherwise fall back to the default values.
-
-
-

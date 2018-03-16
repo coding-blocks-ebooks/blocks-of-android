@@ -17,11 +17,11 @@ Firebase gives developers the ability not only to send notifications but also to
 ```java
 buildscript {
 
-dependencies {
+    dependencies {
 
-classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.google.gms:google-services:3.0.0'
 
-}
+    }
 
 }
 ```
@@ -53,9 +53,9 @@ Then, update the services using com.google.android.gms: play-services
 
 ```java
 android {
-defaultConfig{
-applicationId "com.example.my.app" //your app’s id
-}
+    defaultConfig {
+        applicationId "com.example.my.app" //your app’s id
+    }
 }
 ```
 
@@ -66,72 +66,57 @@ applicationId "com.example.my.app" //your app’s id
 * To receive notifications, we must add a service that extends the FirebaseMessagingService capabilities.
 
 ```java
-
-
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
-private static final String TAG = "FCM Service";
+    private static final String TAG = "FCM Service";
 
-@Override
+    @Override
 
-public void onMessageReceived(RemoteMessage remoteMessage) {
+    public void onMessageReceived(RemoteMessage remoteMessage) {
 
-Log.d(TAG, "From: " + remoteMessage.getFrom());
+        Log.d(TAG, "From: " + remoteMessage.getFrom());
 
-Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+        Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
-}
+    }
 }
 ```
 
 * Next, add the service to `AndroidManifest.xml`
 
 ```xml
-
-
-<service android:name=".MyFirebaseMessagingService">
-
-<intent-filter>
-
-<action android:name="com.google.Firebase.MESSAGING_EVENT"/>
-
-</intent-filter>
-
+<service android:name = ".MyFirebaseMessagingService" >
+    <intent-filter >
+        <action android:name = "com.google.Firebase.MESSAGING_EVENT" / >
+    </intent-filter>
 </service>
 ```
 * Add the service that extends FirebaseInstanceIdService .
 
 ```java
-
-
 public class FirebaseIDService extends FirebaseInstanceIdService {
 
-private static final String TAG = "FirebaseIDService";
+    private static final String TAG = "FirebaseIDService";
 
-@Override
+    @Override
 
-public void onTokenRefresh() {
+    public void onTokenRefresh() {
 
-String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
 
-Log.d(TAG, "Refreshed token: " + refreshedToken);
-}
-private void sendRegistrationToServer(String token) {}
+        Log.d(TAG, "Refreshed token: " + refreshedToken);
+    }
+    private void sendRegistrationToServer(String token) {}
 }
 ```
 
 * Provide the download service by adding the service to the `AndroidManifest.xml` file.
 
 ```xml
-
-<service android:name=".FirebaseIDService";>
-
-<intent-filter>
-
-<action android:name="com.google.Firebase.INSTANCE_ID_EVENT"/>
-
-</intent-filter>
-
+<service android:name = ".MyFirebaseMessagingService" >
+    <intent-filter >
+        <action android:name = "com.google.Firebase.MESSAGING_EVENT" / >
+    </intent-filter>
 </service>
 ```
 

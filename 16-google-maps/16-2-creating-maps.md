@@ -6,12 +6,14 @@
 ```java
 private GoogleApiClient mGoogleApiClient;
 private Location mCurrentLocation;
-private final int[] MAP_TYPES = { GoogleMap.MAP_TYPE_SATELLITE,
-GoogleMap.MAP_TYPE_NORMAL,
-GoogleMap.MAP_TYPE_HYBRID,
-GoogleMap.MAP_TYPE_TERRAIN,
-GoogleMap.MAP_TYPE_NONE };
-private int curMapTypeIndex = 0; ```
+private final int[] MAP_TYPES = {
+    GoogleMap.MAP_TYPE_SATELLITE,
+    GoogleMap.MAP_TYPE_NORMAL,
+    GoogleMap.MAP_TYPE_HYBRID,
+    GoogleMap.MAP_TYPE_TERRAIN,
+    GoogleMap.MAP_TYPE_NONE
+};
+private int curMapTypeIndex = 0;```
 * `mGoogleApiClient` and `mCurrentLocation` are used for getting the user's location for initializing the map camera.
 
 * `MAP_TYPES` and `curMapTypeIndex` are used in the sample code for switching between different map display types.
@@ -23,24 +25,24 @@ private int curMapTypeIndex = 0; ```
 ```java
 @Override
 public void onViewCreated(View view, Bundle savedInstanceState) {
-super.onViewCreated(view, savedInstanceState);
-setHasOptionsMenu(true);
-mGoogleApiClient = new GoogleApiClient.Builder( getActivity() )
-.addConnectionCallbacks( this )
-.addOnConnectionFailedListener( this )
-.addApi( LocationServices.API )
-.build();
-initListeners();
+    super.onViewCreated(view, savedInstanceState);
+    setHasOptionsMenu(true);
+    mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+        .addConnectionCallbacks(this)
+        .addOnConnectionFailedListener(this)
+        .addApi(LocationServices.API)
+        .build();
+    initListeners();
 }```
 
 * The `initListeners` method binds the interfaces that you declared at the top of the class with the GoogleMap object associated with `SupportMapFragment`.
 
 ```java
 private void initListeners() {
-getMap().setOnMarkerClickListener(this);
-getMap().setOnMapLongClickListener(this);
-getMap().setOnInfoWindowClickListener( this );
-getMap().setOnMapClickListener(this);
+    getMap().setOnMarkerClickListener(this);
+    getMap().setOnMapLongClickListener(this);
+    getMap().setOnInfoWindowClickListener(this);
+    getMap().setOnMapClickListener(this);
 }```
 
 * `GoogleApiClient` and listeners are created and bound from `onViewCreated` rather than the `onCreate`.
@@ -54,41 +56,39 @@ getMap().setOnMapClickListener(this);
 ```java
 @Override
 public void onStart() {
-super.onStart();
-mGoogleApiClient.connect();
+    super.onStart();
+    mGoogleApiClient.connect();
 }
 @Override
 public void onStop() {
-super.onStop();
-if( mGoogleApiClient != null && mGoogleApiClient.isConnected() ) {
-mGoogleApiClient.disconnect();
-}
+    super.onStop();
+    if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+        mGoogleApiClient.disconnect();
+    }
 }
 @Override
 public void onConnected(Bundle bundle) {
-mCurrentLocation = LocationServices
-.FusedLocationApi
-.getLastLocation( mGoogleApiClient );
-initCamera( mCurrentLocation );
+    mCurrentLocation = LocationServices
+        .FusedLocationApi
+        .getLastLocation(mGoogleApiClient);
+    initCamera(mCurrentLocation);
 }```
 
 * `initCamera` method, you initialize the camera and some basic map properties. You start by creating a CameraPosition object through the `CameraPosition.Builder`, with a target set for the latitude and longitude of your user and a set zoom level.
 
 ```java
 private void initCamera( Location location ) {
-CameraPosition position = CameraPosition.builder()
-.target( new LatLng( location.getLatitude(),
-location.getLongitude() ) )
-.zoom( 16f )
-.bearing( 0.0f )
-.tilt( 0.0f )
-.build();
-getMap().animateCamera( CameraUpdateFactory
-.newCameraPosition( position ), null );
-getMap().setMapType( MAP_TYPES[curMapTypeIndex] );
-getMap().setTrafficEnabled( true );
-getMap().setMyLocationEnabled( true );
-getMap().getUiSettings().setZoomControlsEnabled( true );
+  CameraPosition position = CameraPosition.builder()
+    .target( new LatLng( location.getLatitude(),location.getLongitude() ) )
+    .zoom( 16f )
+    .bearing( 0.0f )
+    .tilt( 0.0f )
+    .build();
+  getMap().animateCamera(   CameraUpdateFactory.newCameraPosition( position ), null );
+  getMap().setMapType( MAP_TYPES[curMapTypeIndex] );
+  getMap().setTrafficEnabled( true );
+  getMap().setMyLocationEnabled( true );
+  getMap().getUiSettings().setZoomControlsEnabled( true );
 }```
 
 * `setMyLocationEnabled` adds a button to the top right corner of the `MapFragment` that automatically moves the camera to your user's location when pressed.
@@ -103,10 +103,10 @@ getMap().getUiSettings().setZoomControlsEnabled( true );
 ```java
 @Override
 public void onMapClick(LatLng latLng) {
-MarkerOptions options = new MarkerOptions().position( latLng );
-options.title( getAddressFromLatLng( latLng ) );
-options.icon( BitmapDescriptorFactory.defaultMarker() );
-getMap().addMarker( options );
+    MarkerOptions options = new MarkerOptions().position(latLng);
+    options.title(getAddressFromLatLng(latLng));
+    options.icon(BitmapDescriptorFactory.defaultMarker());
+    getMap().addMarker(options);
 }```
 
 * This method creates a generic red marker where the user has tapped. Additional options, such as setting a marker as draggable, can be set through the `MarkerOptions` object .
@@ -126,16 +126,14 @@ getMap().addMarker( options );
 
 ```java
 private void drawCircle( LatLng location ) {
-CircleOptions options = new CircleOptions();
-options.center( location );
-//Radius in meters
-options.radius( 10 );
-options.fillColor( getResources()
-.getColor( R.color.fill_color ) );
-options.strokeColor( getResources()
-.getColor( R.color.stroke_color ) );
-options.strokeWidth( 10 );
-getMap().addCircle(options);
+  CircleOptions options = new CircleOptions();
+  options.center( location );
+  //Radius in meters
+  options.radius( 10 );
+  options.fillColor( getResources().getColor( R.color.fill_color ) );
+  options.strokeColor( getResources().getColor( R.color.stroke_color ) );
+  options.strokeWidth( 10 );
+  getMap().addCircle(options);
 }
 ```
 
@@ -145,16 +143,12 @@ getMap().addCircle(options);
 
 ```java
 private void drawPolygon( LatLng startingLocation ) {
-LatLng point2 = new LatLng( startingLocation.latitude + .001,
-startingLocation.longitude );
-LatLng point3 = new LatLng( startingLocation.latitude,
-startingLocation.longitude + .001 );
-PolygonOptions options = new PolygonOptions();
-options.add( startingLocation, point2, point3 );
-options.fillColor( getResources()
-.getColor( R.color.fill_color ) );
-options.strokeColor( getResources()
-.getColor( R.color.stroke_color ) );
-options.strokeWidth( 10 );
-getMap().addPolygon( options );
+  LatLng point2 = new LatLng( startingLocation.latitude +   .001,startingLocation.longitude );
+  LatLng point3 = new LatLng( startingLocation.latitude,startingLocation.longitude + .001 );
+  PolygonOptions options = new PolygonOptions();
+  options.add( startingLocation, point2, point3 );
+  options.fillColor( getResources().getColor(R.color.fill_color ) );
+  options.strokeColor( getResources().getColor( R.color.stroke_color ) );
+  options.strokeWidth( 10 );
+  getMap().addPolygon( options );
 }```

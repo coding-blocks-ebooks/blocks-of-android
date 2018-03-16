@@ -1,14 +1,14 @@
 # Realtime Database
 
-The Firebase Realtime Database allows data to be stored securely on Google cloud servers 
+The Firebase Realtime Database allows data to be stored securely on Google cloud servers
 and synchronized in `realtime` across all clients sharing the same database.
 
-The database is referred to as being `realtime` because the speed with which the data is 
+The database is referred to as being `realtime` because the speed with which the data is
 synchronized across clients is probably as close to `realtime` .
 
-Firebase uses NoSQL database for storing data in a Realtime Database. Data is not stored 
-in the tables and rows found in relational database management systems (RDBMS) such as 
-Oracle Database or Microsoft SQL Server. Nor is the data accessed using Structured Query 
+Firebase uses NoSQL database for storing data in a Realtime Database. Data is not stored
+in the tables and rows found in relational database management systems (RDBMS) such as
+Oracle Database or Microsoft SQL Server. Nor is the data accessed using Structured Query
 Language (SQL) statements.
 
 Instead, the data is stored in the form of a `JSON` object. JSON is an acronym for `JavaScript Object Notation` and it defines a syntax used to transmit data in a format that is both lightweight and easy for humans to read, write and understand.
@@ -181,33 +181,26 @@ databaseReference.push().setValue(new User("Android1","Coding-blocks"));
 
 ```java
 databaseReference.addValueEventListener(new ValueEventListener() {
-@Override
-public void onDataChange(DataSnapshot dataSnapshot) {
-Log.e("MainActivity", "user : " + dataSnapshot.getValue(User.class).getFirstName());
-}
-@Override
-public void onCancelled(DatabaseError databaseError) {
-}
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        Log.e("MainActivity", "user : " + dataSnapshot.getValue(User.class).getFirstName());
+    }
+    @Override
+    public void onCancelled(DatabaseError databaseError) {}
 });
 ```
 
 * Whenever there is a change in specified node, onDataChange will be called on each active users device.
 
 ```java
-databaseReference.setValue(new User("Android","Gig"));
+databaseReference.setValue(new User("Android", "Gig"));
 databaseReference.addValueEventListener(new ValueEventListener() {
-@Override
-public void onDataChange(DataSnapshot dataSnapshot) {
-User user = dataSnapshot.getValue(User.class);
-Log.e("MainActivity", "user : " + user.getFirstName() + " " + user.getLastName());
-}
-@Override
-public void onCancelled(DatabaseError databaseError) {
-}
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        User user = dataSnapshot.getValue(User.class);
+        Log.e("MainActivity", "user : " + user.getFirstName() + " " + user.getLastName());
+    }
+    @Override
+    public void onCancelled(DatabaseError databaseError) {}
 });
 ```
-
-
-
-
-

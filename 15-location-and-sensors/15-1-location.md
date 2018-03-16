@@ -1,6 +1,6 @@
 # Location
 
-Some key considerations to keep in mind while dealing with locations are : 
+Some key considerations to keep in mind while dealing with locations are :
 
 a. **Location Information**: There are a Multitude of location sources:
 
@@ -34,7 +34,7 @@ d. **Versatility**: Meets a wide range of needs, from foreground uses that need 
 
 _**Note**: Make sure Google Play services is properly installed and working in our device. Please don’t test this location api in emulator because this api is not working in the emulator_
 
-### 
+###
 
 ### Getting the **Last Know**n Location:
 
@@ -55,7 +55,7 @@ This requires implementation of some functions by the activity handling location
 
 The **Google API Client** provides a common entry point to all the Google Play services and manages the network connection between the user's device and each Google service.
 
-![](/assets/Picture1.png)
+![](img/sensor-coordinate.png)
 
 ```
 if (mGoogleApiClient == null) {
@@ -98,7 +98,7 @@ public void onConnected(@Nullable Bundle bundle) {
 }
 ```
 
-### 
+###
 
 ### **Setting Up Location Updates: **
 
@@ -191,6 +191,3 @@ protected void stopLocationUpdates() {
     LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
 }
 ```
-
-
-

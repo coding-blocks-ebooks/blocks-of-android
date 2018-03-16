@@ -36,11 +36,11 @@ android:value="@string/google_api_key"/>```
 
 ```java
 public class MapFragment extends SupportMapFragment implements GoogleApiClient.ConnectionCallbacks,
-GoogleApiClient.OnConnectionFailedListener,
-GoogleMap.OnInfoWindowClickListener,
-GoogleMap.OnMapLongClickListener,
-GoogleMap.OnMapClickListener,
-GoogleMap.OnMarkerClickListener {````
+    GoogleApiClient.OnConnectionFailedListener,
+    GoogleMap.OnInfoWindowClickListener,
+    GoogleMap.OnMapLongClickListener,
+    GoogleMap.OnMapClickListener,
+    GoogleMap.OnMarkerClickListener {````
 * `ConnectionCallbacks` and `OnConnectionFailedListener` are designed to monitor the state of the GoogleApiClient, which is used in this application for getting the user's current location.
 
 * `OnInfoWindowClickListener` is triggered when the user clicks on the info window that pops up over a marker on the map.
