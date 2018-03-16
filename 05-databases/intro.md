@@ -133,15 +133,11 @@ onCreate(db);
 ```java
 public void addProduct(Products products){
 
-ContentValues values = new ContentValues();
-
-values.put(COLOUMN_PRODUCTNAME,products.get_productname());
-
-SQLiteDatabase db= getWritableDatabase();
-
-db.insert(TABLE_PRODUCTS,null,values);
-
-db.close();
+  ContentValues values = new ContentValues();
+  values.put(COLOUMN_PRODUCTNAME,products.get_productname());
+  SQLiteDatabase db= getWritableDatabase();
+  db.insert(TABLE_PRODUCTS,null,values);
+  db.close();
 
 }
 ```
