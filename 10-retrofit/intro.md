@@ -1,10 +1,8 @@
-#
-Retrofit
+\#Retrofit
 
-Retrofit is a REST Client for Android and Java by Square. It makes it relatively easy to retrieve and upload JSON (or other structured data) via a REST based webservice. In Retrofit you configure which converter is used for the data serialization. Typically for JSON you use GSon, but you can add custom converters to process XML or other protocols. Retrofit uses the OkHttp library for HTTP requests.
+Retrofit is a REST Client for Android and Java by Square. It makes it relatively easy to retrieve and upload JSON \(or other structured data\) via a REST based webservice. In Retrofit you configure which converter is used for the data serialization. Typically for JSON you use GSon, but you can add custom converters to process XML or other protocols. Retrofit uses the OkHttp library for HTTP requests.
 
 Retrofit 2 by default leverages OkHttp as the networking layer and is built on top of it.
-
 
 ## Implementation of a Retrofit 2
 
@@ -13,7 +11,8 @@ Retrofit 2 by default leverages OkHttp as the networking layer and is built on t
 ```java
 compile 'com.squareup.retrofit2:retrofit:2.1.0'
 compile 'com.google.code.gson:gson:2.6.2'
-compile 'com.squareup.retrofit2:converter-gson:2.1.0'```
+compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+```
 
 * OkHttp dependency is already shipped with Retrofit 2 dependency. If you wish to use a separate OkHttp dependency, you should exclude the OkHttp dependency from Retrofit 2 as:
 
@@ -25,7 +24,7 @@ exclude module: 'okhttp'
 compile 'com.google.code.gson:gson:2.6.2'
 compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-compile 'com.squareup.okhttp3:okhttp:3.4.1' 
+compile 'com.squareup.okhttp3:okhttp:3.4.1'
 ```
 
 * The logging-interceptor generates a log string of the entire response that’s returned.
@@ -36,19 +35,18 @@ compile 'com.squareup.okhttp3:okhttp:3.4.1'
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-#OkHttp Interceptors
+# OkHttp Interceptors
 
-Interceptors are a powerful mechanism present in OkHttp that can monitor, rewrite, and retry calls.
+Interceptors are a powerful mechanism present in OkHttp that can monitor, rewrite, and retry calls.  
 Interceptors can be majorly divided into two categories:
 
+* Application Interceptors : To register an application interceptor, we need to call addInterceptor\(\) on OkHttpClient.Builder
 
-* Application Interceptors : To register an application interceptor, we need to call addInterceptor() on OkHttpClient.Builder
+* Network Interceptors : To register a Network Interceptor, invoke addNetworkInterceptor\(\) instead of addInterceptor\(\)
 
-* Network Interceptors : To register a Network Interceptor, invoke addNetworkInterceptor() instead of addInterceptor()
+# Setting Up the Retrofit Interface
 
-#Setting Up the Retrofit Interface
-
-The getClient() method in the below code will be called every time while setting up a Retrofit interface. Retrofit provides with a list of annotations for each of the HTTP methods: @GET, @POST, @PUT, @DELETE, @PATCH or @HEAD.
+The getClient\(\) method in the below code will be called every time while setting up a Retrofit interface. Retrofit provides with a list of annotations for each of the HTTP methods: @GET, @POST, @PUT, @DELETE, @PATCH or @HEAD.
 
 ```java
 package Stonedcoder.coding-blocks.retrofit;
@@ -72,10 +70,9 @@ class APIClient {
 }
 ```
 
-* Create a class ```APIInterface.java``` .
+* Create a class `APIInterface.java` .
 
 ```java
-
 import Stonedcoder.coding-blocks.retrofit.pojo.MultipleResource;
 import Stonedcoder.coding-blocks.retrofit.pojo.User;
 import Stonedcoder.coding-blocks.retrofit.pojo.UserList;
@@ -107,7 +104,7 @@ Call<UserList> doCreateUserWithField(@Field("name") String name, @Field("job") S
 
 * In the above class, we’ve defined some methods that perform HTTP requests with annotation.
 
-```@GET("/api/unknown") calls doGetListResources();```
+`@GET("/api/unknown") calls doGetListResources();`
 
 `doGetListResources()` is the method name. MultipleResource.java is a Model POJO class for our response object that’s used to map the response parameters to their respective variables. These POJO class act as the method return type.
 
@@ -150,7 +147,7 @@ public String pantoneValue;
 
 `@SerializedName` annotation is used to specify the name of the field that’s in the JSON Response.
 
-To create a POJO class for each response, we can go to http://www.jsonschema2pojo.org/ and paste the json response structure as shown below.
+To create a POJO class for each response, we can go to [http://www.jsonschema2pojo.org/](http://www.jsonschema2pojo.org/) and paste the json response structure as shown below.
 
 ```json
 {
@@ -177,7 +174,8 @@ To create a POJO class for each response, we can go to http://www.jsonschema2poj
 "pantone_value": "21-2031"
 }
 ]
-}```
+}
+```
 
 * The POJO classes are wrapped into a typed Retrofit Call class.
 
@@ -190,6 +188,7 @@ To create a POJO class for each response, we can go to http://www.jsonschema2poj
 @Query(value = "auth_token",encoded = true) String auth_token
 @Field – send data as form-urlencoded. This requires a @FormUrlEncoded annotation attached with the method.
 ```
+
 The @Field parameter works only with a POST
 
 * Note: @Field requires a mandatory parameter. In cases when `@Field` is optional, we can use `@Query` instead and pass a null value.
@@ -217,7 +216,8 @@ public User(String name, String job) {
 this.name = name;
 this.job = job;
 }
-}```
+}
+```
 
 The above class is used to create the Response Body for the `createUser()` method.
 
@@ -255,7 +255,8 @@ public String last_name;
 public String avatar;
 
 }
-}```
+}
+```
 
 * Create `UserResponse.java`
 
@@ -273,13 +274,12 @@ public String job;
 public String id;
 @SerializedName("createdAt")
 public String createdAt;
-}```
-
+}
+```
 
 * The `MainActivity.java` is where we call each of the API endpoints defined in the Interface class and display each of the fields in a Toast/TextView.
 
 ```java
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -420,9 +420,11 @@ call.cancel();
 });
 
 }
-}```
+}
+```
 
-`apiInterface = APIClient.getClient().create(APIInterface.class);` is used to instantiate the APIClient.
+`apiInterface = APIClient.getClient().create(APIInterface.class);` is used to instantiate the APIClient.  
 To map the Model class to the response we use:
 
 `MultipleResource resource = response.body();`
+
