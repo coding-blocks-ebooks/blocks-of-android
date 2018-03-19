@@ -9,6 +9,7 @@ Since this is open sourced, anyone can contribute to this book.
 Authors with most contributions are -
 
 - Arnav Gupta
+- Harshit Dwivedi
 - Nimit Agarwal
 - Piyush Gupta
 - Raunaq Verma
