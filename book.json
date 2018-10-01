@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    "json",
+    "hints",
+    "mathjax-commonhtml",
+    "youtube"
+  ],
+  "pluginsConfig": {
+    "json": {
+      "output": "_book/book.json"
+    }
+  }
+}
