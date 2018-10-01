@@ -1,47 +1,47 @@
 sudo: required
 language: node_js
 node_js: 8
-env:
-  global:
-    secure: cngaKHc3iXAAka2g7O1uf/+QceVa+XOomGoZk6RR+jEXdwT52f7oZpwKFN/T0wz1/520p2vlFxzjtx4DU9JfzFXoNwSJ4J4sK1yl7D440FVGs3MdoLdmAtY98DbLCrVvXIsTMy74aLF74vFhhWRunG8u7CQI35oko2LAYXs9HZX4tHL8v9QTdRcfGSVDuTND8z36WqKkiZA+yTQepfOKxuTJ5Q1vxrOmWK222Cjpgw2811+l4SLkw2JgEgQNO9to49zlZRkKG1dMy8k0RR7ARCZKF0SWiF422Bc93HnDFB41SBMDVeSi5MdSaX7mFL5UDJo5HqhNWkoG0+7moFWHmdf8sg6X1CBU8I1sRhV6PairJVPamrvtEla4O+szVBKPMdZNT+TxLzqZFCiwqiJGtb6l68ElhkBO64deojOnW8O/LY6j0gH7B3JUsyUEiDEPspEgYvKITuR5/zJNEkir5XcvUxrTrou5lXqfCb9bhysKtSfqRHOWvuQx/16A17pg0IEOuQmKoXorDAKpDHlZsEGk9HdbSc8dZjpLDY7t6dJoTxR2B9ysFpoeJ4MXpcr9dpGkBkVHYUG0I3u9zdBM60LzOjBaE8TfH+dP9UnAQCTpaiPIPjnMCgzlALKmXhNRWGup5+NCOwVWKb48JIOND0WeUvAZ+mSHvPvaQ/f4HEs=
 cache:
   directories:
-    - node_modules
+  - node_modules
 addons:
   apt:
     update: true
     packages:
-      - calibre
-      - xvfb
+    - calibre
+    - xvfb
 before_install:
-  - npm install -g gitbook-cli
-  - echo '#!/bin/bash' >> $HOME/bin/ebook-convert
-  - echo 'xvfb-run /usr/bin/ebook-convert "$@"' >> $HOME/bin/ebook-convert
-  - chmod a+x $HOME/bin/ebook-convert
+- npm install -g gitbook-cli
+- echo '#!/bin/bash' >> $HOME/bin/ebook-convert
+- echo 'xvfb-run /usr/bin/ebook-convert "$@"' >> $HOME/bin/ebook-convert
+- chmod a+x $HOME/bin/ebook-convert
 install:
-  - gitbook install
+- gitbook install
 script:
-  - gitbook build
-  - gitbook pdf
-  - gitbook epub
-  - gitbook mobi
-  - cp -fv ./book.pdf ./_book/book.pdf
-  - cp -fv ./book.epub ./_book/book.epub
-  - cp -fv ./book.mobi ./_book/book.epub
+- gitbook build
+- gitbook pdf
+- gitbook epub
+- gitbook mobi
+- cp -fv ./book.pdf ./_book/book.pdf
+- cp -fv ./book.epub ./_book/book.epub
+- cp -fv ./book.mobi ./_book/book.epub
 deploy:
-  - provider: pages
-    skip-cleanup: true
-    github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-    keep-history: true
-    local-dir: ./_book
-    on:
-      branch: master
-  - provider: releases
-    skip-cleanup: true
-    api_key: $GITHUB_TOKEN
-    file:
-      - _book/book.pdf
-      - _book/book.epub
-      - _book/book.mobi
-    on:
-      tags: true
+- provider: pages
+  skip-cleanup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  local-dir: "./_book"
+  on:
+    branch: master
+- provider: releases
+  skip-cleanup: true
+  api_key: "$GITHUB_TOKEN"
+  file:
+  - _book/book.pdf
+  - _book/book.epub
+  - _book/book.mobi
+  on:
+    tags: true
+env:
+  global:
+    secure: ZELYe75EOoCBFD5Nq7iDiURulcA3fV069qVokGKrJjPpkqraxzPOZaiYHV40xLATvA04NGk+07UJPvChR3e3C6yM18y2jZ6coHjl65XBHFk9SRal4nyzzzAME+iFzRfPH0K9bwfZorSzsAUPWAW2aetsaWMKUAvswErKu0ux42Nld6qZh3y9ZtOFr2ZOYwpcDeltmCcjwh08eRfRjjPzYwEvwkx/tgxHwO7uR/44i7P2wjTTxqcZ799smQ03XqqVR6nOkAwQMEwZWUGJxxg/9EVCTP7BKXXwWUBAZ7O7955WUaHzjIrTmEKqEDlPoCU0VkuoGRVZCO9Ym0NfKMBvsXlWhSEd0E75RiynmjPHR/33tTPgWCl8vaGFfzU6pEPExrX7NDVJ/734Hh6UpbJs3t+OZNav8jbDKaCBdf1ARh/wxzgE98EQbggB+TCie3OHgSwO2NjIawiSpqwZ9BA6YelrfHRVwZCoMxO9+rJOzlZgMVSHNuZxovw+sBthE240CMAJCTHmWqh5WPFvfVDohPRWo+YMXUcQSnH737ZMhuO7eei3e7EsE13I3ocrc/2VVXaiKCED/NvB+DGI9w6kqTlVhfwIHHf9pnrwvHxNANM4rwJ80G6b0HdScJa/sRcSJpxJerRv1zApSFa9atIHjQ8C2FHGP7EAayyGbqskZog=
