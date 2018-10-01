@@ -4,19 +4,17 @@ Background Service in android is a service which performs an operation that isn'
 
 Examples :
 
-*  Downloading a file in background from a server.
-* Playing songs in background in a music player app.
-* Displaying the status of Connection to the server for a chat messaging app.
-
-
+- Downloading a file in background from a server.
+- Playing songs in background in a music player app.
+- Displaying the status of Connection to the server for a chat messaging app.
 
 ## Implementation of Background Service.
 
-* Build a new Android project .
+- Build a new Android project .
 
-* Open up ```activity_main.xml```.
+- Open up `activity_main.xml`.
 
-* Now , we're going to add 2 buttons , which is startService and stopService .
+- Now , we're going to add 2 buttons , which is startService and stopService .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -40,11 +38,11 @@ Examples :
         android:layout_height="wrap_content"
         android:text="Start Service" />
 </LinearLayout>
-```      
+```
 
-* create a ```customview.xml``` in which we're going to create some custom views for our notification panel .
+- create a `customview.xml` in which we're going to create some custom views for our notification panel .
 
-```xml
+````xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/notification"
@@ -143,27 +141,28 @@ Examples :
                 startService(stopIntent);
             }
         });
-```
-
-We'll create a new class and name that as ```Constants.java```
-* This class will contain 2 interfaces one for ```Actions``` and other for ```ServiceID```
-
- ```java
- public class Constants {
-
-    public interface ACTION {
-        public static String MAIN_ACTION = "com.stonedcoder.alertdialog.action.main";
-        public static String STARTFOREGROUND_ACTION = "com.stonedcoder.alertdialog.action.startforeground";
-        public static String STOPFOREGROUND_ACTION = "com.stonedcoder.alertdialog.action.stopforeground";
-    }
-
-    public interface NOTIFICATION_ID {
-        public static int FOREGROUND_SERVICE = 101;
-    }
-}
 ````
 
-* Now we'll create another class and name that ```ForegroundService``` which holds the logic for custom notification views and service .
+We'll create a new class and name that as `Constants.java`
+
+- This class will contain 2 interfaces one for `Actions` and other for `ServiceID`
+
+```java
+public class Constants {
+
+   public interface ACTION {
+       public static String MAIN_ACTION = "com.stonedcoder.alertdialog.action.main";
+       public static String STARTFOREGROUND_ACTION = "com.stonedcoder.alertdialog.action.startforeground";
+       public static String STOPFOREGROUND_ACTION = "com.stonedcoder.alertdialog.action.stopforeground";
+   }
+
+   public interface NOTIFICATION_ID {
+       public static int FOREGROUND_SERVICE = 101;
+   }
+}
+```
+
+- Now we'll create another class and name that `ForegroundService` which holds the logic for custom notification views and service .
 
 ```java
 class ForegroundService extends Service {
@@ -306,12 +305,14 @@ class ForegroundService extends Service {
 
 }
 ```
-* Now open up ```AndroidManifest.xml``` and add recivers and service to the manifest .
 
-```xml
+- Now open up `AndroidManifest.xml` and add recivers and service to the manifest .
+
+`````xml
 <receiver android:name=".ForegroundService$NotificationCloseButtonHandler" />
         <receiver android:name=".ForegroundService$NotificationPlayButtonHandler" />
         <receiver android:name=".ForegroundService$NotificationPrevButtonHandler" />
         <receiver android:name=".ForegroundService$NotificationSkipButtonHandler" />
 
         <service android:name=".ForegroundService" />````
+`````

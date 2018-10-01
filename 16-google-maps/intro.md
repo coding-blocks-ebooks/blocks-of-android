@@ -6,7 +6,7 @@ With Google Maps Android API v2, you can embed maps into an activity as a fragme
 
 you can create the initial Android project with the same package name that you used for creating the API key. Once your project is created, open the build.gradle file. You need to import the Play Services library for maps.
 
-```java
+`````java
 implementation 'com.google.android.gms:play-services-maps:7.8.0'
 implementation 'com.google.android.gms:play-services-location:7.8.0'```
 
@@ -64,3 +64,4 @@ android:layout_height="match_parent"/>
 </RelativeLayout>```
 
 * Now you should be able to run your application and view a map of Earth that is fully zoomed out and focused on latitude 0, longitude 0.
+`````

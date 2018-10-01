@@ -9,6 +9,3 @@
    6. Add a “About us” item to MainActivity menu and on click take them to your website. For now, take them to [www.google.com](http://www.google.com)
    7. Add a “Contact us” item to MainActivity menu and on click dial your phone number.
    8. Add an “Email us” item to MainActivity menu and on click open user’s email application with your email id pre-filled.
-
-
-

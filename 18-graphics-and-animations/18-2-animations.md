@@ -106,18 +106,16 @@ Animator set is a combination of all above. We can add more than one of these an
 
 #### **Interpolators:**
 
-In all the above examples, animations take place at constant speed from the start to the end. We can change this behaviour by setting the interpolator property in the XML.   
+In all the above examples, animations take place at constant speed from the start to the end. We can change this behaviour by setting the interpolator property in the XML.  
 By default, LinearInterpolator is used, but we can choose from various interpolators like AccelerateInterpolator, OverShootInterpolator etc.
 
-
-
-### **Limitations**: 
+### **Limitations**:
 
 Let’s look at some limitations of view animations.
 
 1. By now you must have realized that the views end up going to their original places and configs. In order for the final configuration of animation to persists, you can use setFillAfter\(\) function.
-2. Change your textview to a button and try clicking on the translated view. The issue here is that view animation only change the display, they  don’t really move the button. You will have to change the actual  location once the animation finishes.
-3. View animations  can only apply to views. You can’t animate content within the view.
+2. Change your textview to a button and try clicking on the translated view. The issue here is that view animation only change the display, they don’t really move the button. You will have to change the actual location once the animation finishes.
+3. View animations can only apply to views. You can’t animate content within the view.
 4. You have these 4-5 fixed properties that can be animated. These are the most commonly used properties, so they would suffice most of times.
 
 ### **Shared Transition Animations:**
@@ -128,16 +126,16 @@ These are used when there are common elements between two activities.This animat
 
 The steps to follow are:
 
-* ** **Enable Window Content Transitions in our styles.xml file:
+- \*\* \*\*Enable Window Content Transitions in our styles.xml file:
 
 ```
-<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"> 
-<!-- Customize your theme here. --> 
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+<!-- Customize your theme here. -->
     <item name="android:windowContentTransitions">true</item>
 </style>
 ```
 
-* Assign a common transition name to the shared elements in both layouts. Use the android:transitionName attribute. For example, in main\_activity.xml:
+- Assign a common transition name to the shared elements in both layouts. Use the android:transitionName attribute. For example, in main_activity.xml:
 
 ```
 <android.support.v7.widget.CardView...>
@@ -163,7 +161,7 @@ android:layout_height="380dp"/>
 </LinearLayout>
 ```
 
-* **Start Activity: **While calling the intent for the detail activity, put the image as an option and bundle it with the intent:
+- **Start Activity: **While calling the intent for the detail activity, put the image as an option and bundle it with the intent:
 
 ```
 Intent intent=new Intent(this,DetailsActivity.class);
@@ -173,7 +171,7 @@ ActivityOptionsCompat options=ActivityOptionsCompat.makeSceneTransitionAnimation
 startActivity(intent , options.toBundle());
 ```
 
-* ** To get the same\(reverse\) effect on back press: **In detail activity, override the back pressed function \(in menu and hardware\).
+- ** To get the same\(reverse\) effect on back press: **In detail activity, override the back pressed function \(in menu and hardware\).
 
 ```
 @Override
@@ -192,9 +190,9 @@ For multiple shared components, we need to create pairs and pass them as such.
 
 ### **Property Animations:**
 
-Google introduced new animation library, in order to  fix all the issues that we saw with view animations. This was introduced with API 11 i.e. Android 3.0. Some of the features were added in API 12 as well.   
-Support library doesn’t provide backward compatibility for these.   
-You might want to have a look at [http://nineoldandroids.com/](http://nineoldandroids.com/). This library provides these new features to old API’s till API 1. 
+Google introduced new animation library, in order to fix all the issues that we saw with view animations. This was introduced with API 11 i.e. Android 3.0. Some of the features were added in API 12 as well.  
+Support library doesn’t provide backward compatibility for these.  
+You might want to have a look at [http://nineoldandroids.com/](http://nineoldandroids.com/). This library provides these new features to old API’s till API 1.
 
 Let’s discuss various components of the new system. Here for demonstration, we will try to emulate a bouncing ball.
 
@@ -284,7 +282,6 @@ Here the last argument is the runnable that will be run when this animation gets
 
 `overridePendingTransition(R.anim.slide_in, R.anim.slide_out);`
 
-This will make the transition according to these animations instead of the default android animations. We will have to do something on our way back from the detailed activity. For that we need to override the onBackPressed function and add similar line their. 
+This will make the transition according to these animations instead of the default android animations. We will have to do something on our way back from the detailed activity. For that we need to override the onBackPressed function and add similar line their.
 
 Similarly for fragment transactions we can set the custom animations on the FragmentTransaction.
-

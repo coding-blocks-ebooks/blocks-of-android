@@ -10,6 +10,3 @@ if (alarmMgr!= null) {
     alarmMgr.cancel(alarmIntent);
 }
 ```
-
-
-

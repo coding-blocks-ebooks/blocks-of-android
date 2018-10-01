@@ -1,9 +1,10 @@
 # Initializing the Map
 
 **Declaring Map Types**
-* In our `MapFragment` class, you need to define some global values at the top of the class for use in your application.
 
-```java
+- In our `MapFragment` class, you need to define some global values at the top of the class for use in your application.
+
+````java
 private GoogleApiClient mGoogleApiClient;
 private Location mCurrentLocation;
 private final int[] MAP_TYPES = {
@@ -135,13 +136,13 @@ private void drawCircle( LatLng location ) {
   options.strokeWidth( 10 );
   getMap().addCircle(options);
 }
-```
+````
 
-* To draw a different closed-off shape, you can take multiple LatLng points and create a PolygonOptions object.
+- To draw a different closed-off shape, you can take multiple LatLng points and create a PolygonOptions object.
 
-* PolygonOptions are created in a similar fashion to CircleOptions. Instead of using a center and radius method, you use add with a list of points. You can then call addPolygon to draw the shape.
+- PolygonOptions are created in a similar fashion to CircleOptions. Instead of using a center and radius method, you use add with a list of points. You can then call addPolygon to draw the shape.
 
-```java
+````java
 private void drawPolygon( LatLng startingLocation ) {
   LatLng point2 = new LatLng( startingLocation.latitude +   .001,startingLocation.longitude );
   LatLng point3 = new LatLng( startingLocation.latitude,startingLocation.longitude + .001 );
@@ -152,3 +153,4 @@ private void drawPolygon( LatLng startingLocation ) {
   options.strokeWidth( 10 );
   getMap().addPolygon( options );
 }```
+````

@@ -2,12 +2,11 @@
 
 BroadcastReceiver is one of the building blocks in Android. You can sendBroadcast with an action in an Intent and the Receiver can receive this action and do something about it. Here is an example of sending some custom intents and a receiver will receive them and act accordingly.
 
+## Implementation of a BroadcastReceiver
 
-## Implementation of a BroadcastReceiver 
+- Build a new project create a class called `SimpleReciver`.
 
-* Build a new project create a class called `SimpleReciver`.
-
-```java 
+`````java
 public class SimpleReceiver extends BroadcastReceiver {
 
     @Override
@@ -67,14 +66,10 @@ public class MainActivity extends AppCompatActivity {
         android:layout_height="wrap_content"
         android:text="Broadcast Action 1"
         android:onClick="broadcastIntent1"/>
-        
+
     <Button android:id="@+id/btn_broadcast_intent2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Broadcast Action 2"
         android:onClick="broadcastIntent2"/>
-````
-
-
-
-
+`````

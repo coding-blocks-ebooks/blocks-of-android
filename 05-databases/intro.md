@@ -4,7 +4,7 @@ In software applications, it is mostly required to save information for some int
 
 # Implementation of SQLiteOpenHelper
 
-* Start a new project and open up `activity_main.xml` and  
+- Start a new project and open up `activity_main.xml` and  
   add Edit text , 2 Buttons and TextView to it .
 
 In this application we're taking an input from the user and adding contents to the database table and then showing it off .
@@ -31,11 +31,11 @@ In this application we're taking an input from the user and adding contents to t
         android:layout_height="200dp" />
 ```
 
-* Now we've to create a contract class which is goint to store some properties about the contents that we're adding into database .
+- Now we've to create a contract class which is goint to store some properties about the contents that we're adding into database .
 
 Create a new Java class and name it as Products .
 
-* Now we've to add the attributes and their respective constuctor & setters and getters method which can use to the pass the information .
+- Now we've to add the attributes and their respective constuctor & setters and getters method which can use to the pass the information .
 
 ```java
 public class Products {
@@ -68,7 +68,7 @@ public void set_productname(String _productname) {this._productname = _productna
 
 Now we've to create a database , create a new Java class MyDBHandler extends SQLiteOpenHelper
 
-* Every database has to have some properties like : version , DBname , Table name , collumn ID , collumn name .
+- Every database has to have some properties like : version , DBname , Table name , collumn ID , collumn name .
 
 ```java
 public class MyDBHandler extends SQLiteOpenHelper {
@@ -91,9 +91,9 @@ super(context, DATABSE_NAME, factory, DATABASE_VERSION);}
 }
 ```
 
-* Now we've to override OnCreate and OnUpgrade .
+- Now we've to override OnCreate and OnUpgrade .
 
-* In the onCreate , we've to decleare and execute query which is going to generate a blank table
+- In the onCreate , we've to decleare and execute query which is going to generate a blank table
 
 ```java
 @Override
@@ -112,7 +112,7 @@ db.execSQL(query);
 }
 ```
 
-* In the OnUpgrade method we've to write the code for updating the table .
+- In the OnUpgrade method we've to write the code for updating the table .
 
 ```java
 @Override
@@ -126,9 +126,9 @@ onCreate(db);
 `
 ```
 
-* Now we've to create the respective methods for Adding , Deleting products to the database.
+- Now we've to create the respective methods for Adding , Deleting products to the database.
 
-* Adding products to the database we've to associate every value which have to be inserted into database using content values .
+- Adding products to the database we've to associate every value which have to be inserted into database using content values .
 
 ```java
 public void addProduct(Products products){
@@ -142,17 +142,17 @@ public void addProduct(Products products){
 }
 ```
 
-* After association , get reference to the database .
+- After association , get reference to the database .
 
-* Enter the values using `.insert` 
+- Enter the values using `.insert`
 
-* Close the database
+- Close the database
 
-Method for Deleting products from the database 
+Method for Deleting products from the database
 
-* First you've to get reference to the database .
+- First you've to get reference to the database .
 
-* Then you've to execute a query for deleting a single item from the database table .
+- Then you've to execute a query for deleting a single item from the database table .
 
 ```java
 public void deleteProduct(String productname){
@@ -162,8 +162,8 @@ SQLiteDatabase db =getWritableDatabase();
 db.execSQL("DELETE FROM " + TABLE_PRODUCTS + " WHERE " + COLOUMN_PRODUCTNAME + "=\"" + productname + "\";");
 
 }
- ```
- 
+```
+
 Once you're done with adding and deleting the only thing which is left behind was printing the database .
 
 ```java

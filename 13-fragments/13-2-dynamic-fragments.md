@@ -6,19 +6,19 @@ We can customize the UI at the runtime using Fragments. Say for example you acti
 
 # Implementation of Dynamic Fragments
 
-* First thing you need `FragmentManager`, Now using FragmentManager instance get `FragmentTransaction` instance.
+- First thing you need `FragmentManager`, Now using FragmentManager instance get `FragmentTransaction` instance.
 
-* Using `FragmentTransaction` instance you can perform fragment transactions which means you can add, remove and replace the fragments.
+- Using `FragmentTransaction` instance you can perform fragment transactions which means you can add, remove and replace the fragments.
 
-* Fragment changes when device changes it orientation. say we want to display Fragment1 when device is in portrait mode and Fragment2 when device is in the landscape mode.
+- Fragment changes when device changes it orientation. say we want to display Fragment1 when device is in portrait mode and Fragment2 when device is in the landscape mode.
 
-* So now we just need to know the orientation of the device. That you can get by
+- So now we just need to know the orientation of the device. That you can get by
+
 ```java
 int displaymode = getResources().getConfiguration().orientation;
 ```
 
-* if displaymode =1 then device is in portrait mode else it’s in landscape mode.
-
+- if displaymode =1 then device is in portrait mode else it’s in landscape mode.
 
 ### Fragment1.xml
 
@@ -94,8 +94,8 @@ public class Fragment1 extends Fragment {
 }
 ```
 
-
 ### Fragment2.java
+
 ```java
 package com.stonedcoder.codingblocks.dynamicfragments;
 import android.app.Fragment;

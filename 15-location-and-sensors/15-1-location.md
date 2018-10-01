@@ -16,11 +16,7 @@ a. In case we need to define precise location, we had to switch between network 
 
 b. Proximity alerts were used to notify a user about proximity to a location, and this took its toll on the battery life.
 
-
-
 Hence, instead of using the default framework apis for location, we will be using **FusedLocationAPI** for the same.
-
-
 
 Advantages of Using FusedLocationAPI:
 
@@ -38,18 +34,18 @@ _**Note**: Make sure Google Play services is properly installed and working in o
 
 ### Getting the **Last Know**n Location:
 
-* ** **Import the google-play-services dependencies via gradle
+- \*\* \*\*Import the google-play-services dependencies via gradle
 
 `implementation'com.google.android.gms:play-services-location:8.4.0'`
 
-* ** **Add location Permissions to the Manifest file
+- \*\* \*\*Add location Permissions to the Manifest file
 
 ```
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
 
-* Connect to Google API client
+- Connect to Google API client
 
 This requires implementation of some functions by the activity handling location**:**
 
@@ -67,7 +63,7 @@ if (mGoogleApiClient == null) {
 }
 ```
 
-* Next up, we should also disconnect the mGoogleApiClient , whenever the activity stops, and then reconnect in OnStart\(\). So add required actions in life cycle methods.
+- Next up, we should also disconnect the mGoogleApiClient , whenever the activity stops, and then reconnect in OnStart\(\). So add required actions in life cycle methods.
 
 ```
 protected void onStart() {
@@ -81,7 +77,7 @@ protected void onStop() {
 }
 ```
 
-* We will get Last Known Location in the OnConnected\(\) method as discussed in class.
+- We will get Last Known Location in the OnConnected\(\) method as discussed in class.
   The getLastLocation\(\) method returns the best most recent location currently available \(as per your permissions\), it returns null if no location is available.
 
 ```
@@ -127,17 +123,17 @@ In the setPriority method, the following values are supported:
 
 i. **Priority Balanced Power Accuracy**: Use this setting to request location precision to within a city block, which is an accuracy of approximately 100 meters. This is considered a coarse level of accuracy, and is likely to consume less power. With this setting, the location services are likely to use WiFi and cell tower positioning.
 
-Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY\_BALANCED\_POWER\_ACCURACY
+Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY_BALANCED_POWER_ACCURACY
 
 ii. **Priority High Accuracy**: Use this setting to request the most precise location possible. With this setting, the location services are more likely to use GPS to determine the location.
 
-Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY\_HIGH\_ACCURACY
+Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY_HIGH_ACCURACY
 
 iii. **Priority Low Power**: Use this setting to request city-level precision, which is an accuracy of approximately 10 kms. This is considered a coarse level of accuracy, and is likely to consume less power.
 
-Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY\_LOW\_POWER
+Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY_LOW_POWER
 
-iv. **Priority No Power**: Use this setting if you need negligible impact on power consumption, but want to receive location updates when available. With this setting, your app does not trigger any location updates, but receives locations triggered by other apps. Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY\_NO\_POWER
+iv. **Priority No Power**: Use this setting if you need negligible impact on power consumption, but want to receive location updates when available. With this setting, your app does not trigger any location updates, but receives locations triggered by other apps. Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html\#PRIORITY_NO_POWER
 
 ### Getting the location updates :
 

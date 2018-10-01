@@ -2,7 +2,7 @@
 
 Different devices have avariety of sensorsthat can be accessed via the Sensor framework.
 
-Link:[http://developer.android.com/guide/topics/sensors/sensors\_overview.html](http://developer.android.com/guide/topics/sensors/sensors_overview.html)
+Link:[http://developer.android.com/guide/topics/sensors/sensors_overview.html](http://developer.android.com/guide/topics/sensors/sensors_overview.html)
 
 ### Possible tasks related to sensors include:
 
@@ -13,9 +13,9 @@ Link:[http://developer.android.com/guide/topics/sensors/sensors\_overview.html](
 
 Common sensors that devices have available are for temperature, light, pressure, acceleration, motion, and orientation. Here's a list of guides:
 
-1. ** Motion Sensors:**[http://developer.android.com/guide/topics/sensors/sensors\_motion.html](http://developer.android.com/guide/topics/sensors/sensors_motion.html)
-2. ** Position Sensors:**[http://developer.android.com/guide/topics/sensors/sensors\_position.html](http://developer.android.com/guide/topics/sensors/sensors_position.html)
-3. ** Environment Sensors:**[http://developer.android.com/guide/topics/sensors/sensors\_environment.html](http://developer.android.com/guide/topics/sensors/sensors_environment.html)
+1. ** Motion Sensors:**[http://developer.android.com/guide/topics/sensors/sensors_motion.html](http://developer.android.com/guide/topics/sensors/sensors_motion.html)
+2. ** Position Sensors:**[http://developer.android.com/guide/topics/sensors/sensors_position.html](http://developer.android.com/guide/topics/sensors/sensors_position.html)
+3. ** Environment Sensors:**[http://developer.android.com/guide/topics/sensors/sensors_environment.html](http://developer.android.com/guide/topics/sensors/sensors_environment.html)
 
 ### **Sensor Coordinate System**
 
@@ -99,20 +99,20 @@ In this case the system invokes the [onAccuracyChanged\(\)](http://developer.and
 
 Accuracy is represented by one of four status constants:
 
-* [SENSOR\_STATUS\_ACCURACY\_LOW](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_LOW)
-* [SENSOR\_STATUS\_ACCURACY\_MEDIUM](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_MEDIUM)
-* [SENSOR\_STATUS\_ACCURACY\_HIGH](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_HIGH)
-* [SENSOR\_STATUS\_UNRELIABLE](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_UNRELIABLE)
+- [SENSOR_STATUS_ACCURACY_LOW](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_LOW)
+- [SENSOR_STATUS_ACCURACY_MEDIUM](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_MEDIUM)
+- [SENSOR_STATUS_ACCURACY_HIGH](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_HIGH)
+- [SENSOR_STATUS_UNRELIABLE](http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_UNRELIABLE)
 
   1. **A sensor reports a new value: **
 
 In this case the system invokes the [onSensorChanged\(\)](http://developer.android.com/reference/android/hardware/SensorEventListener.html#onSensorChanged%28android.hardware.SensorEvent%29) method, providing you with a [SensorEvent](http://developer.android.com/reference/android/hardware/SensorEvent.html) object.  
 A [SensorEvent](http://developer.android.com/reference/android/hardware/SensorEvent.html) object contains information about the new sensor data, including:
 
-* The accuracy of the data
-* The sensor that generated the data
-* The timestamp at which the data was generated
-* The new data that the sensor recorded.
+- The accuracy of the data
+- The sensor that generated the data
+- The timestamp at which the data was generated
+- The new data that the sensor recorded.
 
 For every sensor, event contains an array of values, each of which has a different meaning, for example \(environmental sensors\).
 

@@ -4,18 +4,18 @@ The functioning of camera is a bit different as compared to other sensors on the
 
 In this lesson, we will use the camera app or the internal memory store of images to get an image and display it in an ImageView.
 
-## Steps to be followed : 
+## Steps to be followed :
 
-* Create a Layout with a button and an imageView
+- Create a Layout with a button and an imageView
 
-* Add the relevant storage Permissions that allow us to store the image file onto the local storage:
+- Add the relevant storage Permissions that allow us to store the image file onto the local storage:
 
 ```
 <uses-permission android:name= "android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name= "android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-* Create a function to display a dialog on button click and perform the required tasks:
+- Create a function to display a dialog on button click and perform the required tasks:
 
 ```
 private void selectImage() {
@@ -47,7 +47,7 @@ private void selectImage() {
 }
 ```
 
-* Required Constants:
+- Required Constants:
 
 ```
 public final String APP_TAG = "MyCustomApp";
@@ -56,10 +56,10 @@ public final static int SELECT_FILE = 1011;
 public String photoFileName = "photo.jpg";
 ```
 
-* Required Extra Functions for Camera App, used to get the Uri of the stored image and to check if external storage is available or not:
+- Required Extra Functions for Camera App, used to get the Uri of the stored image and to check if external storage is available or not:
 
-    public Uri getPhotoFileUri(String fileName){
-    // Only continue if the SD Card is mounted
+  public Uri getPhotoFileUri(String fileName){
+  // Only continue if the SD Card is mounted
 
         if(isExternalStorageAvailable()){
 
@@ -80,17 +80,17 @@ public String photoFileName = "photo.jpg";
             returnUri.fromFile(newFile(mediaStorageDir.getPath()+File.separator+fileName));
         }
 
-    return null;
-    }
+  return null;
+  }
 
-    // Returns true if external storage for photos is available
+  // Returns true if external storage for photos is available
 
-    private boolean isExternalStorageAvailable(){
-        String state = Environment.getExternalStorageState();
-    return state.equals(Environment.MEDIA_MOUNTED);
-    }
+  private boolean isExternalStorageAvailable(){
+  String state = Environment.getExternalStorageState();
+  return state.equals(Environment.MEDIA_MOUNTED);
+  }
 
-* Implement onActivityResult for both cases and display the thumbnail in the imageView:
+- Implement onActivityResult for both cases and display the thumbnail in the imageView:
 
 ```
 @Override
@@ -125,6 +125,3 @@ public void onActivityResult(int requestCode , int resultCode, Intent data) {
     }
 }
 ```
-
-
-

@@ -6,7 +6,7 @@ Retrofit 2 by default leverages OkHttp as the networking layer and is built on t
 
 ## Implementation of a Retrofit 2
 
-* Build a new project open your `build.grade`.
+- Build a new project open your `build.grade`.
 
 ```java
 compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -14,7 +14,7 @@ compile 'com.google.code.gson:gson:2.6.2'
 compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 ```
 
-* OkHttp dependency is already shipped with Retrofit 2 dependency. If you wish to use a separate OkHttp dependency, you should exclude the OkHttp dependency from Retrofit 2 as:
+- OkHttp dependency is already shipped with Retrofit 2 dependency. If you wish to use a separate OkHttp dependency, you should exclude the OkHttp dependency from Retrofit 2 as:
 
 ```java
 compile ('com.squareup.retrofit2:retrofit:2.1.0') {
@@ -27,9 +27,9 @@ compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 compile 'com.squareup.okhttp3:okhttp:3.4.1'
 ```
 
-* The logging-interceptor generates a log string of the entire response that’s returned.
+- The logging-interceptor generates a log string of the entire response that’s returned.
 
-* Add the permission to access internet in the AndroidManifest.xml file.
+- Add the permission to access internet in the AndroidManifest.xml file.
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -40,9 +40,9 @@ compile 'com.squareup.okhttp3:okhttp:3.4.1'
 Interceptors are a powerful mechanism present in OkHttp that can monitor, rewrite, and retry calls.  
 Interceptors can be majorly divided into two categories:
 
-* Application Interceptors : To register an application interceptor, we need to call addInterceptor\(\) on OkHttpClient.Builder
+- Application Interceptors : To register an application interceptor, we need to call addInterceptor\(\) on OkHttpClient.Builder
 
-* Network Interceptors : To register a Network Interceptor, invoke addNetworkInterceptor\(\) instead of addInterceptor\(\)
+- Network Interceptors : To register a Network Interceptor, invoke addNetworkInterceptor\(\) instead of addInterceptor\(\)
 
 # Setting Up the Retrofit Interface
 
@@ -70,7 +70,7 @@ class APIClient {
 }
 ```
 
-* Create a class `APIInterface.java` .
+- Create a class `APIInterface.java` .
 
 ```java
 import Stonedcoder.coding-blocks.retrofit.pojo.MultipleResource;
@@ -102,13 +102,13 @@ Call<UserList> doCreateUserWithField(@Field("name") String name, @Field("job") S
 }
 ```
 
-* In the above class, we’ve defined some methods that perform HTTP requests with annotation.
+- In the above class, we’ve defined some methods that perform HTTP requests with annotation.
 
 `@GET("/api/unknown") calls doGetListResources();`
 
 `doGetListResources()` is the method name. MultipleResource.java is a Model POJO class for our response object that’s used to map the response parameters to their respective variables. These POJO class act as the method return type.
 
-* create a new POJO class for `MultipleResources.java`
+- create a new POJO class for `MultipleResources.java`
 
 ```java
 package Stonedcoder.coding-blocks.retrofit.pojo;
@@ -151,35 +151,35 @@ To create a POJO class for each response, we can go to [http://www.jsonschema2po
 
 ```json
 {
-"page": 1,
-"per_page": 3,
-"total_pages": 4,
-"data": [
-{
-"id": 1,
-"name": "cerulean",
-"year": 2000,
-"pantone_value": "19-2031"
-},
-{
-"id": 2,
-"name": "fuchsia rose",
-"year": 2001,
-"pantone_value": "20-2031"
-},
-{
-"id": 3,
-"name": "true red",
-"year": 2002,
-"pantone_value": "21-2031"
-}
-]
+  "page": 1,
+  "per_page": 3,
+  "total_pages": 4,
+  "data": [
+    {
+      "id": 1,
+      "name": "cerulean",
+      "year": 2000,
+      "pantone_value": "19-2031"
+    },
+    {
+      "id": 2,
+      "name": "fuchsia rose",
+      "year": 2001,
+      "pantone_value": "20-2031"
+    },
+    {
+      "id": 3,
+      "name": "true red",
+      "year": 2002,
+      "pantone_value": "21-2031"
+    }
+  ]
 }
 ```
 
-* The POJO classes are wrapped into a typed Retrofit Call class.
+- The POJO classes are wrapped into a typed Retrofit Call class.
 
-* Method Parameters : There are a wide variety of possible options of parameters to pass inside a method:
+- Method Parameters : There are a wide variety of possible options of parameters to pass inside a method:
 
 ```java
 @Body – Sends Java objects as request body.
@@ -191,11 +191,11 @@ To create a POJO class for each response, we can go to [http://www.jsonschema2po
 
 The @Field parameter works only with a POST
 
-* Note: @Field requires a mandatory parameter. In cases when `@Field` is optional, we can use `@Query` instead and pass a null value.
+- Note: @Field requires a mandatory parameter. In cases when `@Field` is optional, we can use `@Query` instead and pass a null value.
 
 The pojo package defines four model classes for each of the API endpoint responses defined in the `APIInterface.java` class.
 
-* Create a class `User.java`
+- Create a class `User.java`
 
 ```java
 package Stonedcoder.coding-blocks.retrofit.pojo;
@@ -221,7 +221,7 @@ this.job = job;
 
 The above class is used to create the Response Body for the `createUser()` method.
 
-* Create a class `UserList.java`
+- Create a class `UserList.java`
 
 ```java
 package Stonedcoder.coding-blocks.retrofit.pojo;
@@ -258,7 +258,7 @@ public String avatar;
 }
 ```
 
-* Create `UserResponse.java`
+- Create `UserResponse.java`
 
 ```java
 package Stonedcoder.coding-blocks.retrofit.pojo;
@@ -277,7 +277,7 @@ public String createdAt;
 }
 ```
 
-* The `MainActivity.java` is where we call each of the API endpoints defined in the Interface class and display each of the fields in a Toast/TextView.
+- The `MainActivity.java` is where we call each of the API endpoints defined in the Interface class and display each of the fields in a Toast/TextView.
 
 ```java
 import android.support.v7.app.AppCompatActivity;

@@ -10,7 +10,7 @@ AsyncTask enables proper and easy use of the UI thread. This class allows you to
 
 AsyncTask is designed to be a helper class around Thread and Handler and does not constitute a generic threading framework. AsyncTasks should ideally be used for short operations (a few seconds at the most.) If you need to keep threads running for long periods of time, it is highly recommended you use the various APIs provided by the java.util.concurrent package such as Executor, ThreadPoolExecutor and FutureTask.
 
-To use AsyncTask, we create a class that extends from asynctask. We can call execute on the object of the class to start the work in different thread.  
+To use AsyncTask, we create a class that extends from asynctask. We can call execute on the object of the class to start the work in different thread.
 
 An AsyncTask streamlines the following common background process:
 
@@ -19,7 +19,8 @@ An AsyncTask streamlines the following common background process:
 3. **Updates** - Display progress updates during the task (optional)
 4. **Post** - Execute code on UI thread following completion of the background task (e.g show data). This take in the argument, work done by the background thread.
 
-In java code AsyncTask can be used as follows - 
+In java code AsyncTask can be used as follows -
+
 ```java
   private class AsyncTaskDemo extends AsyncTask<String, Void, String> {
       protected void onPreExecute() {
@@ -45,10 +46,10 @@ In java code AsyncTask can be used as follows -
 
         }
   }
-
 ```
 
 Now to call this in Activity, we have to simply makes it object and call execute on it.
+
 ```java
 AsyncTaskDemo asyncTaskDemo = new AsyncTaskDemo();
 asyncTaskDemo.execute("Hello");

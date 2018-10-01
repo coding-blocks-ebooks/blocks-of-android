@@ -1,17 +1,16 @@
 # Static Fragments
 
-* Create a blank project .
+- Create a blank project .
 
-* Create `Fragment1.java` and `Fragment2.java` which extends the `Fragment` Class.
+- Create `Fragment1.java` and `Fragment2.java` which extends the `Fragment` Class.
 
-* Override `onCreate()` method in `Fragment1.java` and `Fragment2.java`, and inflate the `Fragment layouts ( R.id.Fragment1 and R.id.Fragment2)` using `LayoutInflater` Class object and by passing the `ViewGroup` argument which is the activity in which the fragment will be embedded.
-
+- Override `onCreate()` method in `Fragment1.java` and `Fragment2.java`, and inflate the `Fragment layouts ( R.id.Fragment1 and R.id.Fragment2)` using `LayoutInflater` Class object and by passing the `ViewGroup` argument which is the activity in which the fragment will be embedded.
 
 # Implementation of Static fragments .
 
-* Add a layout for `Fragment1.java` .
+- Add a layout for `Fragment1.java` .
 
-```xml
+````xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -48,8 +47,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>
-```
-* Now , we've to include both the fragments inside `activity_main.xml` .
+````
+
+- Now , we've to include both the fragments inside `activity_main.xml` .
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -75,7 +75,8 @@
 
 </LinearLayout>
 ```
-* Now open up `Fragment1.java`
+
+- Now open up `Fragment1.java`
 
 ```java
 package com.stonedcoder.codingblocks.staticfragments;
@@ -96,9 +97,9 @@ public class Fragment1 extends Fragment {
 }
 ```
 
-* Now open up `Fragment2.java `
+- Now open up `Fragment2.java`
 
-```java
+````java
 package com.stonedcoder.codingblocks.staticfragments;
 
 import android.app.Fragment;
@@ -113,3 +114,4 @@ public class Fragment2 extends Fragment {
 
     }
 }```
+````

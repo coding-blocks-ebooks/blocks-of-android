@@ -6,13 +6,13 @@ Firebase gives developers the ability not only to send notifications but also to
 
 # Implementation of push notifications .
 
-* Setup a new studio project and select `BlankActivity` .
+- Setup a new studio project and select `BlankActivity` .
 
-* Go to the tools on the top pane and click on firebase .
+- Go to the tools on the top pane and click on firebase .
 
-* Copy the Needed JSON File into the project .
+- Copy the Needed JSON File into the project .
 
-* In order to use Google services plug-ins, you’ll need to edit the build.gradle (app )file in Android Studio.
+- In order to use Google services plug-ins, you’ll need to edit the build.gradle (app )file in Android Studio.
 
 ```java
 buildscript {
@@ -26,17 +26,15 @@ buildscript {
 }
 ```
 
-* Add the following line to the end of the build.gradle file.
+- Add the following line to the end of the build.gradle file.
 
 ```java
 apply plugin: 'com.google.gms.google-services
 ```
 
-* Now we add the Firebase dependencies .
+- Now we add the Firebase dependencies .
 
 ```java
-
-
 dependencies {
 
   compile 'com.google.Firebase:Firebase-core:10.2.1' //The string required for Firebase integration
@@ -44,12 +42,12 @@ dependencies {
 
 }
 ```
-*
+
+\*
 
 Then, update the services using com.google.android.gms: play-services
 
-* Finally, add applicationId to defaultConfig .
-
+- Finally, add applicationId to defaultConfig .
 
 ```java
 android {
@@ -59,11 +57,11 @@ android {
 }
 ```
 
-* Add the Service to the Application .
+- Add the Service to the Application .
 
-* To use FCM in the application, two services must be added to it , the notifications operation testing code, and code for the processing of received/sent messages and their integration into your design.
+- To use FCM in the application, two services must be added to it , the notifications operation testing code, and code for the processing of received/sent messages and their integration into your design.
 
-* To receive notifications, we must add a service that extends the FirebaseMessagingService capabilities.
+- To receive notifications, we must add a service that extends the FirebaseMessagingService capabilities.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -82,7 +80,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 }
 ```
 
-* Next, add the service to `AndroidManifest.xml`
+- Next, add the service to `AndroidManifest.xml`
 
 ```xml
 <service android:name = ".MyFirebaseMessagingService" >
@@ -91,7 +89,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     </intent-filter>
 </service>
 ```
-* Add the service that extends FirebaseInstanceIdService .
+
+- Add the service that extends FirebaseInstanceIdService .
 
 ```java
 public class FirebaseIDService extends FirebaseInstanceIdService {
@@ -110,7 +109,7 @@ public class FirebaseIDService extends FirebaseInstanceIdService {
 }
 ```
 
-* Provide the download service by adding the service to the `AndroidManifest.xml` file.
+- Provide the download service by adding the service to the `AndroidManifest.xml` file.
 
 ```xml
 <service android:name = ".MyFirebaseMessagingService" >
@@ -120,4 +119,4 @@ public class FirebaseIDService extends FirebaseInstanceIdService {
 </service>
 ```
 
-* Now go ahead and check your first push ! .
+- Now go ahead and check your first push ! .
