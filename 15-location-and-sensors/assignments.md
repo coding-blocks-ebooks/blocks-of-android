@@ -1,4 +1,4 @@
-**Assignment**
+# Assignments
 
 1. Create a compass, point to the direction required using arrow images
 2. Create a step counter app

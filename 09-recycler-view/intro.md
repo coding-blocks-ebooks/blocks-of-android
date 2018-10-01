@@ -96,7 +96,7 @@ To use RecyclerView we need to follow 6 steps which are explained in detail belo
 
   This is called to bind our views with the data. method uses the view holder's position to determine what the contents should be. It gets the view holder of the layout item which populates data into the item through holder
 
-* **public int getItemCount()**
+- **public int getItemCount()**
 
   This returns the number of list items.
 

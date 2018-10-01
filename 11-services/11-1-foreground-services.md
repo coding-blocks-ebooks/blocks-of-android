@@ -1,4 +1,4 @@
-## Foreground Service.
+# Foreground Service
 
 Foreground Service in android is a background service which keeps running even after the parent application is closed. And useful when you need user interface while performing long running operations.
 

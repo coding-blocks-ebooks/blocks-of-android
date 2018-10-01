@@ -2,9 +2,9 @@
 
 In software applications, it is mostly required to save information for some internal use or off course to provide user to great features depending on the data. And when we talk about android so SQLite is that default feature which is used as a database and also used as a local database for any application. .
 
-# Implementation of SQLiteOpenHelper
+## Implementation of SQLiteOpenHelper
 
-- Start a new project and open up `activity_main.xml` and  
+- Start a new project and open up `activity_main.xml` and
   add Edit text , 2 Buttons and TextView to it .
 
 In this application we're taking an input from the user and adding contents to the database table and then showing it off .
