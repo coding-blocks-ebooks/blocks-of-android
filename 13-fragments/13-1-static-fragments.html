@@ -1,0 +1,878 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>13.1 Static Fragments · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="13-2-dynamic-fragments.html" />
+    
+    
+    <link rel="prev" href="intro.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../01-project-structure/intro.html">
+            
+                <a href="../01-project-structure/intro.html">
+            
+                    
+                    1. Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../02-basic-widgets/basicandroidwidgets.html">
+            
+                <a href="../02-basic-widgets/basicandroidwidgets.html">
+            
+                    
+                    2. Basic Widgets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../03-list-view/intro.html">
+            
+                <a href="../03-list-view/intro.html">
+            
+                    
+                    3. List View
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../03-list-view/03-1-custom-adapter.html">
+            
+                <a href="../03-list-view/03-1-custom-adapter.html">
+            
+                    
+                    3.1 Custom Adapter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../04-intents/implicit-and-explicit.html">
+            
+                <a href="../04-intents/implicit-and-explicit.html">
+            
+                    
+                    4. Intents
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../04-intents/implicit-and-explicit.html">
+            
+                <a href="../04-intents/implicit-and-explicit.html">
+            
+                    
+                    4.1 Implicit and Explicit intents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../04-intents/assignments.html">
+            
+                <a href="../04-intents/assignments.html">
+            
+                    
+                    4.2 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../05-databases/intro.html">
+            
+                <a href="../05-databases/intro.html">
+            
+                    
+                    5. Databases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../06-broadcasts-receivers/intro.html">
+            
+                <a href="../06-broadcasts-receivers/intro.html">
+            
+                    
+                    6. Broadcast Receivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../07-asynctask/intro.html">
+            
+                <a href="../07-asynctask/intro.html">
+            
+                    
+                    7. AsyncTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../08-network-operations/intro.html">
+            
+                <a href="../08-network-operations/intro.html">
+            
+                    
+                    8. Network Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../09-recycler-view/intro.html">
+            
+                <a href="../09-recycler-view/intro.html">
+            
+                    
+                    9. RecyclerView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../10-retrofit/intro.html">
+            
+                <a href="../10-retrofit/intro.html">
+            
+                    
+                    10. Retrofit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../11-services/intro.html">
+            
+                <a href="../11-services/intro.html">
+            
+                    
+                    11. Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../11-services/11-1-foreground-services.html">
+            
+                <a href="../11-services/11-1-foreground-services.html">
+            
+                    
+                    11.1 Foreground Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../11-services/11-2-background-services.html">
+            
+                <a href="../11-services/11-2-background-services.html">
+            
+                    
+                    11.2 Background Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../11-services/11-3-bound-services.html">
+            
+                <a href="../11-services/11-3-bound-services.html">
+            
+                    
+                    11.3 Bound Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../12-alarms/intro.html">
+            
+                <a href="../12-alarms/intro.html">
+            
+                    
+                    12. Alarms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    13. Fragments
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.14.1" data-path="13-1-static-fragments.html">
+            
+                <a href="13-1-static-fragments.html">
+            
+                    
+                    13.1 Static Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="13-2-dynamic-fragments.html">
+            
+                <a href="13-2-dynamic-fragments.html">
+            
+                    
+                    13.2 Dynamic Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../14-permissions/intro.html">
+            
+                <a href="../14-permissions/intro.html">
+            
+                    
+                    14. Permissions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../14-permissions/14-1-runtime-permissions.html">
+            
+                <a href="../14-permissions/14-1-runtime-permissions.html">
+            
+                    
+                    14.1 Runtime Permissions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../15-location-and-sensors/intro.html">
+            
+                <a href="../15-location-and-sensors/intro.html">
+            
+                    
+                    15. Location and Sensors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../15-location-and-sensors/15-1-location.html">
+            
+                <a href="../15-location-and-sensors/15-1-location.html">
+            
+                    
+                    15.1 Location API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../15-location-and-sensors/15-2-sensors.html">
+            
+                <a href="../15-location-and-sensors/15-2-sensors.html">
+            
+                    
+                    15.2 Sensors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../15-location-and-sensors/15-3-camera.html">
+            
+                <a href="../15-location-and-sensors/15-3-camera.html">
+            
+                    
+                    15.3 Camera
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../15-location-and-sensors/assignments.html">
+            
+                <a href="../15-location-and-sensors/assignments.html">
+            
+                    
+                    15.4 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
+            
+                <a href="../16-google-maps/intro.html">
+            
+                    
+                    16. Google Maps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
+            
+                <a href="../16-google-maps/16-1-maps-api.html">
+            
+                    
+                    16.1 Google Maps API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
+            
+                <a href="../16-google-maps/16-2-creating-maps.html">
+            
+                    
+                    16.2 Creating Maps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../17-firebase/intro.html">
+            
+                <a href="../17-firebase/intro.html">
+            
+                    
+                    17. Firebase
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.18.1" data-path="../17-firebase/17-1-realtime-db.html">
+            
+                <a href="../17-firebase/17-1-realtime-db.html">
+            
+                    
+                    17.1 Realtime Database
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.2" data-path="../17-firebase/17-2-push-notifications.html">
+            
+                <a href="../17-firebase/17-2-push-notifications.html">
+            
+                    
+                    17.2 Push Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../18-graphics-and-animations/intro.html">
+            
+                <a href="../18-graphics-and-animations/intro.html">
+            
+                    
+                    18 Graphics and Animations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.19.1" data-path="../18-graphics-and-animations/18-1-graphics.html">
+            
+                <a href="../18-graphics-and-animations/18-1-graphics.html">
+            
+                    
+                    18.1 Graphics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.2" data-path="../18-graphics-and-animations/18-2-animations.html">
+            
+                <a href="../18-graphics-and-animations/18-2-animations.html">
+            
+                    
+                    18.2 Animations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >13.1 Static Fragments</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="static-fragments">Static Fragments</h1>
+<ul>
+<li><p>Create a blank project .</p>
+</li>
+<li><p>Create <code>Fragment1.java</code> and <code>Fragment2.java</code> which extends the <code>Fragment</code> Class.</p>
+</li>
+<li><p>Override <code>onCreate()</code> method in <code>Fragment1.java</code> and <code>Fragment2.java</code>, and inflate the <code>Fragment layouts ( R.id.Fragment1 and R.id.Fragment2)</code> using <code>LayoutInflater</code> Class object and by passing the <code>ViewGroup</code> argument which is the activity in which the fragment will be embedded.</p>
+</li>
+</ul>
+<h1 id="implementation-of-static-fragments-">Implementation of Static fragments .</h1>
+<ul>
+<li>Add a layout for <code>Fragment1.java</code> .</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/textView1&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
+        <span class="hljs-attr">android:background</span>=<span class="hljs-string">&quot;#5eff6a&quot;</span>
+        <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">&quot;center&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Iam fragment ONE&quot;</span>
+        <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;?android:attr/textAppearanceLarge&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
+<ul>
+<li>Add a layout for <code>Fragment2.java</code> .</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span> &gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/textView1&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Iam fragment TWO&quot;</span>
+        <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">&quot;center&quot;</span>
+        <span class="hljs-attr">android:background</span>=<span class="hljs-string">&quot;#ff9e5e&quot;</span>
+        <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;?android:attr/textAppearanceLarge&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
+<ul>
+<li>Now , we&apos;ve to include both the fragments inside <code>activity_main.xml</code> .</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/LinearLayout1&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;horizontal&quot;</span> &gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">fragment</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/fragment1&quot;</span>
+        <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;com.stonedcoder.codingblocks.staticfragments.Fragment1&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
+        <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fragment</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/fragment2&quot;</span>
+        <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;com.stonedcoder.codingblocks.staticfragments.Fragment2&quot;</span>
+        <span class="hljs-attr">android:layout_marginLeft</span>=<span class="hljs-string">&quot;5sp&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
+        <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
+<ul>
+<li>Now open up <code>Fragment1.java</code></li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.stonedcoder.codingblocks.staticfragments;
+
+<span class="hljs-keyword">import</span> android.annotation.SuppressLint;
+<span class="hljs-keyword">import</span> android.app.Fragment;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.view.LayoutInflater;
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.view.ViewGroup;
+
+<span class="hljs-meta">@SuppressLint</span>(<span class="hljs-string">&quot;NewApi&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fragment1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup vg, Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">return</span> inflater.inflate(R.layout.fragment1, vg, <span class="hljs-keyword">false</span>);
+
+    }
+}
+</code></pre>
+<ul>
+<li>Now open up <code>Fragment2.java</code></li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.stonedcoder.codingblocks.staticfragments;
+
+<span class="hljs-keyword">import</span> android.app.Fragment;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.view.LayoutInflater;
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.view.ViewGroup;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fragment2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup vg, Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">return</span> inflater.inflate(R.layout.fragment2, vg, <span class="hljs-keyword">false</span>);
+
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 13. Fragments">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="13-2-dynamic-fragments.html" class="navigation navigation-next " aria-label="Next page: 13.2 Dynamic Fragments">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"13.1 Static Fragments","level":"1.14.1","depth":2,"next":{"title":"13.2 Dynamic Fragments","level":"1.14.2","depth":2,"path":"13-fragments/13-2-dynamic-fragments.md","ref":"13-fragments/13-2-dynamic-fragments.md","articles":[]},"previous":{"title":"13. Fragments","level":"1.14","depth":1,"path":"13-fragments/intro.md","ref":"13-fragments/intro.md","articles":[{"title":"13.1 Static Fragments","level":"1.14.1","depth":2,"path":"13-fragments/13-1-static-fragments.md","ref":"13-fragments/13-1-static-fragments.md","articles":[]},{"title":"13.2 Dynamic Fragments","level":"1.14.2","depth":2,"path":"13-fragments/13-2-dynamic-fragments.md","ref":"13-fragments/13-2-dynamic-fragments.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"13-fragments/13-1-static-fragments.md","mtime":"2018-10-01T18:05:08.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:06:12.922Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

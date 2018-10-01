@@ -1,0 +1,47 @@
+sudo: required
+language: node_js
+node_js: 8
+cache:
+  directories:
+  - node_modules
+addons:
+  apt:
+    update: true
+    packages:
+    - calibre
+    - xvfb
+before_install:
+- npm install -g gitbook-cli
+- echo '#!/bin/bash' >> $HOME/bin/ebook-convert
+- echo 'xvfb-run /usr/bin/ebook-convert "$@"' >> $HOME/bin/ebook-convert
+- chmod a+x $HOME/bin/ebook-convert
+install:
+- gitbook install
+script:
+- gitbook build
+- gitbook pdf
+- gitbook epub
+- gitbook mobi
+- cp -fv ./book.pdf ./_book/book.pdf
+- cp -fv ./book.epub ./_book/book.epub
+- cp -fv ./book.mobi ./_book/book.epub
+deploy:
+- provider: pages
+  skip-cleanup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  local-dir: "./_book"
+  on:
+    branch: master
+- provider: releases
+  skip-cleanup: true
+  api_key: "$GITHUB_TOKEN"
+  file:
+  - _book/book.pdf
+  - _book/book.epub
+  - _book/book.mobi
+  on:
+    tags: true
+env:
+  global:
+    secure: ZELYe75EOoCBFD5Nq7iDiURulcA3fV069qVokGKrJjPpkqraxzPOZaiYHV40xLATvA04NGk+07UJPvChR3e3C6yM18y2jZ6coHjl65XBHFk9SRal4nyzzzAME+iFzRfPH0K9bwfZorSzsAUPWAW2aetsaWMKUAvswErKu0ux42Nld6qZh3y9ZtOFr2ZOYwpcDeltmCcjwh08eRfRjjPzYwEvwkx/tgxHwO7uR/44i7P2wjTTxqcZ799smQ03XqqVR6nOkAwQMEwZWUGJxxg/9EVCTP7BKXXwWUBAZ7O7955WUaHzjIrTmEKqEDlPoCU0VkuoGRVZCO9Ym0NfKMBvsXlWhSEd0E75RiynmjPHR/33tTPgWCl8vaGFfzU6pEPExrX7NDVJ/734Hh6UpbJs3t+OZNav8jbDKaCBdf1ARh/wxzgE98EQbggB+TCie3OHgSwO2NjIawiSpqwZ9BA6YelrfHRVwZCoMxO9+rJOzlZgMVSHNuZxovw+sBthE240CMAJCTHmWqh5WPFvfVDohPRWo+YMXUcQSnH737ZMhuO7eei3e7EsE13I3ocrc/2VVXaiKCED/NvB+DGI9w6kqTlVhfwIHHf9pnrwvHxNANM4rwJ80G6b0HdScJa/sRcSJpxJerRv1zApSFa9atIHjQ8C2FHGP7EAayyGbqskZog=

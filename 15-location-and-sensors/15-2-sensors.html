@@ -1,0 +1,856 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>15.2 Sensors · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="15-3-camera.html" />
+    
+    
+    <link rel="prev" href="15-1-location.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../01-project-structure/intro.html">
+            
+                <a href="../01-project-structure/intro.html">
+            
+                    
+                    1. Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../02-basic-widgets/basicandroidwidgets.html">
+            
+                <a href="../02-basic-widgets/basicandroidwidgets.html">
+            
+                    
+                    2. Basic Widgets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../03-list-view/intro.html">
+            
+                <a href="../03-list-view/intro.html">
+            
+                    
+                    3. List View
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../03-list-view/03-1-custom-adapter.html">
+            
+                <a href="../03-list-view/03-1-custom-adapter.html">
+            
+                    
+                    3.1 Custom Adapter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../04-intents/implicit-and-explicit.html">
+            
+                <a href="../04-intents/implicit-and-explicit.html">
+            
+                    
+                    4. Intents
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../04-intents/implicit-and-explicit.html">
+            
+                <a href="../04-intents/implicit-and-explicit.html">
+            
+                    
+                    4.1 Implicit and Explicit intents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../04-intents/assignments.html">
+            
+                <a href="../04-intents/assignments.html">
+            
+                    
+                    4.2 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../05-databases/intro.html">
+            
+                <a href="../05-databases/intro.html">
+            
+                    
+                    5. Databases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../06-broadcasts-receivers/intro.html">
+            
+                <a href="../06-broadcasts-receivers/intro.html">
+            
+                    
+                    6. Broadcast Receivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../07-asynctask/intro.html">
+            
+                <a href="../07-asynctask/intro.html">
+            
+                    
+                    7. AsyncTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../08-network-operations/intro.html">
+            
+                <a href="../08-network-operations/intro.html">
+            
+                    
+                    8. Network Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../09-recycler-view/intro.html">
+            
+                <a href="../09-recycler-view/intro.html">
+            
+                    
+                    9. RecyclerView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../10-retrofit/intro.html">
+            
+                <a href="../10-retrofit/intro.html">
+            
+                    
+                    10. Retrofit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../11-services/intro.html">
+            
+                <a href="../11-services/intro.html">
+            
+                    
+                    11. Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../11-services/11-1-foreground-services.html">
+            
+                <a href="../11-services/11-1-foreground-services.html">
+            
+                    
+                    11.1 Foreground Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../11-services/11-2-background-services.html">
+            
+                <a href="../11-services/11-2-background-services.html">
+            
+                    
+                    11.2 Background Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../11-services/11-3-bound-services.html">
+            
+                <a href="../11-services/11-3-bound-services.html">
+            
+                    
+                    11.3 Bound Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../12-alarms/intro.html">
+            
+                <a href="../12-alarms/intro.html">
+            
+                    
+                    12. Alarms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../13-fragments/intro.html">
+            
+                <a href="../13-fragments/intro.html">
+            
+                    
+                    13. Fragments
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../13-fragments/13-1-static-fragments.html">
+            
+                <a href="../13-fragments/13-1-static-fragments.html">
+            
+                    
+                    13.1 Static Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../13-fragments/13-2-dynamic-fragments.html">
+            
+                <a href="../13-fragments/13-2-dynamic-fragments.html">
+            
+                    
+                    13.2 Dynamic Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../14-permissions/intro.html">
+            
+                <a href="../14-permissions/intro.html">
+            
+                    
+                    14. Permissions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../14-permissions/14-1-runtime-permissions.html">
+            
+                <a href="../14-permissions/14-1-runtime-permissions.html">
+            
+                    
+                    14.1 Runtime Permissions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    15. Location and Sensors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="15-1-location.html">
+            
+                <a href="15-1-location.html">
+            
+                    
+                    15.1 Location API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.16.2" data-path="15-2-sensors.html">
+            
+                <a href="15-2-sensors.html">
+            
+                    
+                    15.2 Sensors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="15-3-camera.html">
+            
+                <a href="15-3-camera.html">
+            
+                    
+                    15.3 Camera
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="assignments.html">
+            
+                <a href="assignments.html">
+            
+                    
+                    15.4 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
+            
+                <a href="../16-google-maps/intro.html">
+            
+                    
+                    16. Google Maps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
+            
+                <a href="../16-google-maps/16-1-maps-api.html">
+            
+                    
+                    16.1 Google Maps API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
+            
+                <a href="../16-google-maps/16-2-creating-maps.html">
+            
+                    
+                    16.2 Creating Maps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../17-firebase/intro.html">
+            
+                <a href="../17-firebase/intro.html">
+            
+                    
+                    17. Firebase
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.18.1" data-path="../17-firebase/17-1-realtime-db.html">
+            
+                <a href="../17-firebase/17-1-realtime-db.html">
+            
+                    
+                    17.1 Realtime Database
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.2" data-path="../17-firebase/17-2-push-notifications.html">
+            
+                <a href="../17-firebase/17-2-push-notifications.html">
+            
+                    
+                    17.2 Push Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../18-graphics-and-animations/intro.html">
+            
+                <a href="../18-graphics-and-animations/intro.html">
+            
+                    
+                    18 Graphics and Animations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.19.1" data-path="../18-graphics-and-animations/18-1-graphics.html">
+            
+                <a href="../18-graphics-and-animations/18-1-graphics.html">
+            
+                    
+                    18.1 Graphics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.2" data-path="../18-graphics-and-animations/18-2-animations.html">
+            
+                <a href="../18-graphics-and-animations/18-2-animations.html">
+            
+                    
+                    18.2 Animations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >15.2 Sensors</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sensors"><strong>Sensors</strong></h1>
+<p>Different devices have avariety of sensorsthat can be accessed via the Sensor framework.</p>
+<p>Link:<a href="http://developer.android.com/guide/topics/sensors/sensors_overview.html" target="_blank">http://developer.android.com/guide/topics/sensors/sensors_overview.html</a></p>
+<h3 id="possible-tasks-related-to-sensors-include">Possible tasks related to sensors include:</h3>
+<ol>
+<li>List available sensors</li>
+<li>Determine sensor capabilities (range, resolution, etc.)</li>
+<li>Acquire raw sensor data</li>
+<li>Register sensor event listeners</li>
+</ol>
+<p>Common sensors that devices have available are for temperature, light, pressure, acceleration, motion, and orientation. Here&apos;s a list of guides:</p>
+<ol>
+<li><strong> Motion Sensors:</strong><a href="http://developer.android.com/guide/topics/sensors/sensors_motion.html" target="_blank">http://developer.android.com/guide/topics/sensors/sensors_motion.html</a></li>
+<li><strong> Position Sensors:</strong><a href="http://developer.android.com/guide/topics/sensors/sensors_position.html" target="_blank">http://developer.android.com/guide/topics/sensors/sensors_position.html</a></li>
+<li><strong> Environment Sensors:</strong><a href="http://developer.android.com/guide/topics/sensors/sensors_environment.html" target="_blank">http://developer.android.com/guide/topics/sensors/sensors_environment.html</a></li>
+</ol>
+<h3 id="sensor-coordinate-system"><strong>Sensor Coordinate System</strong></h3>
+<p><img src="img/sensor-coordinate.png" alt=""></p>
+<p>A list of steps involved with getting data from sensors are :</p>
+<h4 id="initiate-a-sensormanager"><strong>Initiate a SensorManager:</strong></h4>
+<p><code>private SensorManager sensorManager;</code></p>
+<h4 id="get-a-list-of-available-sensors-in-oncreate"><strong>Get a list of available sensors in onCreate:</strong></h4>
+<pre><code>sensorManager= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+// Get the default sensor of specified type
+List&lt;Sensor&gt; deviceSensors =mSensorManager.getSensorList(Sensor.TYPE_GRAVITY);
+    for( Sensor sensor : deviceSensors){
+        Log.e(&quot;SEnsor Found&quot;, sensor.toString());
+    }
+</code></pre><h4 id="get-a-specific-sensor"><strong>Get a specific sensor:</strong></h4>
+<pre><code>Sensor lightSensor= sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+</code></pre><p>Following are some properties available on a sensor are:</p>
+<p>getResolution<br>getPower<br>getVendor<br>getVersion</p>
+<h4 id="register-for-the-right-sensor-in-life-cycle"><strong>Register for the right sensor in life cycle:</strong></h4>
+<pre><code>@Override
+protected voidonResume() {
+    super.onResume();
+    if(mLight!=null) {
+        sensorManager.registerListener(lightSensorListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+}
+
+@Override
+protected void onPause() {
+    super.onPause();
+    if(lightSensor!=null) {
+        sensorManager.unregisterListener(mLightSensorListener);
+    }
+}
+</code></pre><h4 id="handle-callback"><strong> Handle Callback:</strong></h4>
+<p>This callback is responsible for getting us the values whenever the sensor updates.</p>
+<pre><code>private SensorEventListener lightSensorListener = newSensorEventListener() {
+    @Override
+    public voidonSensorChanged(SensorEvent event) {
+        Log.d(&quot;MY_APP&quot;, event.toString());
+        Log.e(&quot;event&quot;, event.values[0] +&quot;&quot;); //the values array is a float array representing the value across different coordinate systems
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        Log.d(&quot;MY_APP&quot;, sensor.toString() +&quot; - &quot;+ accuracy);
+    }
+};
+</code></pre><p>These two functions implemented are called when:</p>
+<ol>
+<li><strong>A sensor&apos;s accuracy changes:</strong></li>
+</ol>
+<p>In this case the system invokes the <a href="http://developer.android.com/reference/android/hardware/SensorEventListener.html#onAccuracyChanged%28android.hardware.Sensor, int%29" target="_blank">onAccuracyChanged()</a> method, providing you with a reference to the <a href="http://developer.android.com/reference/android/hardware/Sensor.html" target="_blank">Sensor</a> object that changed and the new accuracy of the sensor.</p>
+<p>Accuracy is represented by one of four status constants:</p>
+<ul>
+<li><a href="http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_LOW" target="_blank">SENSOR_STATUS_ACCURACY_LOW</a></li>
+<li><a href="http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_MEDIUM" target="_blank">SENSOR_STATUS_ACCURACY_MEDIUM</a></li>
+<li><a href="http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_ACCURACY_HIGH" target="_blank">SENSOR_STATUS_ACCURACY_HIGH</a></li>
+<li><p><a href="http://developer.android.com/reference/android/hardware/SensorManager.html#SENSOR_STATUS_UNRELIABLE" target="_blank">SENSOR_STATUS_UNRELIABLE</a></p>
+<ol>
+<li><strong>A sensor reports a new value: </strong></li>
+</ol>
+</li>
+</ul>
+<p>In this case the system invokes the <a href="http://developer.android.com/reference/android/hardware/SensorEventListener.html#onSensorChanged%28android.hardware.SensorEvent%29" target="_blank">onSensorChanged()</a> method, providing you with a <a href="http://developer.android.com/reference/android/hardware/SensorEvent.html" target="_blank">SensorEvent</a> object.<br>A <a href="http://developer.android.com/reference/android/hardware/SensorEvent.html" target="_blank">SensorEvent</a> object contains information about the new sensor data, including:</p>
+<ul>
+<li>The accuracy of the data</li>
+<li>The sensor that generated the data</li>
+<li>The timestamp at which the data was generated</li>
+<li>The new data that the sensor recorded.</li>
+</ul>
+<p>For every sensor, event contains an array of values, each of which has a different meaning, for example (environmental sensors).</p>
+<p><em><strong>Note</strong> : To declare that a sensor is absolutely required by your application:</em></p>
+<pre><code>&lt;uses-feature
+    android:name=&quot;android.hardware.sensor.accelerometer&quot;
+    android:required=&quot;true&quot;/&gt;
+</code></pre><p><em>If the device does not support the above hardware, your application won&#x2019;t show in their play store (incompatible)</em></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="15-1-location.html" class="navigation navigation-prev " aria-label="Previous page: 15.1 Location API">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="15-3-camera.html" class="navigation navigation-next " aria-label="Next page: 15.3 Camera">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"15.2 Sensors","level":"1.16.2","depth":2,"next":{"title":"15.3 Camera","level":"1.16.3","depth":2,"path":"15-location-and-sensors/15-3-camera.md","ref":"15-location-and-sensors/15-3-camera.md","articles":[]},"previous":{"title":"15.1 Location API","level":"1.16.1","depth":2,"path":"15-location-and-sensors/15-1-location.md","ref":"15-location-and-sensors/15-1-location.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"15-location-and-sensors/15-2-sensors.md","mtime":"2018-10-01T18:05:08.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:06:12.922Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

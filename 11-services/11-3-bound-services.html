@@ -1,0 +1,868 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>11.3 Bound Services · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../12-alarms/intro.html" />
+    
+    
+    <link rel="prev" href="11-2-background-services.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../01-project-structure/intro.html">
+            
+                <a href="../01-project-structure/intro.html">
+            
+                    
+                    1. Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../02-basic-widgets/basicandroidwidgets.html">
+            
+                <a href="../02-basic-widgets/basicandroidwidgets.html">
+            
+                    
+                    2. Basic Widgets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../03-list-view/intro.html">
+            
+                <a href="../03-list-view/intro.html">
+            
+                    
+                    3. List View
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../03-list-view/03-1-custom-adapter.html">
+            
+                <a href="../03-list-view/03-1-custom-adapter.html">
+            
+                    
+                    3.1 Custom Adapter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../04-intents/implicit-and-explicit.html">
+            
+                <a href="../04-intents/implicit-and-explicit.html">
+            
+                    
+                    4. Intents
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../04-intents/implicit-and-explicit.html">
+            
+                <a href="../04-intents/implicit-and-explicit.html">
+            
+                    
+                    4.1 Implicit and Explicit intents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../04-intents/assignments.html">
+            
+                <a href="../04-intents/assignments.html">
+            
+                    
+                    4.2 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../05-databases/intro.html">
+            
+                <a href="../05-databases/intro.html">
+            
+                    
+                    5. Databases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../06-broadcasts-receivers/intro.html">
+            
+                <a href="../06-broadcasts-receivers/intro.html">
+            
+                    
+                    6. Broadcast Receivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../07-asynctask/intro.html">
+            
+                <a href="../07-asynctask/intro.html">
+            
+                    
+                    7. AsyncTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../08-network-operations/intro.html">
+            
+                <a href="../08-network-operations/intro.html">
+            
+                    
+                    8. Network Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../09-recycler-view/intro.html">
+            
+                <a href="../09-recycler-view/intro.html">
+            
+                    
+                    9. RecyclerView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../10-retrofit/intro.html">
+            
+                <a href="../10-retrofit/intro.html">
+            
+                    
+                    10. Retrofit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    11. Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="11-1-foreground-services.html">
+            
+                <a href="11-1-foreground-services.html">
+            
+                    
+                    11.1 Foreground Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="11-2-background-services.html">
+            
+                <a href="11-2-background-services.html">
+            
+                    
+                    11.2 Background Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.3" data-path="11-3-bound-services.html">
+            
+                <a href="11-3-bound-services.html">
+            
+                    
+                    11.3 Bound Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../12-alarms/intro.html">
+            
+                <a href="../12-alarms/intro.html">
+            
+                    
+                    12. Alarms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../13-fragments/intro.html">
+            
+                <a href="../13-fragments/intro.html">
+            
+                    
+                    13. Fragments
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../13-fragments/13-1-static-fragments.html">
+            
+                <a href="../13-fragments/13-1-static-fragments.html">
+            
+                    
+                    13.1 Static Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../13-fragments/13-2-dynamic-fragments.html">
+            
+                <a href="../13-fragments/13-2-dynamic-fragments.html">
+            
+                    
+                    13.2 Dynamic Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../14-permissions/intro.html">
+            
+                <a href="../14-permissions/intro.html">
+            
+                    
+                    14. Permissions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../14-permissions/14-1-runtime-permissions.html">
+            
+                <a href="../14-permissions/14-1-runtime-permissions.html">
+            
+                    
+                    14.1 Runtime Permissions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../15-location-and-sensors/intro.html">
+            
+                <a href="../15-location-and-sensors/intro.html">
+            
+                    
+                    15. Location and Sensors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../15-location-and-sensors/15-1-location.html">
+            
+                <a href="../15-location-and-sensors/15-1-location.html">
+            
+                    
+                    15.1 Location API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../15-location-and-sensors/15-2-sensors.html">
+            
+                <a href="../15-location-and-sensors/15-2-sensors.html">
+            
+                    
+                    15.2 Sensors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../15-location-and-sensors/15-3-camera.html">
+            
+                <a href="../15-location-and-sensors/15-3-camera.html">
+            
+                    
+                    15.3 Camera
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../15-location-and-sensors/assignments.html">
+            
+                <a href="../15-location-and-sensors/assignments.html">
+            
+                    
+                    15.4 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
+            
+                <a href="../16-google-maps/intro.html">
+            
+                    
+                    16. Google Maps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
+            
+                <a href="../16-google-maps/16-1-maps-api.html">
+            
+                    
+                    16.1 Google Maps API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
+            
+                <a href="../16-google-maps/16-2-creating-maps.html">
+            
+                    
+                    16.2 Creating Maps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../17-firebase/intro.html">
+            
+                <a href="../17-firebase/intro.html">
+            
+                    
+                    17. Firebase
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.18.1" data-path="../17-firebase/17-1-realtime-db.html">
+            
+                <a href="../17-firebase/17-1-realtime-db.html">
+            
+                    
+                    17.1 Realtime Database
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.2" data-path="../17-firebase/17-2-push-notifications.html">
+            
+                <a href="../17-firebase/17-2-push-notifications.html">
+            
+                    
+                    17.2 Push Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../18-graphics-and-animations/intro.html">
+            
+                <a href="../18-graphics-and-animations/intro.html">
+            
+                    
+                    18 Graphics and Animations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.19.1" data-path="../18-graphics-and-animations/18-1-graphics.html">
+            
+                <a href="../18-graphics-and-animations/18-1-graphics.html">
+            
+                    
+                    18.1 Graphics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.2" data-path="../18-graphics-and-animations/18-2-animations.html">
+            
+                <a href="../18-graphics-and-animations/18-2-animations.html">
+            
+                    
+                    18.2 Animations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >11.3 Bound Services</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="bound-service">Bound Service.</h2>
+<p>A bound service is the server in a client-server interface. It allows components (such as activities) to bind to the service, send requests, receive responses, and perform interprocess communication (IPC).They can send data to the launching component (client). </p>
+<h2 id="implementation-of-bound-service-">Implementation of Bound Service .</h2>
+<p>Binding is done using the Context.bindService() method whereas it is terminated with Context.unbindService(). The binding is also destroyed if the client component&#x2019;s lifecycle ends.</p>
+<p>When a client component binds to a Bound Service it retrieves a communication interface for sending requests and receiving responses within the process or even across processes. It returns an IBinder interface implementation from its <code>onBind()</code> method through the ServiceConnection interface supplied by the binding client component when invoking <code>bindService()</code>.</p>
+<ul>
+<li>Build a new project .</li>
+<li>Create a new class and name that as a <code>TestService</code>.</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Service</span> </span>{
+
+    <span class="hljs-keyword">private</span> String TAG = <span class="hljs-string">&quot;TestService&quot;</span>;
+
+    <span class="hljs-keyword">private</span> IBinder myBinder = <span class="hljs-keyword">new</span> MyBinder();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TestService</span><span class="hljs-params">()</span> </span>{
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span> </span>{
+        Log.d(TAG, <span class="hljs-string">&quot;onCreate called&quot;</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> IBinder <span class="hljs-title">onBind</span><span class="hljs-params">(Intent intent)</span> </span>{
+        Log.d(TAG, <span class="hljs-string">&quot;onBind done&quot;</span>);
+        <span class="hljs-keyword">return</span> myBinder;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onUnbind</span><span class="hljs-params">(Intent intent)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBinder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Binder</span> </span>{
+        <span class="hljs-function">TestService <span class="hljs-title">getService</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> TestService.<span class="hljs-keyword">this</span>;
+        }
+    }
+
+
+    <span class="hljs-comment">// Methods used by the binding client components</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">methodOne</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Some code...</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">methodTwo</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Some code...</span>
+    }
+
+}
+</code></pre>
+<ul>
+<li><p>The <code>onBind()</code> method is called when the client component binds to the Service for the first time through <code>bindService().</code> </p>
+</li>
+<li><p>It returns an IBinder implementation that the client can use to interact with the Service by calling methods in the Service class. This IBinder
+implementation is basically a communication interface to send requests and receive responses either within a particular process or across processes.</p>
+</li>
+<li><p><code>onUnbind()</code> is called when all bindings are unbound.</p>
+</li>
+<li><p>The IBinder is returned to the client through a ServiceConnection interface that the client has to supply while binding. </p>
+</li>
+</ul>
+<pre><code class="lang-java">Intent intent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, TestService.class);
+bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+</code></pre>
+<ul>
+<li><p><code>Intent</code> defines the Service to bind to and shouldn&#x2019;t contain any other extra data. </p>
+</li>
+<li><p>The binding client has to provide a ServiceConnection </p>
+</li>
+</ul>
+<pre><code class="lang-java">TestService testService;
+<span class="hljs-keyword">boolean</span> isBound = <span class="hljs-keyword">false</span>;
+
+<span class="hljs-keyword">private</span> ServiceConnection serviceConnection = <span class="hljs-keyword">new</span> ServiceConnection() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onServiceConnected</span><span class="hljs-params">(ComponentName name, IBinder service)</span> </span>{
+        TestService.MyBinder binder = (TestService.MyBinder) service;
+        testService = binder.getService();
+        isBound = <span class="hljs-keyword">true</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onServiceDisconnected</span><span class="hljs-params">(ComponentName name)</span> </span>{
+        testService = <span class="hljs-keyword">null</span>;
+        isBound = <span class="hljs-keyword">false</span>;
+    }
+};
+</code></pre>
+<ul>
+<li><p>This way the binding client gets notify when the binding is established or disconnected. </p>
+</li>
+<li><p>the binding connection can be observed. The last argument <code>(flags)</code> passed to <code>bindService()</code> defines the operation options.</p>
+</li>
+<li><p>Now that you&#x2019;ve the testService object, you can call important methods like <code>methodOne()</code> and <code>methodTwo()</code> </p>
+</li>
+<li><p>Note this execution happens on the thread of the calling client. Hence if it&#x2019;s the UI thread, long running operations should be prevented and a new Thread should be spawned to handle them in background in <code>methodOne()</code> and <code>methodTwo()</code>.</p>
+</li>
+</ul>
+<ul>
+<li>Multiple clients can bind to the service, the system calls your Service&#x2019;s <code>onBind()</code> only once when the first client binds to retrieve the <code>IBinder.</code> The system then won&#x2019;t call <code>onBind()</code> again when any additional clients bind. Instead it&#x2019;ll deliver the same <code>IBinder.</code></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="11-2-background-services.html" class="navigation navigation-prev " aria-label="Previous page: 11.2 Background Services">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../12-alarms/intro.html" class="navigation navigation-next " aria-label="Next page: 12. Alarms">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"11.3 Bound Services","level":"1.12.3","depth":2,"next":{"title":"12. Alarms","level":"1.13","depth":1,"path":"12-alarms/intro.md","ref":"12-alarms/intro.md","articles":[]},"previous":{"title":"11.2 Background Services","level":"1.12.2","depth":2,"path":"11-services/11-2-background-services.md","ref":"11-services/11-2-background-services.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"11-services/11-3-bound-services.md","mtime":"2018-10-01T18:05:08.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:06:12.922Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

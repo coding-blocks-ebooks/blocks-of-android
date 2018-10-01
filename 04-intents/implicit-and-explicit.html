@@ -1,0 +1,836 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4. Intents · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="implicit-and-explicit.html" />
+    
+    
+    <link rel="prev" href="../03-list-view/03-1-custom-adapter.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../01-project-structure/intro.html">
+            
+                <a href="../01-project-structure/intro.html">
+            
+                    
+                    1. Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../02-basic-widgets/basicandroidwidgets.html">
+            
+                <a href="../02-basic-widgets/basicandroidwidgets.html">
+            
+                    
+                    2. Basic Widgets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../03-list-view/intro.html">
+            
+                <a href="../03-list-view/intro.html">
+            
+                    
+                    3. List View
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../03-list-view/03-1-custom-adapter.html">
+            
+                <a href="../03-list-view/03-1-custom-adapter.html">
+            
+                    
+                    3.1 Custom Adapter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="implicit-and-explicit.html">
+            
+                <a href="implicit-and-explicit.html">
+            
+                    
+                    4. Intents
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="implicit-and-explicit.html">
+            
+                <a href="implicit-and-explicit.html">
+            
+                    
+                    4.1 Implicit and Explicit intents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="assignments.html">
+            
+                <a href="assignments.html">
+            
+                    
+                    4.2 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../05-databases/intro.html">
+            
+                <a href="../05-databases/intro.html">
+            
+                    
+                    5. Databases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../06-broadcasts-receivers/intro.html">
+            
+                <a href="../06-broadcasts-receivers/intro.html">
+            
+                    
+                    6. Broadcast Receivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../07-asynctask/intro.html">
+            
+                <a href="../07-asynctask/intro.html">
+            
+                    
+                    7. AsyncTask
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../08-network-operations/intro.html">
+            
+                <a href="../08-network-operations/intro.html">
+            
+                    
+                    8. Network Operations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../09-recycler-view/intro.html">
+            
+                <a href="../09-recycler-view/intro.html">
+            
+                    
+                    9. RecyclerView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../10-retrofit/intro.html">
+            
+                <a href="../10-retrofit/intro.html">
+            
+                    
+                    10. Retrofit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../11-services/intro.html">
+            
+                <a href="../11-services/intro.html">
+            
+                    
+                    11. Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../11-services/11-1-foreground-services.html">
+            
+                <a href="../11-services/11-1-foreground-services.html">
+            
+                    
+                    11.1 Foreground Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../11-services/11-2-background-services.html">
+            
+                <a href="../11-services/11-2-background-services.html">
+            
+                    
+                    11.2 Background Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../11-services/11-3-bound-services.html">
+            
+                <a href="../11-services/11-3-bound-services.html">
+            
+                    
+                    11.3 Bound Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../12-alarms/intro.html">
+            
+                <a href="../12-alarms/intro.html">
+            
+                    
+                    12. Alarms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../13-fragments/intro.html">
+            
+                <a href="../13-fragments/intro.html">
+            
+                    
+                    13. Fragments
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../13-fragments/13-1-static-fragments.html">
+            
+                <a href="../13-fragments/13-1-static-fragments.html">
+            
+                    
+                    13.1 Static Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../13-fragments/13-2-dynamic-fragments.html">
+            
+                <a href="../13-fragments/13-2-dynamic-fragments.html">
+            
+                    
+                    13.2 Dynamic Fragments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../14-permissions/intro.html">
+            
+                <a href="../14-permissions/intro.html">
+            
+                    
+                    14. Permissions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../14-permissions/14-1-runtime-permissions.html">
+            
+                <a href="../14-permissions/14-1-runtime-permissions.html">
+            
+                    
+                    14.1 Runtime Permissions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../15-location-and-sensors/intro.html">
+            
+                <a href="../15-location-and-sensors/intro.html">
+            
+                    
+                    15. Location and Sensors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../15-location-and-sensors/15-1-location.html">
+            
+                <a href="../15-location-and-sensors/15-1-location.html">
+            
+                    
+                    15.1 Location API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../15-location-and-sensors/15-2-sensors.html">
+            
+                <a href="../15-location-and-sensors/15-2-sensors.html">
+            
+                    
+                    15.2 Sensors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../15-location-and-sensors/15-3-camera.html">
+            
+                <a href="../15-location-and-sensors/15-3-camera.html">
+            
+                    
+                    15.3 Camera
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../15-location-and-sensors/assignments.html">
+            
+                <a href="../15-location-and-sensors/assignments.html">
+            
+                    
+                    15.4 Assignments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
+            
+                <a href="../16-google-maps/intro.html">
+            
+                    
+                    16. Google Maps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
+            
+                <a href="../16-google-maps/16-1-maps-api.html">
+            
+                    
+                    16.1 Google Maps API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
+            
+                <a href="../16-google-maps/16-2-creating-maps.html">
+            
+                    
+                    16.2 Creating Maps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../17-firebase/intro.html">
+            
+                <a href="../17-firebase/intro.html">
+            
+                    
+                    17. Firebase
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.18.1" data-path="../17-firebase/17-1-realtime-db.html">
+            
+                <a href="../17-firebase/17-1-realtime-db.html">
+            
+                    
+                    17.1 Realtime Database
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.2" data-path="../17-firebase/17-2-push-notifications.html">
+            
+                <a href="../17-firebase/17-2-push-notifications.html">
+            
+                    
+                    17.2 Push Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../18-graphics-and-animations/intro.html">
+            
+                <a href="../18-graphics-and-animations/intro.html">
+            
+                    
+                    18 Graphics and Animations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.19.1" data-path="../18-graphics-and-animations/18-1-graphics.html">
+            
+                <a href="../18-graphics-and-animations/18-1-graphics.html">
+            
+                    
+                    18.1 Graphics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19.2" data-path="../18-graphics-and-animations/18-2-animations.html">
+            
+                <a href="../18-graphics-and-animations/18-2-animations.html">
+            
+                    
+                    18.2 Animations
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4. Intents</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="intent"><strong>Intent</strong></h1>
+<p>Intents in Android are used as messaging objects. You will use intents whenever you want to get a task done by another part of the system. These tasks can range from starting another activity to starting a background service to download some data. We haven&#x2019;t discussed Services and Broadcasts yet, so I will restrict these notes to starting new activities.</p>
+<p>Intents can be broadly classified into two categories:</p>
+<h3 id="explicit-intents-"><strong>Explicit Intents: </strong></h3>
+<p>When we specify the exact activity class (or component) that should handle the intent. We will use this methodology to launch new activities within the app. For example, in our stocks app, when the user clicks on a company in the list we would like to show a detailed page to user. For this, we can create an explicit intent.</p>
+<p>Here is the sample code for that:</p>
+<pre><code>Intent i =newIntent();
+i.setClass(getApplicationContext(), DetailedActivity.class);
+startActivity(i);
+</code></pre><p>Here in this code we created an intent and set the DetailedActivity class as the class, which should handle the intent. startActivity function is used to pass the intent to Android and start the transition. Instead of using setClass function, you could have used the setComponent, setClassName functions as well. To make this work, you would need to create a DetailedActivity class and add that activity to your manifest.xml file.</p>
+<h3 id="implicit-intents"><strong>Implicit Intents:</strong></h3>
+<p>Sometimes we don&#x2019;t care which activity takes care of our intent. We just want some activity to handle the task at hand. For example, if user clicks on a website link in our app, we would like the link to be opened by a browser. We don&#x2019;t really care which app is used to open the link, as long as it can take care of the task at hand.<br>In these cases, we won&#x2019;t set the class that should handle the intent, instead we tell the task to be done and Android finds all the activities, which can handle it. </p>
+<p>Here are some attributes, which we can use to describe a task.</p>
+<p><strong>Action: </strong>This string specifies the generic action type. Action can be View or Send. For example, if you want to open a link in browser it will be <strong>ACTION_VIEW</strong> whereas to send an email you should use <strong>ACTION_SEND</strong>.</p>
+<p><strong>Data:  </strong>Data is a Uri type object. It contains the details of the task to be done as well as the MIME (<a href="http://en.wikipedia.org/wiki/MIME\" target="_blank">http://en.wikipedia.org/wiki/MIME\</a>) type of the task. For example, to open a website, we will set the data Uri to be &#x201C;<a href="http://www.google.com&#x201D;" target="_blank">http://www.google.com&#x201D;</a>. </p>
+<p>Here http:// is the MIME type, which tells Android that activities that can handle http data should be used to complete this task. Also <a href="http://www.google.com" target="_blank">www.google.com</a> is the data that tells the target activity which website should be opened.</p>
+<p><strong>Category: </strong>This contains additional information about the activity to be launched.<br>For example, <strong>CATEGORY_DEFAULT</strong> tells that the activity to be launched should be an activity, which opens in standard full screen mode whereas <strong>CATEGORY_TAB</strong> tells that the activity should be launched as a tab in a TabActivity.</p>
+<p><strong>Type: </strong>This is the MIME type that we have already discussed while talking about data.<br>In case you don&#x2019;t have any data to be passed you can use the setType function and just set the type of intent.</p>
+<p>Here are few examples of implicit Intents:</p>
+<p>Opening a link:</p>
+<pre><code>Intent i =newIntent();
+i.setAction(Intent.ACTION_VIEW);
+Uri a = Uri.parse(&quot;http://www.google.com&quot;);
+i.setData(a);
+startActivity(i);
+</code></pre><p>Email:</p>
+<pre><code>Intent i =newIntent (Intent.ACTION_SENDTO);
+i.setData(Uri.parse(&quot;mailto:ankush@codingblocks.com&quot;));
+i.putExtra(Intent.EXTRA_SUBJECT,&quot;subject&quot;);
+if(i.resolveActivity(getPackageManager()) !=null) {
+    startActivity(i);
+}
+</code></pre><p>In the second example, we first checked if the intent can be resolved by any of the applications installed by the user or not. We start the activity only if intent can be resolved, otherwise our app would have crashed.</p>
+<h3 id="receiving-intents-intent-filters-"><strong>Receiving Intents (Intent Filters): </strong></h3>
+<p>As discussed while using implicit intents you can tell Android the kind of task you want to get done and it will find the activities that can take care of the task.<br>Now, if we build an activity which can take care of tasks, we would like Android to show our application as one of the options to the user.<br>In order to achieve this, we will be using Intent Filters. </p>
+<p>Intent Filters are added in the Manifest.xml file and from there Android can find out what kind of tasks can be taken care by which activity of our application.<br>For example, if we were building a browser and BrowserActivity is the class which can take open webpages, we can add following code in the manifest file.</p>
+<pre><code>&lt;activity android:name=&quot;.BrowserActivity&quot; android:label=&quot;Browser&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.VIEW&quot;/&gt;
+        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;
+        &lt;data android:scheme=&quot;http&quot;/&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p>Here we are telling Android that we have an activity BrowserActivity that can take care of view action on data with MIME type http.<br>Default category is the category used by intents when we don&#x2019;t mention any other category.<br>We can similarly add intent filters for various actions, MIME types and categories.</p>
+<h3 id="passing-data-between-activities"><strong>Passing data between activities</strong></h3>
+<p><strong>Caller to callee: </strong></p>
+<p>A lot of times you would like to pass additional data to the target activity and the data can range from the database id of an object or other attributes that can be used by the target activity to show data.<br>The Intent class provides a bunch of putExtra functions, which can be used to pass different kind of data.<br>For example, in a stocks app we might want to pass the company&#x2019;s ticker symbol to the detailed activity.</p>
+<p>Here is the sample code on caller side:</p>
+<pre><code class="lang-java">Intent i =newIntent();
+i.setClass(getApplicationContext(), DetailedActivity.class);
+i.putExtra(<span class="hljs-string">&quot;company_name&quot;</span>, c.name);
+startActivity(i);
+</code></pre>
+<p>On the callee side we can use the getExtras function to get an object of class Bundle that contains all the extra data that was passed by the caller.</p>
+<p>Here is the sample code on callee side:</p>
+<pre><code class="lang-java">Intent i = getIntent();
+Bundle b = i.getExtras();
+String companyName = b.getString(<span class="hljs-string">&quot;company_name&quot;</span>);
+</code></pre>
+<p><strong>Callee to Caller: </strong></p>
+<p>Not as common as the first case but sometimes we want the target activity to complete a task and return the result to us. For example, we may want to create a new activity where user can add a new company to list of companies. We might want this activity to return the data that user has entered and save the data in the original activity.<br>For cases like these, the caller need to use startActivityForResult function instead of the startActivity function.<br>Caller also needs to implement onActivityResult method, which gets called once the target activity finishes. </p>
+<p>Here are the functions:</p>
+<pre><code class="lang-java">startActivityForResult(intent, requestCode);
+onActivityResult(<span class="hljs-keyword">int</span> requestCode , <span class="hljs-keyword">int</span> resultCode, Intent data);
+</code></pre>
+<p>Here the caller sets the requestCode and the callee sets the resultCode. These codes are used to differentiate between various possible intents that could have finished and to differentiate between different outcomes (like success or failure).<br>For example, our main activity could have called Activity A in one function and Activity B in some other function and Activity A in third function but this time for some other task. We could use the requestCode to differentiate between these three cases.</p>
+<p>On the callee side, you need to set the resultCode and data to be sent back.<br>You can add any kind of data to be sent back in intent extras, similar to what we did while sending data from caller to callee.</p>
+<pre><code class="lang-java">Intent data =newIntent();
+data.putExtras(&#x201C;extra_data&#x201D;, &#x201C;done&#x201D;);
+setResult(resultCode, data);
+</code></pre>
+<p>You can add this code to finish() method of activity, which is called every time the activity is about to be finished.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../03-list-view/03-1-custom-adapter.html" class="navigation navigation-prev " aria-label="Previous page: 3.1 Custom Adapter">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="implicit-and-explicit.html" class="navigation navigation-next " aria-label="Next page: 4.1 Implicit and Explicit intents">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4. Intents","level":"1.5","depth":1,"next":{"title":"4.1 Implicit and Explicit intents","level":"1.5.1","depth":2,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[]},"previous":{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04-intents/implicit-and-explicit.md","mtime":"2018-10-01T18:05:08.830Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:06:12.922Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
