@@ -714,37 +714,37 @@ Dangerous permission .</p>
 <p>It indicates that there&apos;s no great risk to the user&apos;s privacy or security in letting apps have those permissions.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.INTERNET&quot;</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.REQUEST_INSTALL_PACKAGES&quot;</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.BLUETOOTH&quot;</span>/&gt;</span>
-</code></pre>
-<ul>
-<li><p>Create a new project in Android Studio</p>
-</li>
-<li><p>Open up your <code>Main_Activity.java</code>  </p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.stonedcoder.coding-blocks.permissions;
+<span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.BLUETOOTH&quot;</span>/&gt;</span>```
 
-<span class="hljs-keyword">import</span> android.support.v7.app.AppCompatActivity;
-<span class="hljs-keyword">import</span> android.os.Bundle;
-<span class="hljs-keyword">import</span> android.Manifest;
-<span class="hljs-keyword">import</span> android.content.pm.PackageManager;
-<span class="hljs-keyword">import</span> android.support.v4.content.ContextCompat;
-<span class="hljs-keyword">import</span> android.util.Log;
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+* Create a new project in Android Studio
 
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String TAG = <span class="hljs-string">&quot;Permission &quot;</span>;
+* Open up your `Main_Activity.java`
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
-        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+```java
+package com.stonedcoder.coding-blocks.permissions;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static String TAG = &quot;Permission &quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission_demo);
 
-        <span class="hljs-keyword">int</span> permission = ContextCompat.checkSelfPermission(<span class="hljs-keyword">this</span>,
+        int permission = ContextCompat.checkSelfPermission(this,
             Manifest.permission.RECORD_AUDIO);
 
-        <span class="hljs-keyword">if</span> (permission != PackageManager.PERMISSION_GRANTED) {
-            Log.i(TAG, <span class="hljs-string">&quot;Permission to record denied&quot;</span>);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, &quot;Permission to record denied&quot;);
         }
     }
 }
@@ -761,14 +761,12 @@ Dangerous permission .</p>
 <li><p>Now open up <code>AndroidManifest.xml</code></p>
 </li>
 </ul>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.RECORD_AUDIO&quot;</span> /&gt;</span>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.RECORD_AUDIO&quot;</span> /&gt;</span>```
+
+* Compile and run the app once again and note that this time the permission denial message does not appear.
+
+* However, and note that even though permission has been added to the manifest file, the check still reports that permission has been denied. This is because Android 6 requires that the app also request dangerous permissions at runtime.
 </code></pre>
-<ul>
-<li><p>Compile and run the app once again and note that this time the permission denial message does not appear.</p>
-</li>
-<li><p>However, and note that even though permission has been added to the manifest file, the check still reports that permission has been denied. This is because Android 6 requires that the app also request dangerous permissions at runtime.</p>
-</li>
-</ul>
 
                                 
                                 </section>
@@ -812,7 +810,7 @@ Dangerous permission .</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"14. Permissions","level":"1.15","depth":1,"next":{"title":"14.1 Runtime Permissions","level":"1.15.1","depth":2,"path":"14-permissions/14-1-runtime-permissions.md","ref":"14-permissions/14-1-runtime-permissions.md","articles":[]},"previous":{"title":"13.2 Dynamic Fragments","level":"1.14.2","depth":2,"path":"13-fragments/13-2-dynamic-fragments.md","ref":"13-fragments/13-2-dynamic-fragments.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"14-permissions/intro.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"14. Permissions","level":"1.15","depth":1,"next":{"title":"14.1 Runtime Permissions","level":"1.15.1","depth":2,"path":"14-permissions/14-1-runtime-permissions.md","ref":"14-permissions/14-1-runtime-permissions.md","articles":[]},"previous":{"title":"13.2 Dynamic Fragments","level":"1.14.2","depth":2,"path":"13-fragments/13-2-dynamic-fragments.md","ref":"13-fragments/13-2-dynamic-fragments.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"14-permissions/intro.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

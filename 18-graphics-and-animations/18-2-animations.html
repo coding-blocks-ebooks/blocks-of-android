@@ -758,8 +758,8 @@ tv.startAnimation(a);
 <p>Let&#x2019;s look at some limitations of view animations.</p>
 <ol>
 <li>By now you must have realized that the views end up going to their original places and configs. In order for the final configuration of animation to persists, you can use setFillAfter() function.</li>
-<li>Change your textview to a button and try clicking on the translated view. The issue here is that view animation only change the display, they  don&#x2019;t really move the button. You will have to change the actual  location once the animation finishes.</li>
-<li>View animations  can only apply to views. You can&#x2019;t animate content within the view.</li>
+<li>Change your textview to a button and try clicking on the translated view. The issue here is that view animation only change the display, they don&#x2019;t really move the button. You will have to change the actual location once the animation finishes.</li>
+<li>View animations can only apply to views. You can&#x2019;t animate content within the view.</li>
 <li>You have these 4-5 fixed properties that can be animated. These are the most commonly used properties, so they would suffice most of times.</li>
 </ol>
 <h3 id="shared-transition-animations"><strong>Shared Transition Animations:</strong></h3>
@@ -767,10 +767,10 @@ tv.startAnimation(a);
 <p><strong>Note that the shared element transitions require Android 5.0 (API level 21) and above and will be ignored for any lower API versions.</strong></p>
 <p>The steps to follow are:</p>
 <ul>
-<li><strong> </strong>Enable Window Content Transitions in our styles.xml file:</li>
+<li>** **Enable Window Content Transitions in our styles.xml file:</li>
 </ul>
-<pre><code>&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt; 
-&lt;!-- Customize your theme here. --&gt; 
+<pre><code>&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;
+&lt;!-- Customize your theme here. --&gt;
     &lt;item name=&quot;android:windowContentTransitions&quot;&gt;true&lt;/item&gt;
 &lt;/style&gt;
 </code></pre><ul>
@@ -816,7 +816,7 @@ publicbooleanonOptionsItemSelected(MenuItemitem){
 }
 </code></pre><p>For multiple shared components, we need to create pairs and pass them as such.</p>
 <h3 id="property-animations"><strong>Property Animations:</strong></h3>
-<p>Google introduced new animation library, in order to  fix all the issues that we saw with view animations. This was introduced with API 11 i.e. Android 3.0. Some of the features were added in API 12 as well.<br>Support library doesn&#x2019;t provide backward compatibility for these.<br>You might want to have a look at <a href="http://nineoldandroids.com/" target="_blank">http://nineoldandroids.com/</a>. This library provides these new features to old API&#x2019;s till API 1. </p>
+<p>Google introduced new animation library, in order to fix all the issues that we saw with view animations. This was introduced with API 11 i.e. Android 3.0. Some of the features were added in API 12 as well.<br>Support library doesn&#x2019;t provide backward compatibility for these.<br>You might want to have a look at <a href="http://nineoldandroids.com/" target="_blank">http://nineoldandroids.com/</a>. This library provides these new features to old API&#x2019;s till API 1.</p>
 <p>Let&#x2019;s discuss various components of the new system. Here for demonstration, we will try to emulate a bouncing ball.</p>
 <p><strong>Value Animator:</strong></p>
 <p>This is the main timing engine in the new framework.<br>This has control over the whole animation and it takes care of the time interpolator as well. Let&#x2019;s see some code to animate a bouncing ball.</p>
@@ -866,7 +866,7 @@ AccelerateInterpolator()).withEndAction(godown);
 </code></pre><p>Here the last argument is the runnable that will be run when this animation gets over.</p>
 <p><strong>Activity transition:</strong>After calling startActivity, we can override the transition between the screens. For this we will have to add two animations, one for the view going out and the other for the view coming in. After which we can just use this code:</p>
 <p><code>overridePendingTransition(R.anim.slide_in, R.anim.slide_out);</code></p>
-<p>This will make the transition according to these animations instead of the default android animations. We will have to do something on our way back from the detailed activity. For that we need to override the onBackPressed function and add similar line their. </p>
+<p>This will make the transition according to these animations instead of the default android animations. We will have to do something on our way back from the detailed activity. For that we need to override the onBackPressed function and add similar line their.</p>
 <p>Similarly for fragment transactions we can set the custom animations on the FragmentTransaction.</p>
 
                                 
@@ -907,7 +907,7 @@ AccelerateInterpolator()).withEndAction(godown);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"18.2 Animations","level":"1.19.2","depth":2,"previous":{"title":"18.1 Graphics","level":"1.19.1","depth":2,"path":"18-graphics-and-animations/18-1-graphics.md","ref":"18-graphics-and-animations/18-1-graphics.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"18-graphics-and-animations/18-2-animations.md","mtime":"2018-10-01T18:15:15.036Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"18.2 Animations","level":"1.19.2","depth":2,"previous":{"title":"18.1 Graphics","level":"1.19.1","depth":2,"path":"18-graphics-and-animations/18-1-graphics.md","ref":"18-graphics-and-animations/18-1-graphics.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"18-graphics-and-animations/18-2-animations.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -697,139 +697,135 @@
 <ul>
 <li>In our <code>MapFragment</code> class, you need to define some global values at the top of the class for use in your application.</li>
 </ul>
-<pre><code class="lang-java"><span class="hljs-keyword">private</span> GoogleApiClient mGoogleApiClient;
-<span class="hljs-keyword">private</span> Location mCurrentLocation;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span>[] MAP_TYPES = {
+<pre><code class="lang-java">private GoogleApiClient mGoogleApiClient;
+private Location mCurrentLocation;
+private final int[] MAP_TYPES = {
     GoogleMap.MAP_TYPE_SATELLITE,
     GoogleMap.MAP_TYPE_NORMAL,
     GoogleMap.MAP_TYPE_HYBRID,
     GoogleMap.MAP_TYPE_TERRAIN,
     GoogleMap.MAP_TYPE_NONE
 };
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> curMapTypeIndex = <span class="hljs-number">0</span>;
-</code></pre>
-<ul>
-<li><p><code>mGoogleApiClient</code> and <code>mCurrentLocation</code> are used for getting the user&apos;s location for initializing the map camera.</p>
-</li>
-<li><p><code>MAP_TYPES</code> and <code>curMapTypeIndex</code> are used in the sample code for switching between different map display types.</p>
-</li>
-</ul>
-<p><strong>Creating the API Client</strong></p>
-<ul>
-<li>You need to create your <code>GoogleApiClient</code> and initiate LocationServices in order to get your user&apos;s current location.</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onViewCreated</span><span class="hljs-params">(View view, Bundle savedInstanceState)</span> </span>{
-    <span class="hljs-keyword">super</span>.onViewCreated(view, savedInstanceState);
-    setHasOptionsMenu(<span class="hljs-keyword">true</span>);
-    mGoogleApiClient = <span class="hljs-keyword">new</span> GoogleApiClient.Builder(getActivity())
-        .addConnectionCallbacks(<span class="hljs-keyword">this</span>)
-        .addOnConnectionFailedListener(<span class="hljs-keyword">this</span>)
+private int curMapTypeIndex = 0;```
+* `mGoogleApiClient` and `mCurrentLocation` are used for getting the user&apos;s location for initializing the map camera.
+
+* `MAP_TYPES` and `curMapTypeIndex` are used in the sample code for switching between different map display types.
+
+**Creating the API Client**
+
+* You need to create your `GoogleApiClient` and initiate LocationServices in order to get your user&apos;s current location.
+
+```java
+@Override
+public void onViewCreated(View view, Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    setHasOptionsMenu(true);
+    mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+        .addConnectionCallbacks(this)
+        .addOnConnectionFailedListener(this)
         .addApi(LocationServices.API)
         .build();
     initListeners();
-}
-</code></pre>
-<ul>
-<li>The <code>initListeners</code> method binds the interfaces that you declared at the top of the class with the GoogleMap object associated with <code>SupportMapFragment</code>.</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initListeners</span><span class="hljs-params">()</span> </span>{
-    getMap().setOnMarkerClickListener(<span class="hljs-keyword">this</span>);
-    getMap().setOnMapLongClickListener(<span class="hljs-keyword">this</span>);
-    getMap().setOnInfoWindowClickListener(<span class="hljs-keyword">this</span>);
-    getMap().setOnMapClickListener(<span class="hljs-keyword">this</span>);
-}
-</code></pre>
-<ul>
-<li><p><code>GoogleApiClient</code> and listeners are created and bound from <code>onViewCreated</code> rather than the <code>onCreate</code>.</p>
-</li>
-<li><p>This is because the GoogleMap object has not been initialized when <code>onCreate</code> is called, so we need to wait until the view is fully created before trying to call <code>getMap</code> in order to avoid a <code>NullPointerException</code>.</p>
-</li>
-</ul>
-<p><strong>Configuring the Map</strong></p>
-<ul>
-<li>We will set up the map camera after the user&apos;s location has been found through Play Services, we will use the Play Services lifecycle to drive initializing our map. You can connect the <code>GoogleApiClient</code> in onStart.</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">super</span>.onStart();
+}```
+
+* The `initListeners` method binds the interfaces that you declared at the top of the class with the GoogleMap object associated with `SupportMapFragment`.
+
+```java
+private void initListeners() {
+    getMap().setOnMarkerClickListener(this);
+    getMap().setOnMapLongClickListener(this);
+    getMap().setOnInfoWindowClickListener(this);
+    getMap().setOnMapClickListener(this);
+}```
+
+* `GoogleApiClient` and listeners are created and bound from `onViewCreated` rather than the `onCreate`.
+
+* This is because the GoogleMap object has not been initialized when `onCreate` is called, so we need to wait until the view is fully created before trying to call `getMap` in order to avoid a `NullPointerException`.
+
+**Configuring the Map**
+
+* We will set up the map camera after the user&apos;s location has been found through Play Services, we will use the Play Services lifecycle to drive initializing our map. You can connect the `GoogleApiClient` in onStart.
+
+```java
+@Override
+public void onStart() {
+    super.onStart();
     mGoogleApiClient.connect();
 }
-<span class="hljs-meta">@Override</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStop</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">super</span>.onStop();
-    <span class="hljs-keyword">if</span> (mGoogleApiClient != <span class="hljs-keyword">null</span> &amp;&amp; mGoogleApiClient.isConnected()) {
+@Override
+public void onStop() {
+    super.onStop();
+    if (mGoogleApiClient != null &amp;&amp; mGoogleApiClient.isConnected()) {
         mGoogleApiClient.disconnect();
     }
 }
-<span class="hljs-meta">@Override</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onConnected</span><span class="hljs-params">(Bundle bundle)</span> </span>{
+@Override
+public void onConnected(Bundle bundle) {
     mCurrentLocation = LocationServices
         .FusedLocationApi
         .getLastLocation(mGoogleApiClient);
     initCamera(mCurrentLocation);
-}
-</code></pre>
-<ul>
-<li><code>initCamera</code> method, you initialize the camera and some basic map properties. You start by creating a CameraPosition object through the <code>CameraPosition.Builder</code>, with a target set for the latitude and longitude of your user and a set zoom level.</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initCamera</span><span class="hljs-params">( Location location )</span> </span>{
+}```
+
+* `initCamera` method, you initialize the camera and some basic map properties. You start by creating a CameraPosition object through the `CameraPosition.Builder`, with a target set for the latitude and longitude of your user and a set zoom level.
+
+```java
+private void initCamera( Location location ) {
   CameraPosition position = CameraPosition.builder()
-    .target( <span class="hljs-keyword">new</span> LatLng( location.getLatitude(),location.getLongitude() ) )
-    .zoom( <span class="hljs-number">16f</span> )
-    .bearing( <span class="hljs-number">0.0f</span> )
-    .tilt( <span class="hljs-number">0.0f</span> )
+    .target( new LatLng( location.getLatitude(),location.getLongitude() ) )
+    .zoom( 16f )
+    .bearing( 0.0f )
+    .tilt( 0.0f )
     .build();
-  getMap().animateCamera(   CameraUpdateFactory.newCameraPosition( position ), <span class="hljs-keyword">null</span> );
+  getMap().animateCamera(   CameraUpdateFactory.newCameraPosition( position ), null );
   getMap().setMapType( MAP_TYPES[curMapTypeIndex] );
-  getMap().setTrafficEnabled( <span class="hljs-keyword">true</span> );
-  getMap().setMyLocationEnabled( <span class="hljs-keyword">true</span> );
-  getMap().getUiSettings().setZoomControlsEnabled( <span class="hljs-keyword">true</span> );
-}
-</code></pre>
-<ul>
-<li><p><code>setMyLocationEnabled</code> adds a button to the top right corner of the <code>MapFragment</code> that automatically moves the camera to your user&apos;s location when pressed.</p>
-</li>
-<li><p><code>setZoomControlsEnabled</code> adds + and - buttons in the lower right corner, allowing the user to change the map zoom level without having to use gestures.</p>
-</li>
-</ul>
-<h1 id="marking-the-map-">Marking the map .</h1>
-<ul>
-<li>The most used map features involves indicating locations with markers. Since a latitude and longitude are needed for adding a marker, you need to use the <code>OnMapClickListener</code> to allow the user to pick a spot on the map to place a Marker object.</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMapClick</span><span class="hljs-params">(LatLng latLng)</span> </span>{
-    MarkerOptions options = <span class="hljs-keyword">new</span> MarkerOptions().position(latLng);
+  getMap().setTrafficEnabled( true );
+  getMap().setMyLocationEnabled( true );
+  getMap().getUiSettings().setZoomControlsEnabled( true );
+}```
+
+* `setMyLocationEnabled` adds a button to the top right corner of the `MapFragment` that automatically moves the camera to your user&apos;s location when pressed.
+
+* `setZoomControlsEnabled` adds + and - buttons in the lower right corner, allowing the user to change the map zoom level without having to use gestures.
+
+
+# Marking the map .
+
+* The most used map features involves indicating locations with markers. Since a latitude and longitude are needed for adding a marker, you need to use the `OnMapClickListener` to allow the user to pick a spot on the map to place a Marker object.
+
+```java
+@Override
+public void onMapClick(LatLng latLng) {
+    MarkerOptions options = new MarkerOptions().position(latLng);
     options.title(getAddressFromLatLng(latLng));
     options.icon(BitmapDescriptorFactory.defaultMarker());
     getMap().addMarker(options);
-}
-</code></pre>
-<ul>
-<li><p>This method creates a generic red marker where the user has tapped. Additional options, such as setting a marker as draggable, can be set through the <code>MarkerOptions</code> object .</p>
-</li>
-<li><p>The <code>defaultMarker</code> method accepts a float value that defines the hue.</p>
-</li>
-<li><p><code>addMarker</code> returns a Marker object, which can be stored for manually removing specific markers if needed.</p>
-</li>
-</ul>
-<h1 id="drawing-on-map-">Drawing on map .</h1>
-<ul>
-<li><p>The <code>GoogleMap</code> object has a set of methods that make it easy to draw shapes and place images onto the map.</p>
-</li>
-<li><p>To draw a simple circle, you only need to create a <code>CircleOptions</code> object, set a radius and center location, and define the stroke/fill colors and size.</p>
-</li>
-<li><p>You have a <code>CircleOptions</code> object, you can call <code>addCircle</code> to draw the defined circle on top of the map. Just like when placing markers, objects that are drawn on the map return an object of the drawn item type so it can be referenced later .</p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">drawCircle</span><span class="hljs-params">( LatLng location )</span> </span>{
-  CircleOptions options = <span class="hljs-keyword">new</span> CircleOptions();
+}```
+
+* This method creates a generic red marker where the user has tapped. Additional options, such as setting a marker as draggable, can be set through the `MarkerOptions` object .
+
+* The `defaultMarker` method accepts a float value that defines the hue.
+
+* `addMarker` returns a Marker object, which can be stored for manually removing specific markers if needed.
+
+
+# Drawing on map .
+
+* The `GoogleMap` object has a set of methods that make it easy to draw shapes and place images onto the map.
+
+* To draw a simple circle, you only need to create a `CircleOptions` object, set a radius and center location, and define the stroke/fill colors and size.
+
+* You have a `CircleOptions` object, you can call `addCircle` to draw the defined circle on top of the map. Just like when placing markers, objects that are drawn on the map return an object of the drawn item type so it can be referenced later .
+
+```java
+private void drawCircle( LatLng location ) {
+  CircleOptions options = new CircleOptions();
   options.center( location );
-  <span class="hljs-comment">//Radius in meters</span>
-  options.radius( <span class="hljs-number">10</span> );
+  //Radius in meters
+  options.radius( 10 );
   options.fillColor( getResources().getColor( R.color.fill_color ) );
   options.strokeColor( getResources().getColor( R.color.stroke_color ) );
-  options.strokeWidth( <span class="hljs-number">10</span> );
+  options.strokeWidth( 10 );
   getMap().addCircle(options);
 }
 </code></pre>
@@ -848,7 +844,7 @@
   options.strokeColor( getResources().getColor( R.color.stroke_color ) );
   options.strokeWidth( <span class="hljs-number">10</span> );
   getMap().addPolygon( options );
-}
+}```
 </code></pre>
 
                                 
@@ -893,7 +889,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"next":{"title":"17. Firebase","level":"1.18","depth":1,"path":"17-firebase/intro.md","ref":"17-firebase/intro.md","articles":[{"title":"17.1 Realtime Database","level":"1.18.1","depth":2,"path":"17-firebase/17-1-realtime-db.md","ref":"17-firebase/17-1-realtime-db.md","articles":[]},{"title":"17.2 Push Notifications","level":"1.18.2","depth":2,"path":"17-firebase/17-2-push-notifications.md","ref":"17-firebase/17-2-push-notifications.md","articles":[]}]},"previous":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/16-2-creating-maps.md","mtime":"2018-10-01T18:15:15.036Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"next":{"title":"17. Firebase","level":"1.18","depth":1,"path":"17-firebase/intro.md","ref":"17-firebase/intro.md","articles":[{"title":"17.1 Realtime Database","level":"1.18.1","depth":2,"path":"17-firebase/17-1-realtime-db.md","ref":"17-firebase/17-1-realtime-db.md","articles":[]},{"title":"17.2 Push Notifications","level":"1.18.2","depth":2,"path":"17-firebase/17-2-push-notifications.md","ref":"17-firebase/17-2-push-notifications.md","articles":[]}]},"previous":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/16-2-creating-maps.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

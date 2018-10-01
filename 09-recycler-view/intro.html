@@ -700,85 +700,81 @@
 <p>To use RecyclerView we need to follow 6 steps which are explained in detail below :-</p>
 <ol>
 <li><p>Add RecyclerView support library to the gradle build file</p>
-<pre><code class="lang-java"> compile <span class="hljs-string">&apos;com.android.support:recyclerview-v7:26.1.0&apos;</span>
+<pre><code class="lang-java">compile <span class="hljs-string">&apos;com.android.support:recyclerview-v7:26.1.0&apos;</span>
 </code></pre>
 </li>
 <li><p>Each list Item needs a data source. We will create a Course model/POJO class as our data source</p>
-<pre><code class="lang-java"> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Course</span> </span>{
-     <span class="hljs-keyword">private</span> String name, instructor;
-     <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> batchStrength;
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Course</span> </span>{
+    <span class="hljs-keyword">private</span> String name, instructor;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> batchStrength;
 
-     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Course</span><span class="hljs-params">(String name, String instructor, <span class="hljs-keyword">int</span> batchStrength)</span> </span>{
-         <span class="hljs-keyword">this</span>.name = name;
-         <span class="hljs-keyword">this</span>.instructor = instructor;
-         <span class="hljs-keyword">this</span>.batchStrength = batchStrength;
-     }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Course</span><span class="hljs-params">(String name, String instructor, <span class="hljs-keyword">int</span> batchStrength)</span> </span>{
+        <span class="hljs-keyword">this</span>.name = name;
+        <span class="hljs-keyword">this</span>.instructor = instructor;
+        <span class="hljs-keyword">this</span>.batchStrength = batchStrength;
+    }
 
-     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
-         <span class="hljs-keyword">return</span> name;
-     }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> name;
+    }
 
-     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getInstructor</span><span class="hljs-params">()</span> </span>{
-         <span class="hljs-keyword">return</span> instructor;
-     }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getInstructor</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> instructor;
+    }
 
-     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getBatchStrength</span><span class="hljs-params">()</span> </span>{
-         <span class="hljs-keyword">return</span> batchStrength;
-     }
- }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getBatchStrength</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> batchStrength;
+    }
+}
 </code></pre>
 </li>
 <li><p>Add RecyclerView to your activity/fragment XML file</p>
-<pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.RecyclerView</span>
-     <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/rvCourseList&quot;</span>
-     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span> /&gt;</span>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.RecyclerView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/rvCourseList&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span> /&gt;</span>
 </code></pre>
 </li>
 <li><p>Now we need to create a custom XML row item layout which will be used as the layout for each row. Go to layout folder in res, right click and select New -&gt; resource Layout file. In demo project it is named as list_item_course.xml</p>
-<pre><code class="lang-xml"> <span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
- <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-     <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">&quot;10dp&quot;</span>
-     <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>&gt;</span>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+    <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">&quot;10dp&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>&gt;</span>
 
-     <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
-         <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tvCourseName&quot;</span>
-         <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-         <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-         <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;text1&quot;</span>
-         <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;@android:style/TextAppearance.Large&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tvCourseName&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;text1&quot;</span>
+        <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;@android:style/TextAppearance.Large&quot;</span> /&gt;</span>
 
-     <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
-         <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tvInstName&quot;</span>
-         <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-         <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-         <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;text2&quot;</span>
-         <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;@android:style/TextAppearance.Large&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tvInstName&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;text2&quot;</span>
+        <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;@android:style/TextAppearance.Large&quot;</span> /&gt;</span>
 
-     <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
-         <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tvBatchStrength&quot;</span>
-         <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-         <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-         <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;text3&quot;</span>
-         <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;@android:style/TextAppearance.Large&quot;</span> /&gt;</span>
- <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tvBatchStrength&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;text3&quot;</span>
+        <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">&quot;@android:style/TextAppearance.Large&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
 </code></pre>
 </li>
 <li><p>Now we make the RecyclerView adapter. We make a java class lets say CourseAdapter. We extend RecyclerView.Adapter but it needs a ViewHolder class. So inside CourseAdapter, we create ViewHolder class which extends from RecyclerView.ViewHolder. Then send use ViewHolder class in our CourseAdapter class.
 We have to implement three methods as follows -</p>
-<ul>
+</li>
 <li><p><strong>public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)</strong></p>
 <p>This is called when the layouts are first time created on the screen. Item layout is inflated inside the parent container and ViewHolder is created for this view, whose object needs to be returned.</p>
 </li>
 <li><p><strong>public void onBindViewHolder(ViewHolder holder, int position)</strong></p>
 <p>This is called to bind our views with the data. method uses the view holder&apos;s position to determine what the contents should be. It gets the view holder of the layout item which populates data into the item through holder</p>
 </li>
-</ul>
-</li>
-</ol>
-<ul>
 <li><p><strong>public int getItemCount()</strong></p>
 <p>This returns the number of list items.</p>
 <p>We make constructor for Adapter with context(needed to inflate the view) and arrayList which acts as a data source.</p>
@@ -838,8 +834,9 @@ We have to implement three methods as follows -</p>
     }
 }
 </code></pre>
-<ol>
-<li>Finally we need to set Adapter on RecyclerView in Activtiy like below<pre><code class="lang-java">RecyclerView rvCourseList = findViewById(R.id.rvCourseList);
+</li>
+<li><p>Finally we need to set Adapter on RecyclerView in Activtiy like below</p>
+<pre><code class="lang-java">RecyclerView rvCourseList = findViewById(R.id.rvCourseList);
 <span class="hljs-comment">// Linear Layout Manager for item =s in row form</span>
 rvCourseList.setLayoutManager(<span class="hljs-keyword">new</span> LinearLayoutManager(<span class="hljs-keyword">this</span>));
 <span class="hljs-comment">//getCourseList gives ArrayList of our model class Courses</span>
@@ -847,8 +844,6 @@ rvCourseList.setAdapter(<span class="hljs-keyword">new</span> CourseAdapter(<spa
 </code></pre>
 </li>
 </ol>
-</li>
-</ul>
 <p>Screen will look like as</p>
 <p><img src="img/recycle.png" alt=""></p>
 
@@ -894,7 +889,7 @@ rvCourseList.setAdapter(<span class="hljs-keyword">new</span> CourseAdapter(<spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9. RecyclerView","level":"1.10","depth":1,"next":{"title":"10. Retrofit","level":"1.11","depth":1,"path":"10-retrofit/intro.md","ref":"10-retrofit/intro.md","articles":[]},"previous":{"title":"8. Network Operations","level":"1.9","depth":1,"path":"08-network-operations/intro.md","ref":"08-network-operations/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"09-recycler-view/intro.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9. RecyclerView","level":"1.10","depth":1,"next":{"title":"10. Retrofit","level":"1.11","depth":1,"path":"10-retrofit/intro.md","ref":"10-retrofit/intro.md","articles":[]},"previous":{"title":"8. Network Operations","level":"1.9","depth":1,"path":"08-network-operations/intro.md","ref":"08-network-operations/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"09-recycler-view/intro.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

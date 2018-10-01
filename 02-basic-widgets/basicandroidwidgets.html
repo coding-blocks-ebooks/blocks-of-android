@@ -714,31 +714,31 @@ For example, a Button you see on your screen is defined in a class Button which 
 <li><p>Defining UI elements in an XML file. The name of the tag is same as the name of the class of the particular view. The advantage to declaring your UI elements in XML is that it enables you to better separate the presentation of your application from the code that controls its behaviour.</p>
 </li>
 </ul>
-<p>In XML, we start each element with &apos;&lt;&apos; followed by name of a class that extends a  View Class. Views like Button, EditText are defined inside OS, therefore, we don&apos;t have to specifically give a path to the class, we can use &apos;Button&apos;, &apos;EditText&apos; etc. After defining the UI element we necessarily have to define some attributes like element&apos;s height, width. And we can define some more attributes as per our need. The value for each attribute must be given in double quotes.</p>
+<p>In XML, we start each element with &apos;&lt;&apos; followed by name of a class that extends a View Class. Views like Button, EditText are defined inside OS, therefore, we don&apos;t have to specifically give a path to the class, we can use &apos;Button&apos;, &apos;EditText&apos; etc. After defining the UI element we necessarily have to define some attributes like element&apos;s height, width. And we can define some more attributes as per our need. The value for each attribute must be given in double quotes.</p>
 <p>Special Views which can have multiple views inside them are known as ViewGroups. Example layouts which contain these UI elements. We will talk about them in a separate article.</p>
 <p>There are some attributes which are common to each and every view defined in android. These are -</p>
 <p><strong>android:id</strong></p>
-<p>  This attribute is used to declare a unique id for the particular element. The view can be referenced in code using this id like findViewById(R.id.givenId)(It returns a reference to the button). It is better to start id value with the name of the type of UI element. Example, in case of Button we can have id start with &apos;btn&apos; so we can easily identify button ids in our code.</p>
-<p>  <strong>android:layout_height</strong></p>
-<p>  This tag is used to define the height of a widget. It can have three different values &apos;match_parent&apos;, &apos;wrap_content&apos; or custom size.</p>
+<p>This attribute is used to declare a unique id for the particular element. The view can be referenced in code using this id like findViewById(R.id.givenId)(It returns a reference to the button). It is better to start id value with the name of the type of UI element. Example, in case of Button we can have id start with &apos;btn&apos; so we can easily identify button ids in our code.</p>
+<p><strong>android:layout_height</strong></p>
+<p>This tag is used to define the height of a widget. It can have three different values &apos;match_parent&apos;, &apos;wrap_content&apos; or custom size.</p>
 <ul>
 <li><p>match_parent means to take the full height of the parent layout.</p>
 </li>
 <li><p>wrap_content means that the view wants to be just big enough to enclose its content (plus padding)</p>
 </li>
-<li><p>Custom size can be in any unit like sp, dp(density-independent pixel), px(pixel). But in Android, it preferred to use dp as the size is independent of the screen pixel and can remain constant on different screens.</p>
+<li>Custom size can be in any unit like sp, dp(density-independent pixel), px(pixel). But in Android, it preferred to use dp as the size is independent of the screen pixel and can remain constant on different screens.</li>
+</ul>
 <p><strong>android:layout_width</strong></p>
 <p>This tag is used to define the width of a widget. It can be &apos;match_parent&apos;, &apos;wrap_content&apos; or custom size.</p>
-</li>
+<ul>
 <li><p>match_parent means to take the full width of the parent layout.</p>
 </li>
 <li><p>wrap_content means that the view wants to be just big enough to enclose its content (plus padding)</p>
 </li>
-<li><p>Custom size can be in any unit like sp, dp(density-independent pixel), px(pixel). But in Android, it preferred to use dp as the size is independent of the screen pixel and can remain constant on different screens.</p>
+<li>Custom size can be in any unit like sp, dp(density-independent pixel), px(pixel). But in Android, it preferred to use dp as the size is independent of the screen pixel and can remain constant on different screens.</li>
+</ul>
 <p><strong>android:margin</strong> - Margin is the distance between parent element and the current element. It is given in dp. If only margin is used then all the four margins - marginTop, marginBottom, marginLeft, marginRight get the same vaue. These can be defined seperately as well.</p>
 <p><strong>android:padding</strong> - Padding is the distance between the border and the content of the element. It is given in dp. If only margin is used then all the four paddings - paddingTop, paddingBottom, paddingLeft, paddingRight get the same vaue. These can be defined seperately as well.</p>
-</li>
-</ul>
 <p><img src="img/download.jpeg" alt="">
 <img src="img/mp2" alt=""></p>
 <p>Use of the above attributes will become more clear when we go through the specific examples.</p>
@@ -766,25 +766,25 @@ For example, a Button you see on your screen is defined in a class Button which 
 </li>
 </ul>
 <h4 id="button">Button</h4>
-<p>  A user interface element the user can tap or click to perform an action. Button class is child class of TextView.</p>
-<p>  To display a button in an activity, add a button to the activity&apos;s layout XML file:</p>
-<pre><code class="lang-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
-      <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btnSubmit&quot;</span>
-      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-      <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Submit&quot;</span> /&gt;</span>
+<p>A user interface element the user can tap or click to perform an action. Button class is child class of TextView.</p>
+<p>To display a button in an activity, add a button to the activity&apos;s layout XML file:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btnSubmit&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+    <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Submit&quot;</span> /&gt;</span>
 </code></pre>
-<p>  id of the above declared button in XML is &apos;btnSubmit&apos;. We can reference this button in our code using findViewById(R.id.btnSubmit)</p>
-<p>  Height and width of the button is wrap content. TextView being its parent class, all the TextView attributes work on button as well.</p>
+<p>id of the above declared button in XML is &apos;btnSubmit&apos;. We can reference this button in our code using findViewById(R.id.btnSubmit)</p>
+<p>Height and width of the button is wrap content. TextView being its parent class, all the TextView attributes work on button as well.</p>
 <ul>
 <li><p>android:text</p>
 <p>This attribute contains the text which needs to be displayed inside the button.</p>
+</li>
+</ul>
 <p>Button with width &apos;wrap_content&apos;
 <img src="img/btn1.png" alt=""></p>
 <p>Button with width &apos;match_parent&apos;
 <img src="img/btn2.png" alt=""></p>
-</li>
-</ul>
 <h4 id="edittext">EditText</h4>
 <p>A user interface element for entering and modifying text. It also inherits from the TextView class.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
@@ -801,7 +801,7 @@ For example, a Button you see on your screen is defined in a class Button which 
 </li>
 <li><p><strong>android:hint</strong> - It is the hint that sometimes appears on the text area to help the aid the user and is gone when we click on the edit text.</p>
 </li>
-<li><strong>android:inputType</strong> - It specifies the type of expected value in the text area. Like in this case, it is  &apos;textPersonName&apos;. In other cases, it can be a number, password etc. These are predefined types provided by android.</li>
+<li><strong>android:inputType</strong> - It specifies the type of expected value in the text area. Like in this case, it is &apos;textPersonName&apos;. In other cases, it can be a number, password etc. These are predefined types provided by android.</li>
 </ul>
 <h4 id="imageview">ImageView</h4>
 <p>Displays image resources, for example Bitmap or Drawable resources. ImageView is also commonly used to apply tints to an image and handle image scaling. ImageView directly extends View.</p>
@@ -810,7 +810,6 @@ For example, a Button you see on your screen is defined in a class Button which 
         <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;100dp&quot;</span>
         <span class="hljs-attr">android:src</span>=<span class="hljs-string">&quot;@mipmap/ic_launcher&quot;</span>
         <span class="hljs-attr">android:scaleType</span>=<span class="hljs-string">&quot;fitXY&quot;</span>/&gt;</span>
-`
 </code></pre>
 <p>There are two attributes that we havent seen above -</p>
 <ul>
@@ -864,7 +863,7 @@ For example, a Button you see on your screen is defined in a class Button which 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2. Basic Widgets","level":"1.3","depth":1,"next":{"title":"3. List View","level":"1.4","depth":1,"path":"03-list-view/intro.md","ref":"03-list-view/intro.md","articles":[{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]}]},"previous":{"title":"1. Project Structure","level":"1.2","depth":1,"path":"01-project-structure/intro.md","ref":"01-project-structure/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"02-basic-widgets/basicandroidwidgets.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. Basic Widgets","level":"1.3","depth":1,"next":{"title":"3. List View","level":"1.4","depth":1,"path":"03-list-view/intro.md","ref":"03-list-view/intro.md","articles":[{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]}]},"previous":{"title":"1. Project Structure","level":"1.2","depth":1,"path":"01-project-structure/intro.md","ref":"01-project-structure/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"02-basic-widgets/basicandroidwidgets.md","mtime":"2018-10-01T18:34:12.950Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

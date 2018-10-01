@@ -696,16 +696,16 @@
 <h2 id="understanding-custom-array-adapter">Understanding Custom Array Adapter</h2>
 <p>If you have an array of general objects and want to display multiple items from each object or items which are Stings or not Strings then you need to create a custom ArrayAdapter.</p>
 <ul>
-<li>Build a new Android Project </li>
-<li>Open up <code>app - res - drawable</code> &amp; add any <code>Image</code>into it . </li>
+<li>Build a new Android Project</li>
+<li>Open up <code>app - res - drawable</code> &amp; add any <code>Image</code>into it .</li>
 </ul>
-<h2 id="creating-a--custom-layout">Creating a  Custom Layout</h2>
+<h2 id="creating-a-custom-layout">Creating a Custom Layout</h2>
 <ul>
-<li><p>Create a new Layout resource file.</p>
+<li>Create a new Layout resource file.</li>
+</ul>
 <p>Open up <code>app - res - layout - new - Layout Resource File - custom_row</code></p>
-</li>
-<li><p>Add an ImageView and a Text view and give them their respective Id&apos;s . </p>
-</li>
+<ul>
+<li>Add an ImageView and a Text view and give them their respective Id&apos;s .</li>
 </ul>
 <p><code>custom_row.xml code here</code></p>
 <h2 id="creating-a-custom-array-adapter">Creating a Custom Array Adapter</h2>
@@ -714,75 +714,72 @@
 </ul>
 <p>Open up <code>app - java - new Java file</code></p>
 <p>Now, the first thing that we need to do is that we need to extend this class to an ArrayAdapter .</p>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ArrayAdapter</span>&lt;<span class="hljs-title">String</span>&gt; </span>{
-}
+<pre><code class="lang-java">class CustomAdapter extends ArrayAdapter&lt;String&gt; {
+}```
+
+* Create a constructor.
+
+* Inside your CustomAdapter class press ```Alt+Insert``` and go to ```constructor```
+
+* You&apos;ll get a constructor like this.
+
+```java
+public CustomAdapter (Context context , int resource){
+super(context , resource);
+}```
+
+* Now , we&apos;ll be making changes inside the constuctor itself.
+
+* Insted of the ```int resource``` we want to pass on the array which has our items.
+
+```java
+public CustomAdapter (Context context , String[] fruits ){
+super(context ,R.layout.custom_row, fruits);
+}```
+
+* Now we&apos;re going add override methods .
+
+* Go , outside of your constructor and ```Alt+Insert``` for ```override methods```
+
+* Now , the method which we&apos;re overriding is ```getView()```
+
+* Now, we&apos;re going to create a custom list adapter and going to associate with our array with that adapter , so all the items can be displayed in device screen .
+
+* Now , we need to initialize our view .
+
+```java
+LayoutInflater lf = LayoutInflater.from.(getcontext());```
+
+* Now , we need to initialize our customview .
+
+```java
+View CustomView = lf.inflate(R.layout.custom_row ,  parent , false);```
+
+* Now , the parameters it is going to take as input ,
+
+* R.layout.custom_row : our custom layout
+
+* parent : default parameter
+
+* false : default parameter
+
+Now we&apos;re going to create a ```String``` which is going to get the item depending upon it&apos;s position .
+
+```java
+String singleItem = getItem(position);
 </code></pre>
 <ul>
-<li><p>Create a constructor.</p>
-</li>
-<li><p>Inside your CustomAdapter class press <code>Alt+Insert</code> and go to <code>constructor</code> </p>
-</li>
-<li><p>You&apos;ll get a constructor like this. </p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CustomAdapter</span> <span class="hljs-params">(Context context , <span class="hljs-keyword">int</span> resource)</span></span>{
-<span class="hljs-keyword">super</span>(context , resource);
-}
-</code></pre>
-<ul>
-<li><p>Now , we&apos;ll be making changes inside the constuctor itself.</p>
-</li>
-<li><p>Insted of the <code>int resource</code> we want to pass on the array which has our items.</p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CustomAdapter</span> <span class="hljs-params">(Context context , String[] fruits )</span></span>{
-<span class="hljs-keyword">super</span>(context ,R.layout.custom_row, fruits);
-}
-</code></pre>
-<ul>
-<li><p>Now we&apos;re going add override methods .</p>
-</li>
-<li><p>Go , outside of your constructor and <code>Alt+Insert</code> for <code>override methods</code></p>
-</li>
-<li><p>Now , the method which we&apos;re overriding is <code>getView()</code> </p>
-</li>
-<li><p>Now, we&apos;re going to create a custom list adapter and going to associate with our array with that adapter , so all the items can be displayed in device screen . </p>
-</li>
-<li><p>Now , we need to initialize our view .</p>
-</li>
-</ul>
-<pre><code class="lang-java">LayoutInflater lf = LayoutInflater.from.(getcontext());
-</code></pre>
-<ul>
-<li>Now , we need to initialize our customview .</li>
-</ul>
-<pre><code class="lang-java">View CustomView = lf.inflate(R.layout.custom_row ,  parent , <span class="hljs-keyword">false</span>);
-</code></pre>
-<ul>
-<li><p>Now , the parameters it is going to take as input , </p>
-</li>
-<li><p>R.layout.custom_row : our custom layout </p>
-</li>
-<li><p>parent : default parameter</p>
-</li>
-<li><p>false : default parameter </p>
-</li>
-</ul>
-<p>Now we&apos;re going to create a <code>String</code> which is going to get the item depending upon it&apos;s position .</p>
-<pre><code class="lang-java">String singleItem = getItem(position);
-</code></pre>
-<ul>
-<li><p>Now the next thing which we&apos;ve to do is to get the reference of the <code>ImageView</code> as well as the <code>TextView</code> </p>
-<pre><code class="lang-java"> TextView tv = (TextView)  CustomView.findViewById(R.id.text);
- ImageView iv = (ImageView) CustomView.findViewById(R.id.image);
+<li><p>Now the next thing which we&apos;ve to do is to get the reference of the <code>ImageView</code> as well as the <code>TextView</code></p>
+<pre><code class="lang-java">TextView tv = (TextView)  CustomView.findViewById(R.id.text);
+ImageView iv = (ImageView) CustomView.findViewById(R.id.image);
 </code></pre>
 </li>
 <li><p>Now we&apos;ve to set this text to this <code>singleitem</code> because the string which actually the item by using position.</p>
-<pre><code class="lang-java">tv.setText(item);
-iv.setImageResource(R.id.drawable.image)
-</code></pre>
 </li>
 </ul>
+<pre><code class="lang-java">tv.setText(item);
+iv.setImageResource(R.id.drawable.image)```
+</code></pre>
 
                                 
                                 </section>
@@ -826,7 +823,7 @@ iv.setImageResource(R.id.drawable.image)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"next":{"title":"4. Intents","level":"1.5","depth":1,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[{"title":"4.1 Implicit and Explicit intents","level":"1.5.1","depth":2,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[]},{"title":"4.2 Assignments","level":"1.5.2","depth":2,"path":"04-intents/assignments.md","ref":"04-intents/assignments.md","articles":[]}]},"previous":{"title":"3. List View","level":"1.4","depth":1,"path":"03-list-view/intro.md","ref":"03-list-view/intro.md","articles":[{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"03-list-view/03-1-custom-adapter.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"next":{"title":"4. Intents","level":"1.5","depth":1,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[{"title":"4.1 Implicit and Explicit intents","level":"1.5.1","depth":2,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[]},{"title":"4.2 Assignments","level":"1.5.2","depth":2,"path":"04-intents/assignments.md","ref":"04-intents/assignments.md","articles":[]}]},"previous":{"title":"3. List View","level":"1.4","depth":1,"path":"03-list-view/intro.md","ref":"03-list-view/intro.md","articles":[{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"03-list-view/03-1-custom-adapter.md","mtime":"2018-10-01T18:34:12.950Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

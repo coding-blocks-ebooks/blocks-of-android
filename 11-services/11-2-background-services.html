@@ -807,53 +807,51 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
 
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
-</code></pre>
-<ul>
-<li><p>Now in the <code>MainActivity.java</code> file inside <code>onCreate</code> , we&apos;ll be geting refrence fo the buttons and defining 2 intents , one for start and the other being stop .</p>
-<pre><code class="lang-java"> startButton=(Button)findViewById(R.id.btnStartService);
-stopButton =(Button)findViewById(R.id.btnStopService);
+<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>```
 
-  startButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
-          <span class="hljs-meta">@Override</span>
-          <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
-              Intent startIntent = <span class="hljs-keyword">new</span> Intent(MainActivity.<span class="hljs-keyword">this</span>, ForegroundService.class);
-              startIntent.setAction(Constants.ACTION.STARTFOREGROUND_ACTION);
-              startService(startIntent);
-          }
-      });
+* Now in the ```MainActivity.java``` file inside ``onCreate`` , we&apos;ll be geting refrence fo the buttons and defining 2 intents , one for start and the other being stop .
 
-  stopButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
-          <span class="hljs-meta">@Override</span>
-          <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
-              Intent stopIntent = <span class="hljs-keyword">new</span> Intent(MainActivity.<span class="hljs-keyword">this</span>, ForegroundService.class);
-              stopIntent.setAction(Constants.ACTION.STOPFOREGROUND_ACTION);
-              startService(stopIntent);
-          }
-      });
+ ```java
+   startButton=(Button)findViewById(R.id.btnStartService);
+ stopButton =(Button)findViewById(R.id.btnStopService);
+
+    startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(MainActivity.this, ForegroundService.class);
+                startIntent.setAction(Constants.ACTION.STARTFOREGROUND_ACTION);
+                startService(startIntent);
+            }
+        });
+
+    stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent stopIntent = new Intent(MainActivity.this, ForegroundService.class);
+                stopIntent.setAction(Constants.ACTION.STOPFOREGROUND_ACTION);
+                startService(stopIntent);
+            }
+        });
 </code></pre>
-</li>
-</ul>
 <p>We&apos;ll create a new class and name that as <code>Constants.java</code></p>
 <ul>
-<li><p>This class will contain 2 interfaces one for <code>Actions</code> and other for <code>ServiceID</code></p>
+<li>This class will contain 2 interfaces one for <code>Actions</code> and other for <code>ServiceID</code></li>
+</ul>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Constants</span> </span>{
 
-  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ACTION</span> </span>{
-      <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String MAIN_ACTION = <span class="hljs-string">&quot;com.stonedcoder.alertdialog.action.main&quot;</span>;
-      <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String STARTFOREGROUND_ACTION = <span class="hljs-string">&quot;com.stonedcoder.alertdialog.action.startforeground&quot;</span>;
-      <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String STOPFOREGROUND_ACTION = <span class="hljs-string">&quot;com.stonedcoder.alertdialog.action.stopforeground&quot;</span>;
-  }
+   <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ACTION</span> </span>{
+       <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String MAIN_ACTION = <span class="hljs-string">&quot;com.stonedcoder.alertdialog.action.main&quot;</span>;
+       <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String STARTFOREGROUND_ACTION = <span class="hljs-string">&quot;com.stonedcoder.alertdialog.action.startforeground&quot;</span>;
+       <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String STOPFOREGROUND_ACTION = <span class="hljs-string">&quot;com.stonedcoder.alertdialog.action.stopforeground&quot;</span>;
+   }
 
-  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NOTIFICATION_ID</span> </span>{
-      <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> FOREGROUND_SERVICE = <span class="hljs-number">101</span>;
-  }
+   <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NOTIFICATION_ID</span> </span>{
+       <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> FOREGROUND_SERVICE = <span class="hljs-number">101</span>;
+   }
 }
-`
 </code></pre>
-</li>
-<li><p>Now we&apos;ll create another class and name that <code>ForegroundService</code> which holds the logic for custom notification views and service .</p>
-</li>
+<ul>
+<li>Now we&apos;ll create another class and name that <code>ForegroundService</code> which holds the logic for custom notification views and service .</li>
 </ul>
 <pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ForegroundService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Service</span> </span>{
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String LOG_TAG = <span class="hljs-string">&quot;ForegroundService&quot;</span>;
@@ -1003,7 +1001,7 @@ stopButton =(Button)findViewById(R.id.btnStopService);
         <span class="hljs-tag">&lt;<span class="hljs-name">receiver</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.ForegroundService$NotificationPrevButtonHandler&quot;</span> /&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">receiver</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.ForegroundService$NotificationSkipButtonHandler&quot;</span> /&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">service</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.ForegroundService&quot;</span> /&gt;</span>`
+        <span class="hljs-tag">&lt;<span class="hljs-name">service</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.ForegroundService&quot;</span> /&gt;</span>````
 </code></pre>
 
                                 
@@ -1048,7 +1046,7 @@ stopButton =(Button)findViewById(R.id.btnStopService);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"11.2 Background Services","level":"1.12.2","depth":2,"next":{"title":"11.3 Bound Services","level":"1.12.3","depth":2,"path":"11-services/11-3-bound-services.md","ref":"11-services/11-3-bound-services.md","articles":[]},"previous":{"title":"11.1 Foreground Services","level":"1.12.1","depth":2,"path":"11-services/11-1-foreground-services.md","ref":"11-services/11-1-foreground-services.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"11-services/11-2-background-services.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"11.2 Background Services","level":"1.12.2","depth":2,"next":{"title":"11.3 Bound Services","level":"1.12.3","depth":2,"path":"11-services/11-3-bound-services.md","ref":"11-services/11-3-bound-services.md","articles":[]},"previous":{"title":"11.1 Foreground Services","level":"1.12.1","depth":2,"path":"11-services/11-1-foreground-services.md","ref":"11-services/11-1-foreground-services.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"11-services/11-2-background-services.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

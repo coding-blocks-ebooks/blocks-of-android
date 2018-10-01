@@ -696,69 +696,64 @@
 <p>With Google Maps Android API v2, you can embed maps into an activity as a fragment with a simple XML snippet. The new Maps offer exciting features such as 3D maps; indoor, satellite, terrain, and hybrid maps; vector-based tiles for efficient caching and drawing; animated transitions; and much more.</p>
 <h1 id="implementation-of-google-maps">Implementation of google maps</h1>
 <p>you can create the initial Android project with the same package name that you used for creating the API key. Once your project is created, open the build.gradle file. You need to import the Play Services library for maps.</p>
-<pre><code class="lang-java">implementation <span class="hljs-string">&apos;com.google.android.gms:play-services-maps:7.8.0&apos;</span>
-implementation <span class="hljs-string">&apos;com.google.android.gms:play-services-location:7.8.0&apos;</span>
+<pre><code class="lang-java">implementation &apos;com.google.android.gms:play-services-maps:7.8.0&apos;
+implementation &apos;com.google.android.gms:play-services-location:7.8.0&apos;```
+
+
+* Open your `AndroidManifest.xml` file
+
+```xml
+&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;```
+
+* Within the application node, you need to add two pieces of metadata.
+
+* Within the application node, you need to add two pieces of metadata.
+
+* `@string/google_api_key` is a string reference to the key from the Google Developer Console.
+
+```xml
+&lt;meta-data
+android:name=&quot;com.google.android.gms.version&quot;
+android:value=&quot;@integer/google_play_services_version&quot; /&gt;
+&lt;meta-data
+android:name=&quot;com.google.android.geo.API_KEY&quot;
+android:value=&quot;@string/google_api_key&quot;/&gt;```
+* Next, you need to create a new Java class, called `MapFragment`, which extends `SupportMapFragment`. `SupportMapFragment` is used here rather than `com.google.android.gms.maps.MapFragment` in order to add backwards compatibility before API 12.
+
+* Once you have the base fragment created, you need to implement the six interface
+
+```java
+public class MapFragment extends SupportMapFragment implements GoogleApiClient.ConnectionCallbacks,
+    GoogleApiClient.OnConnectionFailedListener,
+    GoogleMap.OnInfoWindowClickListener,
+    GoogleMap.OnMapLongClickListener,
+    GoogleMap.OnMapClickListener,
+    GoogleMap.OnMarkerClickListener {````
+* `ConnectionCallbacks` and `OnConnectionFailedListener` are designed to monitor the state of the GoogleApiClient, which is used in this application for getting the user&apos;s current location.
+
+* `OnInfoWindowClickListener` is triggered when the user clicks on the info window that pops up over a marker on the map.
+
+* `OnMapLongClickListener`and `OnMapClickListener` are triggered when the user either taps or holds down on a portion of the map.
+
+* `OnMarkerClickListener` is called when the user clicks on a marker on the map, which also displays the info window for that marker.
+
+* Now , with all this set up open `activity_main.xml`
+
+```xml
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot; android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+tools:context=&quot;.MainActivity&quot;&gt;
+&lt;fragment
+android:id=&quot;@+id/map&quot;
+android:name=&quot;com.Stonedcoder.googlemaps.MapFragment&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;/&gt;
+&lt;/RelativeLayout&gt;```
+
+* Now you should be able to run your application and view a map of Earth that is fully zoomed out and focused on latitude 0, longitude 0.
 </code></pre>
-<ul>
-<li>Open your <code>AndroidManifest.xml</code> file</li>
-</ul>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.INTERNET&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span> /&gt;</span>
-</code></pre>
-<ul>
-<li><p>Within the application node, you need to add two pieces of metadata.</p>
-</li>
-<li><p>Within the application node, you need to add two pieces of metadata.</p>
-</li>
-<li><p><code>@string/google_api_key</code> is a string reference to the key from the Google Developer Console.</p>
-</li>
-</ul>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span>
-<span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;com.google.android.gms.version&quot;</span>
-<span class="hljs-attr">android:value</span>=<span class="hljs-string">&quot;@integer/google_play_services_version&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span>
-<span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;com.google.android.geo.API_KEY&quot;</span>
-<span class="hljs-attr">android:value</span>=<span class="hljs-string">&quot;@string/google_api_key&quot;</span>/&gt;</span>
-</code></pre>
-<ul>
-<li><p>Next, you need to create a new Java class, called <code>MapFragment</code>, which extends <code>SupportMapFragment</code>. <code>SupportMapFragment</code> is used here rather than <code>com.google.android.gms.maps.MapFragment</code> in order to add backwards compatibility before API 12.</p>
-</li>
-<li><p>Once you have the base fragment created, you need to implement the six interface</p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MapFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SupportMapFragment</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">GoogleApiClient</span>.<span class="hljs-title">ConnectionCallbacks</span>,
-    <span class="hljs-title">GoogleApiClient</span>.<span class="hljs-title">OnConnectionFailedListener</span>,
-    <span class="hljs-title">GoogleMap</span>.<span class="hljs-title">OnInfoWindowClickListener</span>,
-    <span class="hljs-title">GoogleMap</span>.<span class="hljs-title">OnMapLongClickListener</span>,
-    <span class="hljs-title">GoogleMap</span>.<span class="hljs-title">OnMapClickListener</span>,
-    <span class="hljs-title">GoogleMap</span>.<span class="hljs-title">OnMarkerClickListener</span> </span>{`
-</code></pre>
-<ul>
-<li><p><code>ConnectionCallbacks</code> and <code>OnConnectionFailedListener</code> are designed to monitor the state of the GoogleApiClient, which is used in this application for getting the user&apos;s current location.</p>
-</li>
-<li><p><code>OnInfoWindowClickListener</code> is triggered when the user clicks on the info window that pops up over a marker on the map.</p>
-</li>
-<li><p><code>OnMapLongClickListener</code>and <code>OnMapClickListener</code> are triggered when the user either taps or holds down on a portion of the map.</p>
-</li>
-<li><p><code>OnMarkerClickListener</code> is called when the user clicks on a marker on the map, which also displays the info window for that marker.</p>
-</li>
-<li><p>Now , with all this set up open <code>activity_main.xml</code></p>
-</li>
-</ul>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-<span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span> <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-<span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-<span class="hljs-attr">tools:context</span>=<span class="hljs-string">&quot;.MainActivity&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">fragment</span>
-<span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/map&quot;</span>
-<span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;com.Stonedcoder.googlemaps.MapFragment&quot;</span>
-<span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
-<span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
-</code></pre>
-<ul>
-<li>Now you should be able to run your application and view a map of Earth that is fully zoomed out and focused on latitude 0, longitude 0.</li>
-</ul>
 
                                 
                                 </section>
@@ -802,7 +797,7 @@ implementation <span class="hljs-string">&apos;com.google.android.gms:play-servi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16. Google Maps","level":"1.17","depth":1,"next":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},"previous":{"title":"15.4 Assignments","level":"1.16.4","depth":2,"path":"15-location-and-sensors/assignments.md","ref":"15-location-and-sensors/assignments.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/intro.md","mtime":"2018-10-01T18:15:15.036Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"16. Google Maps","level":"1.17","depth":1,"next":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},"previous":{"title":"15.4 Assignments","level":"1.16.4","depth":2,"path":"15-location-and-sensors/assignments.md","ref":"15-location-and-sensors/assignments.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/intro.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

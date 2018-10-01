@@ -828,29 +828,29 @@ compile <span class="hljs-string">&apos;com.squareup.okhttp3:okhttp:3.4.1&apos;<
 <p><code>@SerializedName</code> annotation is used to specify the name of the field that&#x2019;s in the JSON Response.</p>
 <p>To create a POJO class for each response, we can go to <a href="http://www.jsonschema2pojo.org/" target="_blank">http://www.jsonschema2pojo.org/</a> and paste the json response structure as shown below.</p>
 <pre><code class="lang-json">{
-<span class="hljs-string">&quot;page&quot;</span>: <span class="hljs-number">1</span>,
-<span class="hljs-string">&quot;per_page&quot;</span>: <span class="hljs-number">3</span>,
-<span class="hljs-string">&quot;total_pages&quot;</span>: <span class="hljs-number">4</span>,
-<span class="hljs-string">&quot;data&quot;</span>: [
-{
-<span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,
-<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;cerulean&quot;</span>,
-<span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">2000</span>,
-<span class="hljs-string">&quot;pantone_value&quot;</span>: <span class="hljs-string">&quot;19-2031&quot;</span>
-},
-{
-<span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">2</span>,
-<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;fuchsia rose&quot;</span>,
-<span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">2001</span>,
-<span class="hljs-string">&quot;pantone_value&quot;</span>: <span class="hljs-string">&quot;20-2031&quot;</span>
-},
-{
-<span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">3</span>,
-<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;true red&quot;</span>,
-<span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">2002</span>,
-<span class="hljs-string">&quot;pantone_value&quot;</span>: <span class="hljs-string">&quot;21-2031&quot;</span>
-}
-]
+  <span class="hljs-string">&quot;page&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">&quot;per_page&quot;</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-string">&quot;total_pages&quot;</span>: <span class="hljs-number">4</span>,
+  <span class="hljs-string">&quot;data&quot;</span>: [
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;cerulean&quot;</span>,
+      <span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">2000</span>,
+      <span class="hljs-string">&quot;pantone_value&quot;</span>: <span class="hljs-string">&quot;19-2031&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;fuchsia rose&quot;</span>,
+      <span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">2001</span>,
+      <span class="hljs-string">&quot;pantone_value&quot;</span>: <span class="hljs-string">&quot;20-2031&quot;</span>
+    },
+    {
+      <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;true red&quot;</span>,
+      <span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">2002</span>,
+      <span class="hljs-string">&quot;pantone_value&quot;</span>: <span class="hljs-string">&quot;21-2031&quot;</span>
+    }
+  ]
 }
 </code></pre>
 <ul>
@@ -1138,7 +1138,7 @@ call.cancel();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10. Retrofit","level":"1.11","depth":1,"next":{"title":"11. Services","level":"1.12","depth":1,"path":"11-services/intro.md","ref":"11-services/intro.md","articles":[{"title":"11.1 Foreground Services","level":"1.12.1","depth":2,"path":"11-services/11-1-foreground-services.md","ref":"11-services/11-1-foreground-services.md","articles":[]},{"title":"11.2 Background Services","level":"1.12.2","depth":2,"path":"11-services/11-2-background-services.md","ref":"11-services/11-2-background-services.md","articles":[]},{"title":"11.3 Bound Services","level":"1.12.3","depth":2,"path":"11-services/11-3-bound-services.md","ref":"11-services/11-3-bound-services.md","articles":[]}]},"previous":{"title":"9. RecyclerView","level":"1.10","depth":1,"path":"09-recycler-view/intro.md","ref":"09-recycler-view/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"10-retrofit/intro.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10. Retrofit","level":"1.11","depth":1,"next":{"title":"11. Services","level":"1.12","depth":1,"path":"11-services/intro.md","ref":"11-services/intro.md","articles":[{"title":"11.1 Foreground Services","level":"1.12.1","depth":2,"path":"11-services/11-1-foreground-services.md","ref":"11-services/11-1-foreground-services.md","articles":[]},{"title":"11.2 Background Services","level":"1.12.2","depth":2,"path":"11-services/11-2-background-services.md","ref":"11-services/11-2-background-services.md","articles":[]},{"title":"11.3 Bound Services","level":"1.12.3","depth":2,"path":"11-services/11-3-bound-services.md","ref":"11-services/11-3-bound-services.md","articles":[]}]},"previous":{"title":"9. RecyclerView","level":"1.10","depth":1,"path":"09-recycler-view/intro.md","ref":"09-recycler-view/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"10-retrofit/intro.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

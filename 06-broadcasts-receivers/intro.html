@@ -698,72 +698,71 @@
 <ul>
 <li>Build a new project create a class called <code>SimpleReciver</code>.</li>
 </ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleReceiver</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BroadcastReceiver</span> </span>{
+<pre><code class="lang-java">public class SimpleReceiver extends BroadcastReceiver {
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onReceive</span><span class="hljs-params">(Context context, Intent intent)</span> </span>{
-        <span class="hljs-keyword">if</span> (intent.getAction() == <span class="hljs-string">&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT1&quot;</span>) {
-            Toast.makeText(context, <span class="hljs-string">&quot;Intent 1 Detected.&quot;</span>, Toast.LENGTH_SHORT).show();
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (intent.getAction() == <span class="hljs-string">&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT2&quot;</span>) {
-            Toast.makeText(context, <span class="hljs-string">&quot;Intent 2 Detected.&quot;</span>, Toast.LENGTH_SHORT).show();
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if (intent.getAction() == &quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT1&quot;) {
+            Toast.makeText(context, &quot;Intent 1 Detected.&quot;, Toast.LENGTH_SHORT).show();
+        } else if (intent.getAction() == &quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT2&quot;) {
+            Toast.makeText(context, &quot;Intent 2 Detected.&quot;, Toast.LENGTH_SHORT).show();
         }
     }
 
-}
-</code></pre>
-<ul>
-<li>Register the above class in the manifest .</li>
-</ul>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">receiver</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.SimpleReceiver&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">receiver</span>&gt;</span> `
-</code></pre>
-<ul>
-<li>Create an Activity class to send the broadcast intents. When one of the button is clicked, it sends a broadcast with an action in an Intent, and that intent will be received in the <code>onReceive()</code> method in the <code>SimpleReceiver</code> class.</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+}```
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
-        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+* Register the above class in the manifest .
+
+```xml
+&lt;receiver android:name=&quot;.SimpleReceiver&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT1&quot;&gt;&lt;/action&gt;
+        &lt;action android:name=&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT2&quot;&gt;&lt;/action&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt; ````
+
+* Create an Activity class to send the broadcast intents. When one of the button is clicked, it sends a broadcast with an action in an Intent, and that intent will be received in the `onReceive()` method in the `SimpleReceiver` class.
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    <span class="hljs-comment">// broadcast a custom intent.</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">broadcastIntent1</span><span class="hljs-params">(View view)</span> </span>{
-        Intent intent = <span class="hljs-keyword">new</span> Intent();
-        intent.setAction(<span class="hljs-string">&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT1&quot;</span>);
+    // broadcast a custom intent.
+    public void broadcastIntent1(View view) {
+        Intent intent = new Intent();
+        intent.setAction(&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT1&quot;);
         sendBroadcast(intent);
     }
 
-    <span class="hljs-comment">// broadcast a custom intent.</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">broadcastIntent2</span><span class="hljs-params">(View view)</span> </span>{
-        Intent intent = <span class="hljs-keyword">new</span> Intent();
-        intent.setAction(<span class="hljs-string">&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT2&quot;</span>);
+    // broadcast a custom intent.
+    public void broadcastIntent2(View view) {
+        Intent intent = new Intent();
+        intent.setAction(&quot;com.example.simplebroadcastreceiver.CUSTOM_INTENT2&quot;);
         sendBroadcast(intent);
     }
-}
-</code></pre>
-<ul>
-<li>Now , open up <code>activity_main.xml</code> for the layout .</li>
-<li>Create 2 buttons for <code>Intent1</code> and <code>Intent2</code> .</li>
-</ul>
-<pre><code class="lang-xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btn_broadcast_intent1&quot;</span>
-        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
-        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Broadcast Action 1&quot;</span>
-        <span class="hljs-attr">android:onClick</span>=<span class="hljs-string">&quot;broadcastIntent1&quot;</span>/&gt;</span>
+}```
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btn_broadcast_intent2&quot;</span>
-        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;fill_parent&quot;</span>
-        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;Broadcast Action 2&quot;</span>
-        <span class="hljs-attr">android:onClick</span>=<span class="hljs-string">&quot;broadcastIntent2&quot;</span>/&gt;</span>
-`
+* Now , open up `activity_main.xml` for the layout .
+* Create 2 buttons for `Intent1` and `Intent2` .
+
+```xml
+
+    &lt;Button android:id=&quot;@+id/btn_broadcast_intent1&quot;
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Broadcast Action 1&quot;
+        android:onClick=&quot;broadcastIntent1&quot;/&gt;
+
+    &lt;Button android:id=&quot;@+id/btn_broadcast_intent2&quot;
+        android:layout_width=&quot;fill_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Broadcast Action 2&quot;
+        android:onClick=&quot;broadcastIntent2&quot;/&gt;
 </code></pre>
 
                                 
@@ -808,7 +807,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6. Broadcast Receivers","level":"1.7","depth":1,"next":{"title":"7. AsyncTask","level":"1.8","depth":1,"path":"07-asynctask/intro.md","ref":"07-asynctask/intro.md","articles":[]},"previous":{"title":"5. Databases","level":"1.6","depth":1,"path":"05-databases/intro.md","ref":"05-databases/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"06-broadcasts-receivers/intro.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6. Broadcast Receivers","level":"1.7","depth":1,"next":{"title":"7. AsyncTask","level":"1.8","depth":1,"path":"07-asynctask/intro.md","ref":"07-asynctask/intro.md","articles":[]},"previous":{"title":"5. Databases","level":"1.6","depth":1,"path":"05-databases/intro.md","ref":"05-databases/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"06-broadcasts-receivers/intro.md","mtime":"2018-10-01T18:34:12.950Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

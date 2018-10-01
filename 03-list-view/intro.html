@@ -696,7 +696,7 @@
 <h2 id="understanding-listview-">Understanding ListView .</h2>
 <p>List View is used in order to create such a layout which has some content into it and the respective contents is</p>
 <p>displayed as a list .</p>
-<p>examples : Contacts , Gmail , Messages  .</p>
+<p>examples : Contacts , Gmail , Messages .</p>
 <h2 id="creating-a-list-">Creating a List .</h2>
 <ul>
 <li><p>Build a new Android project .</p>
@@ -728,7 +728,7 @@
 <p>Great , Now we&apos;ve a list view let&apos;s add the contents that you want to display into the list .</p>
 <h2 id="adding-contents-to-list">Adding Contents to List</h2>
 <ul>
-<li>Open up , <code>MainActivity.java</code> file and inside your <code>onCreate()</code> method create a <code>String[]</code> and name that as per your choice  , and populate that <code>String</code> with some values .</li>
+<li>Open up , <code>MainActivity.java</code> file and inside your <code>onCreate()</code> method create a <code>String[]</code> and name that as per your choice , and populate that <code>String</code> with some values .</li>
 </ul>
 <p><code>String[] fruits = {&quot;Peach&quot; , &quot;Mango&quot; , &quot;Apple&quot; , &quot;Kiwi&quot; , &quot;Orange&quot;};</code></p>
 <p>So , The problem occurs is that we can&apos;t arbitrarily add this <code>String[]</code> to the respective list view .</p>
@@ -737,9 +737,9 @@
 <p><code>ListAdapter fruits = new ArrayAdapter&lt;&gt;(this,android.R.layout.simple_list_item_1 , fruits);</code></p>
 <p>Now the arguments that this adapter takes ;</p>
 <ul>
-<li>this : this is a keyword used for getting the context . </li>
-<li>android.R.layout.android.R.layout.simple_list_item_1 : It&apos;s a simple list item stored in android by default </li>
-<li>fruits : respective <code>String[]</code> , which we want to get values from . </li>
+<li>this : this is a keyword used for getting the context .</li>
+<li>android.R.layout.android.R.layout.simple_list_item_1 : It&apos;s a simple list item stored in android by default</li>
+<li>fruits : respective <code>String[]</code> , which we want to get values from .</li>
 </ul>
 <p><strong>Setting up the Adapter</strong></p>
 <ul>
@@ -795,7 +795,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. List View","level":"1.4","depth":1,"next":{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]},"previous":{"title":"2. Basic Widgets","level":"1.3","depth":1,"path":"02-basic-widgets/basicandroidwidgets.md","ref":"02-basic-widgets/basicandroidwidgets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"03-list-view/intro.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. List View","level":"1.4","depth":1,"next":{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]},"previous":{"title":"2. Basic Widgets","level":"1.3","depth":1,"path":"02-basic-widgets/basicandroidwidgets.md","ref":"02-basic-widgets/basicandroidwidgets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"03-list-view/intro.md","mtime":"2018-10-01T18:34:12.950Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

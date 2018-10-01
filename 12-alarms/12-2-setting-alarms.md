@@ -2,9 +2,9 @@ Setting the alarms is very simple.
 
 We need to get access to the AlarmManager class and then using that we can schedule either a repeating or a one shot alarm for our app.
 
-Some examples are given below : 
+Some examples are given below :
 
-One time Alarm with **ELAPSED\_REALTIME**_**\_**_**WAKEUP** 
+One time Alarm with **ELAPSED_REALTIME**_**\_**_**WAKEUP**
 
 ```java
 private AlarmManager alarmMgr;
@@ -19,7 +19,7 @@ alarmMgr.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
         60 * 1000, alarmIntent);
 ```
 
-One time Alarm with **ELAPSED\_REALTIME**
+One time Alarm with **ELAPSED_REALTIME**
 
 ```
 private AlarmManager alarmMgr;
@@ -33,7 +33,7 @@ alarmMgr.set(AlarmManager.ELAPSED_REALTIME,
         SystemClock.elapsedRealtime() + 60 * 1000, alarmIntent);
 ```
 
-One time Alarm with **RTC\_WAKEUP** 
+One time Alarm with **RTC_WAKEUP**
 
 ```java
 // Set the alarm to start at approximately 2:00 p.m.
@@ -45,15 +45,15 @@ alarmMgr.set(AlarmManager.RTC_WAKEUP,
         SystemClock.elapsedRealtime() + 60 * 1000, alarmIntent);
 ```
 
-Repeating Alarm with **ELAPSED\_REALTIME**_**\_**_**WAKEUP**
+Repeating Alarm with **ELAPSED_REALTIME**_**\_**_**WAKEUP**
 
 ```java
 alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
         SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_HALF_HOUR,
-        AlarmManager.INTERVAL_HALF_HOUR, alarmIntent);        
+        AlarmManager.INTERVAL_HALF_HOUR, alarmIntent);
 ```
 
-Repeating Alarm with **RTC\_WAKEUP**
+Repeating Alarm with **RTC_WAKEUP**
 
 ```java
 //Wake up the device to fire the alarm at approximately 2:00 p.m., and repeat once a day at the same time:
@@ -67,6 +67,3 @@ calendar.set(Calendar.HOUR_OF_DAY, 14);
 alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
         AlarmManager.INTERVAL_DAY, alarmIntent);
 ```
-
-
-

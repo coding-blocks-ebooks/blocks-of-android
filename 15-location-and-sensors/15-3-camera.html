@@ -743,8 +743,8 @@ public final static int SELECT_FILE = 1011;
 public String photoFileName = &quot;photo.jpg&quot;;
 </code></pre><ul>
 <li><p>Required Extra Functions for Camera App, used to get the Uri of the stored image and to check if external storage is available or not:</p>
-<p>  public Uri getPhotoFileUri(String fileName){
-  // Only continue if the SD Card is mounted</p>
+<p>public Uri getPhotoFileUri(String fileName){
+// Only continue if the SD Card is mounted</p>
 <pre><code>  if(isExternalStorageAvailable()){
 
       /* Get safe storage directory for photos
@@ -763,13 +763,13 @@ public String photoFileName = &quot;photo.jpg&quot;;
 
       returnUri.fromFile(newFile(mediaStorageDir.getPath()+File.separator+fileName));
   }
-</code></pre><p>  return null;
-  }</p>
-<p>  // Returns true if external storage for photos is available</p>
-<p>  private boolean isExternalStorageAvailable(){</p>
-<pre><code>  String state = Environment.getExternalStorageState();
-</code></pre><p>  return state.equals(Environment.MEDIA_MOUNTED);
-  }</p>
+</code></pre><p>return null;
+}</p>
+<p>// Returns true if external storage for photos is available</p>
+<p>private boolean isExternalStorageAvailable(){
+String state = Environment.getExternalStorageState();
+return state.equals(Environment.MEDIA_MOUNTED);
+}</p>
 </li>
 <li><p>Implement onActivityResult for both cases and display the thumbnail in the imageView:</p>
 </li>
@@ -848,7 +848,7 @@ public void onActivityResult(int requestCode , int resultCode, Intent data) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.3 Camera","level":"1.16.3","depth":2,"next":{"title":"15.4 Assignments","level":"1.16.4","depth":2,"path":"15-location-and-sensors/assignments.md","ref":"15-location-and-sensors/assignments.md","articles":[]},"previous":{"title":"15.2 Sensors","level":"1.16.2","depth":2,"path":"15-location-and-sensors/15-2-sensors.md","ref":"15-location-and-sensors/15-2-sensors.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"15-location-and-sensors/15-3-camera.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15.3 Camera","level":"1.16.3","depth":2,"next":{"title":"15.4 Assignments","level":"1.16.4","depth":2,"path":"15-location-and-sensors/assignments.md","ref":"15-location-and-sensors/assignments.md","articles":[]},"previous":{"title":"15.2 Sensors","level":"1.16.2","depth":2,"path":"15-location-and-sensors/15-2-sensors.md","ref":"15-location-and-sensors/15-2-sensors.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"15-location-and-sensors/15-3-camera.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

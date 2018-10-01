@@ -693,7 +693,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="bound-service">Bound Service.</h2>
-<p>A bound service is the server in a client-server interface. It allows components (such as activities) to bind to the service, send requests, receive responses, and perform interprocess communication (IPC).They can send data to the launching component (client). </p>
+<p>A bound service is the server in a client-server interface. It allows components (such as activities) to bind to the service, send requests, receive responses, and perform interprocess communication (IPC).They can send data to the launching component (client).</p>
 <h2 id="implementation-of-bound-service-">Implementation of Bound Service .</h2>
 <p>Binding is done using the Context.bindService() method whereas it is terminated with Context.unbindService(). The binding is also destroyed if the client component&#x2019;s lifecycle ends.</p>
 <p>When a client component binds to a Bound Service it retrieves a communication interface for sending requests and receiving responses within the process or even across processes. It returns an IBinder interface implementation from its <code>onBind()</code> method through the ServiceConnection interface supplied by the binding client component when invoking <code>bindService()</code>.</p>
@@ -743,26 +743,25 @@
         <span class="hljs-comment">// Some code...</span>
     }
 
-}
-</code></pre>
-<ul>
-<li><p>The <code>onBind()</code> method is called when the client component binds to the Service for the first time through <code>bindService().</code> </p>
-</li>
-<li><p>It returns an IBinder implementation that the client can use to interact with the Service by calling methods in the Service class. This IBinder
-implementation is basically a communication interface to send requests and receive responses either within a particular process or across processes.</p>
-</li>
-<li><p><code>onUnbind()</code> is called when all bindings are unbound.</p>
-</li>
-<li><p>The IBinder is returned to the client through a ServiceConnection interface that the client has to supply while binding. </p>
-</li>
-</ul>
-<pre><code class="lang-java">Intent intent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, TestService.class);
+}```
+
+* The `onBind()` method is called when the client component binds to the Service <span class="hljs-keyword">for</span> the first time through `bindService().`
+
+*  It returns an IBinder implementation that the client can use to interact with the Service by calling methods in the Service <span class="hljs-class"><span class="hljs-keyword">class</span>. <span class="hljs-title">This</span> <span class="hljs-title">IBinder</span>
+<span class="hljs-title">implementation</span> <span class="hljs-title">is</span> <span class="hljs-title">basically</span> <span class="hljs-title">a</span> <span class="hljs-title">communication</span> <span class="hljs-title">interface</span> <span class="hljs-title">to</span> <span class="hljs-title">send</span> <span class="hljs-title">requests</span> <span class="hljs-title">and</span> <span class="hljs-title">receive</span> <span class="hljs-title">responses</span> <span class="hljs-title">either</span> <span class="hljs-title">within</span> <span class="hljs-title">a</span> <span class="hljs-title">particular</span> <span class="hljs-title">process</span> <span class="hljs-title">or</span> <span class="hljs-title">across</span> <span class="hljs-title">processes</span>.
+
+* `<span class="hljs-title">onUnbind</span>()` <span class="hljs-title">is</span> <span class="hljs-title">called</span> <span class="hljs-title">when</span> <span class="hljs-title">all</span> <span class="hljs-title">bindings</span> <span class="hljs-title">are</span> <span class="hljs-title">unbound</span>.
+
+* <span class="hljs-title">The</span> <span class="hljs-title">IBinder</span> <span class="hljs-title">is</span> <span class="hljs-title">returned</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">client</span> <span class="hljs-title">through</span> <span class="hljs-title">a</span> <span class="hljs-title">ServiceConnection</span> <span class="hljs-title">interface</span> <span class="hljs-title">that</span> <span class="hljs-title">the</span> <span class="hljs-title">client</span> <span class="hljs-title">has</span> <span class="hljs-title">to</span> <span class="hljs-title">supply</span> <span class="hljs-title">while</span> <span class="hljs-title">binding</span>.
+
+```<span class="hljs-title">java</span>
+<span class="hljs-title">Intent</span> <span class="hljs-title">intent</span> </span>= <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, TestService.class);
 bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 </code></pre>
 <ul>
-<li><p><code>Intent</code> defines the Service to bind to and shouldn&#x2019;t contain any other extra data. </p>
+<li><p><code>Intent</code> defines the Service to bind to and shouldn&#x2019;t contain any other extra data.</p>
 </li>
-<li><p>The binding client has to provide a ServiceConnection </p>
+<li><p>The binding client has to provide a ServiceConnection</p>
 </li>
 </ul>
 <pre><code class="lang-java">TestService testService;
@@ -781,21 +780,19 @@ bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
         testService = <span class="hljs-keyword">null</span>;
         isBound = <span class="hljs-keyword">false</span>;
     }
-};
+};```
+
+* This way the binding client gets notify when the binding is established or disconnected.
+
+* the binding connection can be observed. The last argument `(flags)` passed to `bindService()` defines the operation options.
+
+* Now that you&#x2019;ve the testService object, you can call important methods like `methodOne()` and `methodTwo()`
+
+* Note <span class="hljs-keyword">this</span> execution happens on the thread of the calling client. Hence <span class="hljs-keyword">if</span> it&#x2019;s the UI thread, <span class="hljs-keyword">long</span> running operations should be prevented and a <span class="hljs-keyword">new</span> Thread should be spawned to handle them in background in `methodOne()` and `methodTwo()`.
+
+
+* Multiple clients can bind to the service, the system calls your Service&#x2019;s `onBind()` only once when the first client binds to retrieve the `IBinder.` The system then won&#x2019;t call `onBind()` again when any additional clients bind. Instead it&#x2019;ll deliver the same `IBinder.`
 </code></pre>
-<ul>
-<li><p>This way the binding client gets notify when the binding is established or disconnected. </p>
-</li>
-<li><p>the binding connection can be observed. The last argument <code>(flags)</code> passed to <code>bindService()</code> defines the operation options.</p>
-</li>
-<li><p>Now that you&#x2019;ve the testService object, you can call important methods like <code>methodOne()</code> and <code>methodTwo()</code> </p>
-</li>
-<li><p>Note this execution happens on the thread of the calling client. Hence if it&#x2019;s the UI thread, long running operations should be prevented and a new Thread should be spawned to handle them in background in <code>methodOne()</code> and <code>methodTwo()</code>.</p>
-</li>
-</ul>
-<ul>
-<li>Multiple clients can bind to the service, the system calls your Service&#x2019;s <code>onBind()</code> only once when the first client binds to retrieve the <code>IBinder.</code> The system then won&#x2019;t call <code>onBind()</code> again when any additional clients bind. Instead it&#x2019;ll deliver the same <code>IBinder.</code></li>
-</ul>
 
                                 
                                 </section>
@@ -839,7 +836,7 @@ bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"11.3 Bound Services","level":"1.12.3","depth":2,"next":{"title":"12. Alarms","level":"1.13","depth":1,"path":"12-alarms/intro.md","ref":"12-alarms/intro.md","articles":[]},"previous":{"title":"11.2 Background Services","level":"1.12.2","depth":2,"path":"11-services/11-2-background-services.md","ref":"11-services/11-2-background-services.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"11-services/11-3-bound-services.md","mtime":"2018-10-01T18:15:15.032Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:16:38.872Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"11.3 Bound Services","level":"1.12.3","depth":2,"next":{"title":"12. Alarms","level":"1.13","depth":1,"path":"12-alarms/intro.md","ref":"12-alarms/intro.md","articles":[]},"previous":{"title":"11.2 Background Services","level":"1.12.2","depth":2,"path":"11-services/11-2-background-services.md","ref":"11-services/11-2-background-services.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"11-services/11-3-bound-services.md","mtime":"2018-10-01T18:34:12.954Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:35:16.977Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
