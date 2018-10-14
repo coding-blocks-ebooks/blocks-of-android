@@ -38,34 +38,38 @@ class CustomAdapter extends ArrayAdapter<String> {
 ```java
 public CustomAdapter (Context context , int resource){
 super(context , resource);
-}```
+}
+```
 
-* Now , we'll be making changes inside the constuctor itself.
+* Now, we will be making changes inside the constuctor itself.
 
-* Insted of the ```int resource``` we want to pass on the array which has our items.
+* Insted of the `int resource` we want to pass on the array which has our items.
 
 ```java
 public CustomAdapter (Context context , String[] fruits ){
-super(context ,R.layout.custom_row, fruits);
-}```
+  super(context ,R.layout.custom_row, fruits);
+}
+```
 
-* Now we're going add override methods .
+* Now we are going add override methods .
 
-* Go , outside of your constructor and ```Alt+Insert``` for ```override methods```
+* Go , outside of your constructor and `Alt+Insert` for `override methods`
 
-* Now , the method which we're overriding is ```getView()```
+* Now , the method which we are overriding is `getView()`
 
-* Now, we're going to create a custom list adapter and going to associate with our array with that adapter , so all the items can be displayed in device screen .
+* Now, we are going to create a custom list adapter and going to associate with our array with that adapter , so all the items can be displayed in device screen .
 
 * Now , we need to initialize our view .
 
 ```java
-LayoutInflater lf = LayoutInflater.from.(getcontext());```
+LayoutInflater lf = LayoutInflater.from.(getcontext());
+```
 
 * Now , we need to initialize our customview .
 
 ```java
-View CustomView = lf.inflate(R.layout.custom_row ,  parent , false);```
+View CustomView = lf.inflate(R.layout.custom_row ,  parent , false);
+```
 
 * Now , the parameters it is going to take as input ,
 
@@ -79,7 +83,7 @@ Now we're going to create a ```String``` which is going to get the item dependin
 
 ```java
 String singleItem = getItem(position);
-````
+```
 
 - Now the next thing which we've to do is to get the reference of the `ImageView` as well as the `TextView`
 
@@ -93,14 +97,4 @@ String singleItem = getItem(position);
 ````java
 tv.setText(item);
 iv.setImageResource(R.id.drawable.image)```
-
-
-
-
-
-
-
-
-
-
 ````
