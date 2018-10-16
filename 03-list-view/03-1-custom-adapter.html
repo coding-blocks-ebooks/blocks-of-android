@@ -726,34 +726,38 @@
 ```java
 public CustomAdapter (Context context , int resource){
 super(context , resource);
-}```
+}
+```
 
-* Now , we&apos;ll be making changes inside the constuctor itself.
+* Now, we will be making changes inside the constuctor itself.
 
-* Insted of the ```int resource``` we want to pass on the array which has our items.
+* Insted of the `int resource` we want to pass on the array which has our items.
 
 ```java
 public CustomAdapter (Context context , String[] fruits ){
-super(context ,R.layout.custom_row, fruits);
-}```
+  super(context ,R.layout.custom_row, fruits);
+}
+```
 
-* Now we&apos;re going add override methods .
+* Now we are going add override methods .
 
-* Go , outside of your constructor and ```Alt+Insert``` for ```override methods```
+* Go , outside of your constructor and `Alt+Insert` for `override methods`
 
-* Now , the method which we&apos;re overriding is ```getView()```
+* Now , the method which we are overriding is `getView()`
 
-* Now, we&apos;re going to create a custom list adapter and going to associate with our array with that adapter , so all the items can be displayed in device screen .
+* Now, we are going to create a custom list adapter and going to associate with our array with that adapter , so all the items can be displayed in device screen .
 
 * Now , we need to initialize our view .
 
 ```java
-LayoutInflater lf = LayoutInflater.from.(getcontext());```
+LayoutInflater lf = LayoutInflater.from.(getcontext());
+```
 
 * Now , we need to initialize our customview .
 
 ```java
-View CustomView = lf.inflate(R.layout.custom_row ,  parent , false);```
+View CustomView = lf.inflate(R.layout.custom_row ,  parent , false);
+```
 
 * Now , the parameters it is going to take as input ,
 
@@ -767,17 +771,19 @@ Now we&apos;re going to create a ```String``` which is going to get the item dep
 
 ```java
 String singleItem = getItem(position);
-</code></pre>
-<ul>
-<li><p>Now the next thing which we&apos;ve to do is to get the reference of the <code>ImageView</code> as well as the <code>TextView</code></p>
-<pre><code class="lang-java">TextView tv = (TextView)  CustomView.findViewById(R.id.text);
-ImageView iv = (ImageView) CustomView.findViewById(R.id.image);
-</code></pre>
-</li>
-<li><p>Now we&apos;ve to set this text to this <code>singleitem</code> because the string which actually the item by using position.</p>
-</li>
-</ul>
-<pre><code class="lang-java">tv.setText(item);
+```
+
+- Now the next thing which we&apos;ve to do is to get the reference of the `ImageView` as well as the `TextView`
+
+  ```java
+  TextView tv = (TextView)  CustomView.findViewById(R.id.text);
+  ImageView iv = (ImageView) CustomView.findViewById(R.id.image);
+  ```
+
+- Now we&apos;ve to set this text to this `singleitem` because the string which actually the item by using position.
+
+````java
+tv.setText(item);
 iv.setImageResource(R.id.drawable.image)```
 </code></pre>
 
@@ -823,7 +829,7 @@ iv.setImageResource(R.id.drawable.image)```
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"next":{"title":"4. Intents","level":"1.5","depth":1,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[{"title":"4.1 Implicit and Explicit intents","level":"1.5.1","depth":2,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[]},{"title":"4.2 Assignments","level":"1.5.2","depth":2,"path":"04-intents/assignments.md","ref":"04-intents/assignments.md","articles":[]}]},"previous":{"title":"3. List View","level":"1.4","depth":1,"path":"03-list-view/intro.md","ref":"03-list-view/intro.md","articles":[{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"03-list-view/03-1-custom-adapter.md","mtime":"2018-10-01T18:35:42.100Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-01T18:36:45.289Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"next":{"title":"4. Intents","level":"1.5","depth":1,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[{"title":"4.1 Implicit and Explicit intents","level":"1.5.1","depth":2,"path":"04-intents/implicit-and-explicit.md","ref":"04-intents/implicit-and-explicit.md","articles":[]},{"title":"4.2 Assignments","level":"1.5.2","depth":2,"path":"04-intents/assignments.md","ref":"04-intents/assignments.md","articles":[]}]},"previous":{"title":"3. List View","level":"1.4","depth":1,"path":"03-list-view/intro.md","ref":"03-list-view/intro.md","articles":[{"title":"3.1 Custom Adapter","level":"1.4.1","depth":2,"path":"03-list-view/03-1-custom-adapter.md","ref":"03-list-view/03-1-custom-adapter.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"03-list-view/03-1-custom-adapter.md","mtime":"2018-10-16T22:01:06.762Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-16T22:02:13.481Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
