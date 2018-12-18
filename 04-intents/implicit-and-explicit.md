@@ -10,7 +10,7 @@ When we specify the exact activity class \(or component\) that should handle the
 
 Here is the sample code for that:
 
-```
+```java
 Intent i =newIntent();
 i.setClass(getApplicationContext(), DetailedActivity.class);
 startActivity(i);
