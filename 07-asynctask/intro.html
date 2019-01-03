@@ -571,9 +571,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.18.1" data-path="../17-firebase/17-1-realtime-db.html">
+        <li class="chapter " data-level="1.18.1" data-path="../17-firebase/17-1-realtime-db.md">
             
-                <a href="../17-firebase/17-1-realtime-db.html">
+                <span>
             
                     
                     17.1 Realtime Database
@@ -584,9 +584,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.18.2" data-path="../17-firebase/17-2-push-notifications.html">
+        <li class="chapter " data-level="1.18.2" data-path="../17-firebase/17-2-push-notifications.md">
             
-                <a href="../17-firebase/17-2-push-notifications.html">
+                <span>
             
                     
                     17.2 Push Notifications
@@ -692,51 +692,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="asynctask">AsyncTask</h1>
-<p>Threads -&gt; It just series of instructions that execute in a particular linear sequence.</p>
-<p>UI thread -&gt; All the things happening on the screen needs to happen on UI thread. App in running state handles the UI thread. At a time there can only be one app managing UI thread. Only UI thread can change things on the screen.</p>
-<p>AsyncTask is made using Threads and handlers. In Asynctask we do not need to manage threads. Like we dont have to stop the threads or start new threads. All of this is handled by AsyncTask for us. It is like a wrapper class for threads and handler.</p>
-<p>AsyncTask enables proper and easy use of the UI thread. This class allows you to perform background operations and publish results on the UI thread without having to manipulate threads and/or handlers.</p>
-<p>AsyncTask is designed to be a helper class around Thread and Handler and does not constitute a generic threading framework. AsyncTasks should ideally be used for short operations (a few seconds at the most.) If you need to keep threads running for long periods of time, it is highly recommended you use the various APIs provided by the java.util.concurrent package such as Executor, ThreadPoolExecutor and FutureTask.</p>
-<p>To use AsyncTask, we create a class that extends from asynctask. We can call execute on the object of the class to start the work in different thread.</p>
-<p>An AsyncTask streamlines the following common background process:</p>
+                                <h1 id="async-tasks">Async Tasks</h1>
+<p>The concept of Async Tasks is similar to the concept of Threads in Java. Like in java, we can create multiple threads and other than that there is a main thread on which runs the majority of the program. Similarly, in android there is a UI thread(user interface thread) on which most of the operations like clicking, scrolling etc. are done and the tasks that take some time to finish are performed on some other thread so that the UI thread is not blocked.</p>
+<p>Hence, Async task(asynchronus tasks) come in use when the operations like fetching data from server or downloading a file are to performed. These tasks are problematic not only because if performed on the main thread, it will block the thread and no other operation can be done but also, if the task takes more than 5 seconds to complete then that application will crash and will report <strong>ApplicationNotResponding</strong>.</p>
+<p>Thus to prevent this, these tasks should be performed using async task which will perform the operation on a background thread and the result will be published on the main UI thread. However, async tasks should be used only to perform small tasks ( the ones which take only a few seconds to compute).</p>
+<p>For implementation of the Asynchronus tasks, an inner class has to be created in the activity which inherits the <strong>AsyncTask</strong> class.</p>
+<h2 id="async-task-generic-types">Async Task Generic Types</h2>
+<p>The three types used by an asynchronous task are the following:</p>
+<ul>
+<li><strong>Params</strong>, the type of the parameters sent to the task upon execution.</li>
+<li><strong>Progress</strong>, the type of the progress units published during the background computation.</li>
+<li><strong>Result</strong>, the type of the result of the background computation.</li>
+</ul>
+<p>Not all types are always used by an asynchronous task. To mark a type as unused, simply use the type Void.</p>
+<pre><code>Private class MyTask extends AsyncTask&lt;Void, Void, Void&gt; {&#x2026;}
+</code></pre><p>Now there are four methods that are to defined, however only one of them (doInBackground) is compulsory. The four methods are as follows:</p>
 <ol>
-<li><strong>Pre</strong> - Execute code on the UI thread before starting a task (e.g show ProgressBar)</li>
-<li><strong>Backgroud</strong> - Run a background task on a thread given certain inputs (e.g fetch data)</li>
-<li><strong>Updates</strong> - Display progress updates during the task (optional)</li>
-<li><strong>Post</strong> - Execute code on UI thread following completion of the background task (e.g show data). This take in the argument, work done by the background thread.</li>
+<li><p><strong>onPreExecute():</strong>
+This method runs on the UI thread and is used primarily for setting up the task like displaying the progress bar.</p>
+</li>
+<li><p><strong>doInBackground(Params..):</strong>
+This method takes in an array of Parameters that is used to begin the task like the url of the image to be downloaded or the url from which the data is to be fetched.
+It runs on the background thread.
+It begins as soon as the execution of the <code>onPreExecute()</code> is over.</p>
+</li>
+<li><p><strong>onProgressUpdate(Progress..):</strong>
+This method too runs on the UI thread and is used to diplay the progress of the task. For example, it is used to show what percent of the file has been downloaded in the form of a progress bar.
+The parameter Progress are passed from the <code>doInBackground()</code> method. </p>
+</li>
+<li><p><strong>onPostExecute(Result..):</strong>
+This method also runs on the UI thread and starts after the execution of the <code>doInBackground()</code> method is completed.The result is passed on to this method as a parameter from the doInBackground method.
+It is used to publish the result of the doInBackground method on the UI thread.</p>
+</li>
 </ol>
-<p>In java code AsyncTask can be used as follows -</p>
-<pre><code class="lang-java">  <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AsyncTaskDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AsyncTask</span>&lt;<span class="hljs-title">String</span>, <span class="hljs-title">Void</span>, <span class="hljs-title">String</span>&gt; </span>{
-      <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPreExecute</span><span class="hljs-params">()</span> </span>{
-            <span class="hljs-comment">// Runs on the UI thread before doInBackground</span>
-            <span class="hljs-comment">// Good for toggling visibility of a progress indicator</span>
-            Log.e(<span class="hljs-string">&quot;AsyncTaskDemo&quot;</span>, <span class="hljs-string">&quot;onPreExecute&quot;</span>);
+<p>However, the point to be noted is that none of the four methods mentioned above, should be called directly from the main thread.</p>
+<h2 id="execution-flow">Execution Flow</h2>
+<p>All you have to do is to call the <code>execute()</code> method on the object of the inner class from the main thread.
+The execute method then calls the <code>onPreExecute()</code> on the UI thread <strong>automatically</strong>.
+Next, the <code>doInBackground method</code> is called (again <strong>automatically</strong>) on the background thread.
+From the doInBackground, you have to call the <code>PublishProgress()</code> method <strong>manually</strong> which further calls the <code>OnProgressUpdate()</code> on the UI thread.
+Finally after the completion of the doInBackground method, the <code>PostExecute</code> method is called(automatically) and after its execution, the control is finally passed back to the UI thread.</p>
+<h2 id="cancelling-the-task">Cancelling the task</h2>
+<p>To cancel the task just invoke <code>cancel(Boolean)</code>. Invoking this method will cause subsequent calls to <code>isCancelled()</code> to return true. After invoking this method, onCancelled(Object) will be invoked instead of <code>onPostExecute(Object)</code> after the execution of <code>doInBackground(Object[])</code> is over</p>
+<h2 id="code">Code</h2>
+<p>Create a class for the task to be performed: </p>
+<pre><code>internal class NSecWaitTask(private val tvToChange: TextView) : AsyncTask&lt;Int, Float, String&gt;() {
+
+    override fun onPreExecute() {
+        tvToChange.text = &quot;Starting&quot;
+        super.onPreExecute()
+    }
+
+    override fun doInBackground(vararg params: Int?): String {
+        for (i in 0 until params[0]!! * 2) {
+            val startTime = System.currentTimeMillis()
+            while (System.currentTimeMillis() &lt; startTime + 500);
+            publishProgress(i.toFloat() / 2)
         }
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">doInBackground</span><span class="hljs-params">(String... strings)</span> </span>{
-            <span class="hljs-comment">// Some long-running task in backgorund</span>
+        return &quot;Done&quot;
+    }
 
-            <span class="hljs-keyword">long</span> startTime = System.currentTimeMillis();
+    override fun onProgressUpdate(vararg values: Float?) {
+        tvToChange.text = values[0].toString()
+        super.onProgressUpdate(*values)
+    }
 
-            <span class="hljs-comment">//This task will not block UI thread as it is being done in background thread</span>
-            <span class="hljs-keyword">while</span> (System.currentTimeMillis() - startTime&lt;<span class="hljs-number">5000</span>);
+    override fun onPostExecute(s: String) {
 
-            Log.e(<span class="hljs-string">&quot;AsyncTaskDemo&quot;</span>, <span class="hljs-string">&quot;doInBackground says &quot;</span> + strings[<span class="hljs-number">0</span>]);
-            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hi&quot;</span>;
+        tvToChange.text = s
+        super.onPostExecute(s)
+    }
+}
+</code></pre><p>From the main thread, call the asynchronus task using the execute() method. The UI thread will not be blocked while the task gets completed on some other thread.</p>
+<pre><code>button!!.setOnClickListener {
+            val myTask = NSecWaitTask(textView)
+            myTask.execute(Integer.valueOf(editText!!.text.toString()))
         }
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPostExecute</span><span class="hljs-params">(String result)</span> </span>{
-            <span class="hljs-comment">// This method is executed in the UIThread</span>
-            <span class="hljs-comment">// with access to the result.</span>
-            Log.e(<span class="hljs-string">&quot;AsyncTaskDemo&quot;</span>, <span class="hljs-string">&quot;onPostExecute: &quot;</span> + result);
 
+button2!!.setOnClickListener {
+            textView.text = &quot;Button2 still working..&quot;;
         }
-  }
 </code></pre>
-<p>Now to call this in Activity, we have to simply makes it object and call execute on it.</p>
-<pre><code class="lang-java">AsyncTaskDemo asyncTaskDemo = <span class="hljs-keyword">new</span> AsyncTaskDemo();
-asyncTaskDemo.execute(<span class="hljs-string">&quot;Hello&quot;</span>);
-</code></pre>
-
                                 
                                 </section>
                             
@@ -779,7 +815,7 @@ asyncTaskDemo.execute(<span class="hljs-string">&quot;Hello&quot;</span>);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7. AsyncTask","level":"1.8","depth":1,"next":{"title":"8. Network Operations","level":"1.9","depth":1,"path":"08-network-operations/intro.md","ref":"08-network-operations/intro.md","articles":[]},"previous":{"title":"6. Broadcast Receivers","level":"1.7","depth":1,"path":"06-broadcasts-receivers/intro.md","ref":"06-broadcasts-receivers/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"07-asynctask/intro.md","mtime":"2019-01-03T10:11:34.217Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T10:12:31.156Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7. AsyncTask","level":"1.8","depth":1,"next":{"title":"8. Network Operations","level":"1.9","depth":1,"path":"08-network-operations/intro.md","ref":"08-network-operations/intro.md","articles":[]},"previous":{"title":"6. Broadcast Receivers","level":"1.7","depth":1,"path":"06-broadcasts-receivers/intro.md","ref":"06-broadcasts-receivers/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"07-asynctask/intro.md","mtime":"2019-01-03T15:42:35.812Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T15:43:36.411Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
