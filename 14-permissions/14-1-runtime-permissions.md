@@ -48,7 +48,8 @@ public class PermissionDemoActivity extends AppCompatActivity {
             },
             RECORD_REQUEST_CODE);
     }
-}```
+}
+```
 
 * Now implement the onRequestPermissionsResult() method.
 
