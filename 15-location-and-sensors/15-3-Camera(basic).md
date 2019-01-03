@@ -4,9 +4,6 @@ You want to take photos but do not want to reinvent the camera. Luckily, most An
 
 ### Request the camera feature:
 To tell that your application depends on having a camera, put a <uses-feature> tag in your manifest file:
-<<<<<<< HEAD:15-location-and-sensors/15-3-Camera(basic).md
-``` xml
-=======
 
 ```xml
 >>>>>>> d92c26912dd4e1e702422f4c887064700cda45f7:15-location-and-sensors/15-3-Camera (2).md
@@ -17,15 +14,11 @@ To tell that your application depends on having a camera, put a <uses-feature> t
 </manifest>
 ```
 
-<<<<<<< HEAD:15-location-and-sensors/15-3-Camera(basic).md
+
 ### Take a photo with a camera app:
 The Android way of delegating actions to other applications is to invoke an Intent that describes what you want to be done. This process involves three pieces: The Intent itself, a call to start the external Activity, and some code to handle the image data when focus returns to your activity.
 Here's a function that invokes an intent to capture a photo:
-``` kotlin
-=======
-Take a photo with a camera app:
-The Android way of delegating actions to other applications is to invoke an Intent that describes what you want to be done. This process involves three pieces: The Intent itself, a call to start the external Activity, and some code to handle the image data when focus returns to your activity.
-Here's a function that invokes an intent to capture a photo:
+
 
 ```kotlin
 >>>>>>> d92c26912dd4e1e702422f4c887064700cda45f7:15-location-and-sensors/15-3-Camera (2).md
@@ -39,13 +32,11 @@ private fun dispatchTakePictureIntent() {
 }
 ```
 
-<<<<<<< HEAD:15-location-and-sensors/15-3-Camera(basic).md
 ### Add the photo to a gallery:
-=======
-Add the photo to a gallery:
->>>>>>> d92c26912dd4e1e702422f4c887064700cda45f7:15-location-and-sensors/15-3-Camera (2).md
+
 When you create a photo through an intent, you should know where your image is located, because you said where to save it in the first place. For everyone else, perhaps the easiest way to make your photo accessible is to make it accessible from the system's Media Provider.
 The following example method demonstrates how to invoke the system's media scanner to add your photo to the Media Provider's database, making it available in the Android Gallery application and to other apps.
+
 ``` kotlin
 private fun galleryAddPic() {
     Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->

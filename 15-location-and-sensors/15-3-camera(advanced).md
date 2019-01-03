@@ -99,5 +99,5 @@ private fun stopPreviewAndFreeCamera() {
 ```
 
 ## Some useful links:
-https://github.com/CameraKit/camerakit-android
-https://github.com/natario1/CameraView
+[a link] (https://github.com/CameraKit/camerakit-android)
+[a link] (https://github.com/natario1/CameraView)
