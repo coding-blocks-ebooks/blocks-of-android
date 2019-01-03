@@ -6,7 +6,6 @@ You want to take photos but do not want to reinvent the camera. Luckily, most An
 To tell that your application depends on having a camera, put a <uses-feature> tag in your manifest file:
 
 ```xml
->>>>>>> d92c26912dd4e1e702422f4c887064700cda45f7:15-location-and-sensors/15-3-Camera (2).md
 <manifest ... >
     <uses-feature android:name="android.hardware.camera"
                   android:required="true" />
@@ -21,7 +20,6 @@ Here's a function that invokes an intent to capture a photo:
 
 
 ```kotlin
->>>>>>> d92c26912dd4e1e702422f4c887064700cda45f7:15-location-and-sensors/15-3-Camera (2).md
 val REQUEST_IMAGE_CAPTURE = 1
 private fun dispatchTakePictureIntent() {
     Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
