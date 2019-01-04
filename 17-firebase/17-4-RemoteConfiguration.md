@@ -2,13 +2,13 @@
 
 Firebase remote configuration is a service that allows the developers to publish changes to the app, without having to release a new version of it. By using it, you can reliably modify the looks and behaviors of your apps across your entire user base.
 
-Consider the scenario that during the Christmas season, you want your app to have a red theme or if the users of your app find the font size too small and you want to change it, then for such minor changes releasing a new version of the app makes no sense. In cases, like these firebase remote configuration comes to our rescue.
+Consider the scenario that during the Christmas season, you want your app to have a red theme or if the users of your app find the font size too small and you want to change it, then for such minor changes releasing a new version of the app makes no sense. In cases like these firebase remote configuration comes to our rescue.
 
-Also, there are times when you aren’t sure of a particular update of the application, so firebase allows you to roll out the new version of the app to a certain section of the users to understand their response and take your decision accordingly.
+Also, updates can be provided only to a certain section of the userbase. This feature comes in o great use in situations when the update is only meant for people of a particular region or for the people speaking a particular language. 
 
-In the following tutorial, we will change the message with the help of remote configuration.
+In the following tutorial, we will change the message being displayed with the help of remote configuration.
 
-Firstly, setup the firebase as explained in the previous section.
+Firstly, setup the firebase as explained in the first section.
 
 Next, open the firebase console -> find remote configuration in the Grow section and click on **Add your first parameter** to get started.
 
