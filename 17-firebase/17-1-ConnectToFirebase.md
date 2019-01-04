@@ -14,7 +14,7 @@ In this new window, click on the Connect to Firebase option.
 
 ![](./images/ConnectToFirebase3.png)
 
-In the dialog box that pops up, create a new Firebase project and click on connect to fIrebase option.
+In the dialog box that pops up, create a new Firebase project and click on connect to firebase option.
 
 ![](./images/ConnectToFirebase4.png)
 
