@@ -46,8 +46,10 @@ class Preview(
     ...
 }
 ```
+
 ### Set and Start the Preview:
 A camera instance and its related preview must be created in a specific order, with the camera object being first. The process of initializing the camera is encapsulated so that Camera.startPreview() is called by the setCamera() method, whenever the user does something to change the camera. The preview must also be restarted in the preview class surfaceChanged() callback method.
+
 ``` kotlin
 fun setCamera(camera: Camera?) {
     if (mCamera == camera) {
@@ -76,6 +78,7 @@ Use the Camera.takePicture() method to take a picture once the preview is starte
 
 ### Stop the Preview and Release the Camera:
 Once your application is done using the camera, it's time to clean up. In particular, you must release the Camera object, or you risk crashing other applications, including new instances of your own application. Having your preview surface destroyed is a pretty good hint that it’s time to stop the preview and release the camera.
+
 ``` kotlin
 override fun surfaceDestroyed(holder: SurfaceHolder) {
     // Surface will be destroyed when we return, so stop the preview.
@@ -99,5 +102,5 @@ private fun stopPreviewAndFreeCamera() {
 ```
 
 ## Some useful links:
-[a link] (https://github.com/CameraKit/camerakit-android)
-[a link] (https://github.com/natario1/CameraView)
+[camera kit] (https://github.com/CameraKit/camerakit-android)
+[camera view] (https://github.com/natario1/CameraView)
