@@ -351,9 +351,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="../12-alarms/intro.html">
+        <li class="chapter " data-level="1.13" data-path="../12-alarms/intro.md">
             
-                <a href="../12-alarms/intro.html">
+                <span>
             
                     
                     12. Alarms
@@ -693,182 +693,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="database">Database</h1>
-<p>In software applications, it is mostly required to save information for some internal use or off course to provide user to great features depending on the data. And when we talk about android so SQLite is that default feature which is used as a database and also used as a local database for any application. .</p>
-<h2 id="implementation-of-sqliteopenhelper">Implementation of SQLiteOpenHelper</h2>
-<ul>
-<li>Start a new project and open up <code>activity_main.xml</code> and
-add Edit text , 2 Buttons and TextView to it .</li>
-</ul>
-<p>In this application we&apos;re taking an input from the user and adding contents to the database table and then showing it off .</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
-        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/et&quot;</span>
-        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
-        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
-        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btnAdd&quot;</span>
-        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;100dp&quot;</span>
-        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;150dp&quot;</span> /&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
-        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btnRemove&quot;</span>
-        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;100dp&quot;</span>
-        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;150dp&quot;</span> /&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
-        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tv&quot;</span>
-        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;400dp&quot;</span>
-        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;200dp&quot;</span> /&gt;</span>
-</code></pre>
-<ul>
-<li>Now we&apos;ve to create a contract class which is goint to store some properties about the contents that we&apos;re adding into database .</li>
-</ul>
-<p>Create a new Java class and name it as Products .</p>
-<ul>
-<li>Now we&apos;ve to add the attributes and their respective constuctor &amp; setters and getters method which can use to the pass the information .</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Products</span> </span>{
-
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> _id;
-    <span class="hljs-keyword">private</span> String _productname;
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Products</span><span class="hljs-params">()</span></span>{
-
-}
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Products</span><span class="hljs-params">(String productname)</span> </span>{
-  <span class="hljs-keyword">this</span>._productname = productname;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">get_id</span><span class="hljs-params">()</span> </span>{
-  <span class="hljs-keyword">return</span> _id;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">get_productname</span><span class="hljs-params">()</span> </span>{
-  <span class="hljs-keyword">return</span> _productname;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set_id</span><span class="hljs-params">(<span class="hljs-keyword">int</span> _id)</span> </span>{<span class="hljs-keyword">this</span>._id = _id;}
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set_productname</span><span class="hljs-params">(String _productname)</span> </span>{<span class="hljs-keyword">this</span>._productname = _productname;}
-
-}
-</code></pre>
-<p>Now we&apos;ve to create a database , create a new Java class MyDBHandler extends SQLiteOpenHelper</p>
-<ul>
-<li>Every database has to have some properties like : version , DBname , Table name , collumn ID , collumn name .</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDBHandler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SQLiteOpenHelper</span> </span>{
-
-<span class="hljs-comment">//make some variables</span>
-
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> DATABASE_VERSION=<span class="hljs-number">1</span>;
-
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DATABSE_NAME=<span class="hljs-string">&quot;products.db&quot;</span>;
-
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String TABLE_PRODUCTS=<span class="hljs-string">&quot;products&quot;</span>;
-
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String COLOUMN_ID=<span class="hljs-string">&quot;_id&quot;</span>;
-
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String COLOUMN_PRODUCTNAME=<span class="hljs-string">&quot;productname&quot;</span>;
-
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyDBHandler</span><span class="hljs-params">(Context context, String name, SQLiteDatabase.CursorFactory factory, <span class="hljs-keyword">int</span> version)</span> </span>{
-
-<span class="hljs-keyword">super</span>(context, DATABSE_NAME, factory, DATABASE_VERSION);}
-}
-</code></pre>
-<ul>
-<li><p>Now we&apos;ve to override OnCreate and OnUpgrade .</p>
-</li>
-<li><p>In the onCreate , we&apos;ve to decleare and execute query which is going to generate a blank table</p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(SQLiteDatabase db)</span> </span>{
-
-String query = <span class="hljs-string">&quot;CREATE TABLE &quot;</span> + TABLE_PRODUCTS + <span class="hljs-string">&quot;(&quot;</span> +
-
-COLOUMN_ID + <span class="hljs-string">&quot; INTEGER PRIMARY KEY AUTOINCREMENT, &quot;</span> +
-
-COLOUMN_PRODUCTNAME + <span class="hljs-string">&quot; TEXT &quot;</span> +
-
-<span class="hljs-string">&quot;);&quot;</span>;
-
-db.execSQL(query);
-
-}
-</code></pre>
-<ul>
-<li>In the OnUpgrade method we&apos;ve to write the code for updating the table .</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-meta">@Override</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onUpgrade</span><span class="hljs-params">(SQLiteDatabase db, <span class="hljs-keyword">int</span> oldVersion, <span class="hljs-keyword">int</span> newVersion)</span> </span>{
-
-db.execSQL(<span class="hljs-string">&quot;DROP TABLE IF EXISTS&quot;</span>+TABLE_PRODUCTS);
-
-onCreate(db);
-
-}
-`
-</code></pre>
-<ul>
-<li><p>Now we&apos;ve to create the respective methods for Adding , Deleting products to the database.</p>
-</li>
-<li><p>Adding products to the database we&apos;ve to associate every value which have to be inserted into database using content values .</p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addProduct</span><span class="hljs-params">(Products products)</span></span>{
-
-  ContentValues values = <span class="hljs-keyword">new</span> ContentValues();
-  values.put(COLOUMN_PRODUCTNAME,products.get_productname());
-  SQLiteDatabase db= getWritableDatabase();
-  db.insert(TABLE_PRODUCTS,<span class="hljs-keyword">null</span>,values);
-  db.close();
-
-}
-</code></pre>
-<ul>
-<li><p>After association , get reference to the database .</p>
-</li>
-<li><p>Enter the values using <code>.insert</code></p>
-</li>
-<li><p>Close the database</p>
-</li>
-</ul>
-<p>Method for Deleting products from the database</p>
-<ul>
-<li><p>First you&apos;ve to get reference to the database .</p>
-</li>
-<li><p>Then you&apos;ve to execute a query for deleting a single item from the database table .</p>
-</li>
-</ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteProduct</span><span class="hljs-params">(String productname)</span></span>{
-
-SQLiteDatabase db =getWritableDatabase();
-
-db.execSQL(<span class="hljs-string">&quot;DELETE FROM &quot;</span> + TABLE_PRODUCTS + <span class="hljs-string">&quot; WHERE &quot;</span> + COLOUMN_PRODUCTNAME + <span class="hljs-string">&quot;=\&quot;&quot;</span> + productname + <span class="hljs-string">&quot;\&quot;;&quot;</span>);
-
-}
-</code></pre>
-<p>Once you&apos;re done with adding and deleting the only thing which is left behind was printing the database .</p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">databasetostring</span><span class="hljs-params">()</span></span>{
-
-  String dbString=<span class="hljs-string">&quot;&quot;</span>;
-  SQLiteDatabase db= getWritableDatabase();
-  String query = <span class="hljs-string">&quot;SELECT * FROM &quot;</span> + TABLE_PRODUCTS + <span class="hljs-string">&quot; WHERE 1&quot;</span>;
-  Cursor c = db.rawQuery(query,<span class="hljs-keyword">null</span>);
-  c.moveToFirst();
-  <span class="hljs-keyword">while</span> (!c.isAfterLast()) {
-    <span class="hljs-keyword">if</span>(c.getString(c.getColumnIndex(<span class="hljs-string">&quot;productname&quot;</span>))!=<span class="hljs-keyword">null</span>) {
-      dbString+= c.getString(c.getColumnIndex(<span class="hljs-string">&quot;productname&quot;</span>));
-      dbString+=<span class="hljs-string">&quot;\n&quot;</span>;
-    }
-    c.moveToNext();
-  }
-  db.close();
-  <span class="hljs-keyword">return</span> dbString;
-}
-</code></pre>
+<p>Do you want to store and save data of your Android application in your device? The solution is very easy as Android use SQLite as it&#x2019;s default built-in database. SQLite is a light weight relational database. SQLite stores data of your application in a text file. SQLite database supports standard features of relational database. Every device has an inbuilt support for SQLite database, which is automatically managed on android right from its creation, execution to querying up process. SQLite is an open source database, available on every android database. It supports standard relations database features, like SQL syntax, transactions &amp; SQL statements. SQLite is considerably, the lighter version of SQL database, where most of the SQL commands don&#x2019;t run on SQLite database. Once SQLite is in place, it is important to ensure that a feature or command is available in SQLite; only then can it be executed. 
+<code>Android.database.sqlite</code> package has all you need to save data of your application. These classes are used to manage the <code>Cursor</code> object returned from a content provider query. Databases are usually created and opened with <code>openOrCreateDatabase(String, int, SQLiteDatabase.CursorFactory)</code> To make requests through content providers, you can use the <code>content.ContentResolver</code>class.
+All databases are stored on the device in <code>/data/data/&lt;package_name&gt;/databases</code></p>
 
                                 
                                 </section>
@@ -912,7 +739,7 @@ db.execSQL(<span class="hljs-string">&quot;DELETE FROM &quot;</span> + TABLE_PRO
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. Databases","level":"1.6","depth":1,"next":{"title":"6. Broadcast Receivers","level":"1.7","depth":1,"path":"06-broadcasts-receivers/intro.md","ref":"06-broadcasts-receivers/intro.md","articles":[]},"previous":{"title":"4.2 Assignments","level":"1.5.2","depth":2,"path":"04-intents/assignments.md","ref":"04-intents/assignments.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"05-databases/intro.md","mtime":"2019-01-03T15:42:35.812Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T15:43:36.411Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. Databases","level":"1.6","depth":1,"next":{"title":"6. Broadcast Receivers","level":"1.7","depth":1,"path":"06-broadcasts-receivers/intro.md","ref":"06-broadcasts-receivers/intro.md","articles":[]},"previous":{"title":"4.2 Assignments","level":"1.5.2","depth":2,"path":"04-intents/assignments.md","ref":"04-intents/assignments.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"05-databases/intro.md","mtime":"2019-01-26T18:10:45.569Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-26T18:12:04.430Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
