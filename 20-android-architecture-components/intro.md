@@ -25,6 +25,35 @@ They are the data objects that notify the views whenever the related database is
 
 All these components will be discussed in detail in the coming sections.
 
+## Adding Architecture Components
+
+Android Studio projects aren't configured to access this repository by default.
+
+To add it to your project, open the build.gradle file for the project and add the google() repository as shown below:
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+```
+
+In the build.gradle file of your app, add the following dependecies:
+
+For Lifecycles, LiveData and ViewModel:
+```
+compile “android.arch.lifecycle:runtime:1.0.0-alpha9”
+compile “android.arch.lifecycle:extensions:1.0.0-alpha9”
+annotationProcessor “android.arch.lifecycle:compiler:1.0.0-alpha9”
+```
+For Room:
+```
+compile “android.arch.persistence.room:runtime:1.0.0-alpha9”
+annotationProcessor “android.arch.persistence.room:compiler:1.0.0-alpha9”
+```
+
+
 
 
 
