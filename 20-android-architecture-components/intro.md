@@ -41,18 +41,30 @@ allprojects {
 
 In the build.gradle file of your app, add the following dependecies:
 
-For Lifecycles, LiveData and ViewModel:
 ```
-compile “android.arch.lifecycle:runtime:1.0.0-alpha9”
-compile “android.arch.lifecycle:extensions:1.0.0-alpha9”
-annotationProcessor “android.arch.lifecycle:compiler:1.0.0-alpha9”
-```
-For Room:
-```
-compile “android.arch.persistence.room:runtime:1.0.0-alpha9”
-annotationProcessor “android.arch.persistence.room:compiler:1.0.0-alpha9”
-```
+dependencies {
 
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    // alternatively, just ViewModel
+    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+    // alternatively, just LiveData
+    implementation "android.arch.lifecycle:livedata:1.1.1"
+
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+    // Room (use 1.1.0-beta3 for latest beta)
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+
+    // Test helpers for LiveData
+    testImplementation "android.arch.core:core-testing:1.1.1"
+
+    // Test helpers for Room
+    testImplementation "android.arch.persistence.room:testing:1.0.0"
+   
+}
+```
 
 
 
