@@ -1,5 +1,6 @@
 # LiveData
 
+## The need for LiveData
 It is a common scenario that the activity or fragment has to observe some data and whenever the data changes, the application has to update itself. Also, the sharing of resources among activities or fragments is tough for example, consider location, it will be same for all the activities yet separate listeners have to be attached to each activity or as an alternate option they are passed via the intents. However, this whole procedure is cumbersome and unnecessary. Here live data comes to our rescue.
 
 ## What is live data??
@@ -19,4 +20,23 @@ As mentioned above, the observer need not subscribe and unsubscribe. LiveData is
 When the screen is rotated, the activity is created again but the rotated activity or fragment, receives the updated data immediately.
 - <b> Updated UI </b>
 Whenever the state of lifecycle is changed, the observer is notified. Therefore the code be made such that UI is updated whenever the state of data is changed, instead of updating it with the change in data.
+
+## Implementation
+- Create an instance of LiveData object. Usually liveData object is stored in the object of ViewModel class and the getter method is used to extract the data
+
+```
+class SampleViewModel : ViewModel() {
+
+    val currentScore: MutableLiveData<Integer> by lazy {
+        MutableLiveData<Integer>()
+    }
+
+    // Rest of the ViewModel...
+}
+```
+Note: MutableLiveData is used beacuse LiveData has no methods for updating the stored values. The MutableLiveData class has two extra public methods using which updation of data can be done: setValue(T) and postValue(T).
+
+- 
+
+
 
