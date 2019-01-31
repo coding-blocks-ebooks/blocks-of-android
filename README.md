@@ -11,6 +11,7 @@ Authors with most contributions are -
 - Arnav Gupta
 - Harshit Dwivedi
 - Nimit Agarwal
+- Harshita Jain
 - Piyush Gupta
 - Raunaq Verma
 - Rishabh Khanna
