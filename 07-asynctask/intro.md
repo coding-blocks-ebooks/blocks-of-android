@@ -41,7 +41,7 @@ However, the point to be noted is that none of the four methods mentioned above,
 ## Execution Flow
 All you have to do is to call the ```execute()``` method on the object of the inner class from the main thread.
 The execute method then calls the ```onPreExecute()``` on the UI thread **automatically**.
-Next, the ```doInBackground method``` is called (again **automatically**) on the background thread.
+Next, the ```doInBackground()``` method is called (again **automatically**) on the background thread.
 From the doInBackground, you have to call the ```PublishProgress()``` method **manually** which further calls the ```OnProgressUpdate()``` on the UI thread.
 Finally after the completion of the doInBackground method, the ```PostExecute``` method is called(automatically) and after its execution, the control is finally passed back to the UI thread.
 
