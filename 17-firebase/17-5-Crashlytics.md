@@ -10,3 +10,4 @@ Its capabilities include:
 The dashboard shows crashes ranked by overall impacts. The crashes are intelligently grouped by the versions of the app.
 Also, logs are available for the crashes that took place which play a major role in understanding the non-reproducible errors. The code failures that do not necessarily crash the app are also recorded.
 It is integrated with android applications with absolutely zero lines of code. All you have to do is setup the firebase crashlytics as explained in the setup section.
+

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>15.1 Location API · GitBook</title>
+        <title>19.5 ViewModel · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -67,10 +67,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="15-2-sensors.html" />
     
-    
-    <link rel="prev" href="intro.html" />
+    <link rel="prev" href="Navigation.md" />
     
 
     </head>
@@ -550,9 +548,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="intro.html">
+        <li class="chapter " data-level="1.16" data-path="../15-location-and-sensors/intro.html">
             
-                <a href="intro.html">
+                <a href="../15-location-and-sensors/intro.html">
             
                     
                     15. Location and Sensors
@@ -564,9 +562,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.16.1" data-path="15-1-location.html">
+        <li class="chapter " data-level="1.16.1" data-path="../15-location-and-sensors/15-1-location.html">
             
-                <a href="15-1-location.html">
+                <a href="../15-location-and-sensors/15-1-location.html">
             
                     
                     15.1 Location API
@@ -577,9 +575,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.2" data-path="15-2-sensors.html">
+        <li class="chapter " data-level="1.16.2" data-path="../15-location-and-sensors/15-2-sensors.html">
             
-                <a href="15-2-sensors.html">
+                <a href="../15-location-and-sensors/15-2-sensors.html">
             
                     
                     15.2 Sensors
@@ -590,7 +588,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.3" data-path="15-3-camera(basic">
+        <li class="chapter " data-level="1.16.3" data-path="../15-location-and-sensors/15-3-camera(basic">
             
                 <span>
             
@@ -603,7 +601,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.4" data-path="15-3-camera(advanced">
+        <li class="chapter " data-level="1.16.4" data-path="../15-location-and-sensors/15-3-camera(advanced">
             
                 <span>
             
@@ -616,9 +614,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.5" data-path="assignments.html">
+        <li class="chapter " data-level="1.16.5" data-path="../15-location-and-sensors/assignments.html">
             
-                <a href="assignments.html">
+                <a href="../15-location-and-sensors/assignments.html">
             
                     
                     15.4 Assignments
@@ -808,7 +806,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20" data-path="../19-android-architecture-components/intro.md">
+        <li class="chapter " data-level="1.20" data-path="intro.md">
             
                 <span>
             
@@ -822,7 +820,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.20.1" data-path="../19-android-architecture-components/room.md">
+        <li class="chapter " data-level="1.20.1" data-path="room.md">
             
                 <span>
             
@@ -835,7 +833,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.2" data-path="../19-android-architecture-components/LiveData.md">
+        <li class="chapter " data-level="1.20.2" data-path="LiveData.md">
             
                 <span>
             
@@ -848,9 +846,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.3" data-path="../19-android-architecture-components/WorkManager.html">
+        <li class="chapter " data-level="1.20.3" data-path="WorkManager.html">
             
-                <a href="../19-android-architecture-components/WorkManager.html">
+                <a href="WorkManager.html">
             
                     
                     19.3 WorkManager
@@ -861,7 +859,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.4" data-path="../19-android-architecture-components/Navigation.md">
+        <li class="chapter " data-level="1.20.4" data-path="Navigation.md">
             
                 <span>
             
@@ -874,9 +872,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.5" data-path="../19-android-architecture-components/ViewModel.html">
+        <li class="chapter active" data-level="1.20.5" data-path="ViewModel.html">
             
-                <a href="../19-android-architecture-components/ViewModel.html">
+                <a href="ViewModel.html">
             
                     
                     19.5 ViewModel
@@ -922,7 +920,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >15.1 Location API</a>
+        <a href=".." >19.5 ViewModel</a>
     </h1>
 </div>
 
@@ -937,130 +935,105 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="location">Location</h1>
-<p>Some key considerations to keep in mind while dealing with locations are :</p>
-<p>a. <strong>Location Information</strong>: There are a Multitude of location sources:</p>
-<p>GPS, Cell-ID, and Wi-Fi can each provide a clue to users&#x2019; location. Determining which to use and trust is a matter of trade-offs in accuracy, speed, and battery-efficiency.</p>
-<p>Another factor to consider is User movement, because the user location changes, you must account for movement by re-estimating user location every so often.</p>
-<p>b. <strong>Varying accuracy</strong>: Location estimates coming from each location source are not consistent in their accuracy. A location obtained 10 seconds ago from one source might be more accurate than the newest location from another or same source.</p>
-<p>We could choose one of the location providers (network or GPS) and request location updates or set up proximity alert. But there were two main issues with this approach:</p>
-<p>a. In case we need to define precise location, we had to switch between network and GPS location providers (as GPS doesn&#x2019;t work indoors).</p>
-<p>b. Proximity alerts were used to notify a user about proximity to a location, and this took its toll on the battery life.</p>
-<p>Hence, instead of using the default framework apis for location, we will be using <strong>FusedLocationAPI</strong> for the same.</p>
-<p>Advantages of Using FusedLocationAPI:</p>
-<p>a.<strong> Simple APIs</strong>: Lets us specify high-level needs like &#x201C;high accuracy&#x201D; or &#x201C;low power&#x201D;, instead of having to worry about location providers.</p>
-<p>b. <strong>Immediately available</strong>: Gives our apps immediate access to the best, most recent location.</p>
-<p>c. <strong>Power-efficiency</strong>: Minimize our app&#x2019;s use of power. Based on all incoming location requests and available sensors, fused location provider chooses the most efficient way to meet those needs.</p>
-<p>d. <strong>Versatility</strong>: Meets a wide range of needs, from foreground uses that need highly accurate location to background uses that need periodic location updates with negligible power impact.</p>
-<p><em><strong>Note</strong>: Make sure Google Play services is properly installed and working in our device. Please don&#x2019;t test this location api in emulator because this api is not working in the emulator</em></p>
-<h2 id="">#</h2>
-<h3 id="getting-the-last-known-location">Getting the <strong>Last Know</strong>n Location:</h3>
-<ul>
-<li>** **Import the google-play-services dependencies via gradle</li>
-</ul>
-<p><code>implementation&apos;com.google.android.gms:play-services-location:8.4.0&apos;</code></p>
-<ul>
-<li>** **Add location Permissions to the Manifest file</li>
-</ul>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot;/&gt;
-</code></pre><ul>
-<li>Connect to Google API client</li>
-</ul>
-<p>This requires implementation of some functions by the activity handling location<strong>:</strong></p>
-<p>The <strong>Google API Client</strong> provides a common entry point to all the Google Play services and manages the network connection between the user&apos;s device and each Google service.</p>
-<p><img src="img/sensor-coordinate.png" alt=""></p>
-<pre><code>if (mGoogleApiClient == null) {
-    mGoogleApiClient = new GoogleApiClient.Builder(this)
-    .addConnectionCallbacks(this)
-    .addOnConnectionFailedListener(this)
-    .addApi(LocationServices.API)
-    .build();
-}
-</code></pre><ul>
-<li>Next up, we should also disconnect the mGoogleApiClient , whenever the activity stops, and then reconnect in OnStart(). So add required actions in life cycle methods.</li>
-</ul>
-<pre><code>protected void onStart() {
-    super.onStart();
-    mGoogleApiClient.connect();
-}
+                                <h1 id="viewmodel">ViewModel</h1>
+<p>The <code>ViewModel</code> class is designed to store and manage UI-related data in a lifecycle conscious way. The <code>ViewModel</code> class allows data to survive configuration changes such as screen rotations.
+The Android framework manages the lifecycles of UI controllers, such as activities and fragments. The framework may decide to destroy or re-create a UI controller in response to certain user actions or device events that are completely out of your control.</p>
+<p>If the system destroys or re-creates a UI controller, any transient UI-related data you store in them is lost. For example, your app may include a list of users in one of its activities. When the activity is re-created for a configuration change, the new activity has to re-fetch the list of users. For simple data, the activity can use the <code>onSaveInstanceState()</code> method and restore its data from the bundle in <code>onCreate()</code>, but this approach is only suitable for small amounts of data that can be serialized then deserialized, not for potentially large amounts of data like a list of users or bitmaps.</p>
+<p>Another problem is that UI controllers frequently need to make asynchronous calls that may take some time to return. The UI controller needs to manage these calls and ensure the system cleans them up after it&apos;s destroyed to avoid potential memory leaks. This management requires a lot of maintenance, and in the case where the object is re-created for a configuration change, it&apos;s a waste of resources since the object may have to reissue calls it has already made.</p>
+<p>UI controllers such as activities and fragments are primarily intended to display UI data, react to user actions, or handle operating system communication, such as permission requests. Requiring UI controllers to also be responsible for loading data from a database or network adds bloat to the class. Assigning excessive responsibility to UI controllers can result in a single class that tries to handle all of an app&apos;s work by itself, instead of delegating work to other classes. Assigning excessive responsibility to the UI controllers in this way also makes testing a lot harder.
+It&apos;s easier and more efficient to separate out view data ownership from UI controller logic.</p>
+<h4 id="implement-a-viewmodel">Implement a ViewModel</h4>
+<p>Architecture Components provides <code>ViewModel</code> helper class for the UI controller that is responsible for preparing data for the UI. <code>ViewModel</code> objects are automatically retained during configuration changes so that data they hold is immediately available to the next activity or fragment instance. For example, if you need to display a list of users in your app, make sure to assign responsibility to acquire and keep the list of users to a <code>ViewModel</code>, instead of an activity or fragment, as illustrated by the following sample code:</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyViewModel</span> : <span class="hljs-type">ViewModel</span></span>() {
+    <span class="hljs-keyword">private</span> lateinit <span class="hljs-variable"><span class="hljs-keyword">var</span> users</span>: MutableLiveData<span class="hljs-type">&lt;List&lt;User&gt;</span>&gt;
 
-protected void onStop() {
-    mGoogleApiClient.disconnect();
-    super.onStop();
-}
-</code></pre><ul>
-<li>We will get Last Known Location in the OnConnected() method as discussed in class.
-The getLastLocation() method returns the best most recent location currently available (as per your permissions), it returns null if no location is available.</li>
-</ul>
-<pre><code>public void onConnected(@Nullable Bundle bundle) {
-    lastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-    if (lastLocation != null) {
-        Log.i(TAG, &quot;Latitude :&quot; + lastLocation.getLatitude());Log.i(TAG, &quot;Longitude :&quot; + lastLocation.getLongitude());
-    } else {
-        Log.i(TAG, &quot;Last Location Empty&quot;);
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getUsers</span><span class="hljs-params">()</span>: LiveData<span class="hljs-type">&lt;List&lt;User&gt;</span>&gt; {</span>
+        <span class="hljs-keyword">if</span> (!::users.isInitialized) {
+            users = MutableLiveData()
+            loadUsers()
+        }
+        <span class="hljs-keyword">return</span> users
     }
-    if (!requestedLocationUpdates) {
-        startLocationUpdates();
-    }
-}
-</code></pre><h2 id="">#</h2>
-<h3 id="setting-up-location-updates-"><strong>Setting Up Location Updates: </strong></h3>
-<p>In order to set up, we need to create a LocationRequest Object which takes some parameters.<br>The parameters determine the level of accuracy for location requests:</p>
-<h4 id="i-update-interval">i. Update interval</h4>
-<p><strong>setInterval(long interval)</strong> - This method sets the rate in milliseconds at which your app prefers to receive location updates. Note that the location updates may be faster than this rate if another app is receiving updates at a faster rate, or slower than this rate, or there may be no updates at all (if the device has no connectivity, for example).</p>
-<p>Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#setInterval%28long%29</p>
-<h4 id="ii-fastest-update-interval">ii. Fastest update interval</h4>
-<p><strong>setFastestInterval(long interval)</strong> - This method sets the fastest rate in milliseconds at which your app can handle location updates. You need to set this rate because other apps also affect the rate at which updates are sent. The Google Play services location APIs send out updates at the fastest rate that any app has requested with setInterval(). If this rate is faster than your app can handle, you may encounter problems with UI flicker or data overflow. To prevent this, call setFastestInterval() to set an upper limit to the update rate.</p>
-<p>Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval%28long%29</p>
-<h4 id="iii-priority">iii. Priority</h4>
-<p><strong>setPriority(int priority)</strong> - This method sets the priority of the request, which gives the Google Play services location services a strong hint about which location sources to use.</p>
-<p>Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#setPriority%28int%29</p>
-<p>In the setPriority method, the following values are supported:</p>
-<p>i. <strong>Priority Balanced Power Accuracy</strong>: Use this setting to request location precision to within a city block, which is an accuracy of approximately 100 meters. This is considered a coarse level of accuracy, and is likely to consume less power. With this setting, the location services are likely to use WiFi and cell tower positioning.</p>
-<p>Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_BALANCED_POWER_ACCURACY</p>
-<p>ii. <strong>Priority High Accuracy</strong>: Use this setting to request the most precise location possible. With this setting, the location services are more likely to use GPS to determine the location.</p>
-<p>Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY</p>
-<p>iii. <strong>Priority Low Power</strong>: Use this setting to request city-level precision, which is an accuracy of approximately 10 kms. This is considered a coarse level of accuracy, and is likely to consume less power.</p>
-<p>Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_LOW_POWER</p>
-<p>iv. <strong>Priority No Power</strong>: Use this setting if you need negligible impact on power consumption, but want to receive location updates when available. With this setting, your app does not trigger any location updates, but receives locations triggered by other apps. Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_NO_POWER</p>
-<h3 id="getting-the-location-updates-">Getting the location updates :</h3>
-<p>In the onConnected method,, check if you are already registered to listen to updates and if not, start listening to updates:</p>
-<pre><code>if(!requestingLocationUpdates){
-    startLocationUpdates();
-}
-</code></pre><p>Set up the following function to start listening to location updates:</p>
-<pre><code>private void startLocationUpdates() {
-    locationRequest = LocationRequest.create()
-    .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
-    .setInterval(10000)
-    .setFastestInterval(2000);
-locationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,locationRequest,this);
-}
-</code></pre><p>This gives a function callback onLocationChanged wherein you can do whatever you want with the new location:</p>
-<pre><code>@Override
-public void onLocationChanged(Location location) {
-    Log.e(&quot;Locatiopn Update&quot;, location.getLongitude() + &quot; &quot; + location.getLatitude());
-}
-</code></pre><p>Whenever out activity loses focus, we won&#x2019;t be requiring location updates, so we should stop location updates in onPause() lifecycle method, and start receiving updates in corresponding lifecycle method i.e in onResume().</p>
-<pre><code>@Override
-protected void onPause(){
-    super.onPause();
-    stopLocationUpdates();
-}
 
-@Override
-public void onResume() {
-    super.onResume();
-    if (googleApiClient.isConnected() &amp;&amp; !requestingLocationUpdates) {
-        startLocationUpdates();
+    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">loadUsers</span><span class="hljs-params">()</span> {</span>
+        <span class="hljs-comment">// Do an asynchronous operation to fetch users.</span>
     }
-}
-
-protected void stopLocationUpdates() {
-    LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
 }
 </code></pre>
+<p>You can then access the list from an activity as follows:</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyActivity</span> : <span class="hljs-type">AppCompatActivity</span></span>() {
+
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle?</span>)</span> {</span>
+        <span class="hljs-comment">// Create a ViewModel the first time the system calls an activity&apos;s onCreate() method.</span>
+        <span class="hljs-comment">// Re-created activities receive the same MyViewModel instance created by the first activity.</span>
+
+        <span class="hljs-variable"><span class="hljs-keyword">val</span> model</span> = ViewModelProviders.of(this).<span class="hljs-keyword">get</span>(MyViewModel::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+        model.getUsers().observe(this, Observer<span class="hljs-type">&lt;List&lt;User&gt;</span>&gt;{ users -&gt;
+            <span class="hljs-comment">// update UI</span>
+        })
+    }
+}
+</code></pre>
+<p>If the activity is re-created, it receives the same <code>MyViewModel</code> instance that was created by the first activity. When the owner activity is finished, the framework calls the <code>ViewModel</code> objects&apos;s <code>onCleared()</code> method so that it can clean up resources.
+<code>ViewModel</code> objects are designed to outlive specific instantiations of views or <code>LifecycleOwners</code>. This design also means you can write tests to cover a <code>ViewModel</code> more easily as it doesn&apos;t know about view and <code>Lifecycle</code> objects. <code>ViewModel</code> objects can contain <code>LifecycleObservers</code>, such as <code>LiveData</code> objects. However <code>ViewModel</code> objects must never observe changes to lifecycle-aware observables, such as <code>LiveData</code> objects. If the <code>ViewModel</code> needs the <code>Application</code> context, for example to find a system service, it can extend the <code>AndroidViewModel</code> class and have a constructor that receives the <code>Application</code> in the constructor, since <code>Application</code> class extends <code>Context</code>.</p>
+<h4 id="the-lifecycle-of-a-viewmodel">The lifecycle of a ViewModel</h4>
+<p><code>ViewModel</code> objects are scoped to the <code>Lifecycle</code> passed to the <code>ViewModelProvider</code> when getting the <code>ViewModel</code>. The <code>ViewModel</code> remains in memory until the <code>Lifecycle</code> it&apos;s scoped to goes away permanently: in the case of an activity, when it finishes, while in the case of a fragment, when it&apos;s detached.</p>
+<p>Figure 1 illustrates the various lifecycle states of an activity as it undergoes a rotation and then is finished. The illustration also shows the lifetime of the <code>ViewModel</code> next to the associated activity lifecycle. This particular diagram illustrates the states of an activity. The same basic states apply to the lifecycle of a fragment.
+You usually request a <code>ViewModel</code> the first time the system calls an activity object&apos;s onCreate() method. The system may call <code>onCreate()</code> several times throughout the life of an activity, such as when a device screen is rotated. The <code>ViewModel</code> exists from when you first request a <code>ViewModel</code> until the activity is finished and destroyed.</p>
+<h4 id="share-data-between-fragments">Share data between fragments</h4>
+<p>It&apos;s very common that two or more fragments in an activity need to communicate with each other. Imagine a common case of master-detail fragments, where you have a fragment in which the user selects an item from a list and another fragment that displays the contents of the selected item. This case is never trivial as both fragments need to define some interface description, and the owner activity must bind the two together. In addition, both fragments must handle the scenario where the other fragment is not yet created or visible.</p>
+<p>This common pain point can be addressed by using <code>ViewModel</code> objects. These fragments can share a <code>ViewModel</code> using their activity scope to handle this communication, as illustrated by the following sample code:</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SharedViewModel</span> : <span class="hljs-type">ViewModel</span></span>() {
+    <span class="hljs-variable"><span class="hljs-keyword">val</span> selected</span> = MutableLiveData<span class="hljs-type">&lt;Item&gt;</span>()
+
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">select</span><span class="hljs-params">(item: <span class="hljs-type">Item</span>)</span> {</span>
+        selected.value = item
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MasterFragment</span> : <span class="hljs-type">Fragment</span></span>() {
+
+    <span class="hljs-keyword">private</span> lateinit <span class="hljs-variable"><span class="hljs-keyword">var</span> itemSelector</span>: Selector
+
+    <span class="hljs-keyword">private</span> lateinit <span class="hljs-variable"><span class="hljs-keyword">var</span> model</span>: SharedViewModel
+
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle?</span>)</span> {</span>
+        super.onCreate(savedInstanceState)
+        model = activity?.run {
+            ViewModelProviders.of(this).<span class="hljs-keyword">get</span>(SharedViewModel::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+        } ?: <span class="hljs-keyword">throw</span> Exception(<span class="hljs-string">&quot;Invalid Activity&quot;</span>)
+        itemSelector.setOnClickListener { item -&gt;
+            <span class="hljs-comment">// Update the UI</span>
+        }
+    }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailFragment</span> : <span class="hljs-type">Fragment</span></span>() {
+
+    <span class="hljs-keyword">private</span> lateinit <span class="hljs-variable"><span class="hljs-keyword">var</span> model</span>: SharedViewModel
+
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle?</span>)</span> {</span>
+        super.onCreate(savedInstanceState)
+        model = activity?.run {
+            ViewModelProviders.of(this).<span class="hljs-keyword">get</span>(SharedViewModel::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+        } ?: <span class="hljs-keyword">throw</span> Exception(<span class="hljs-string">&quot;Invalid Activity&quot;</span>)
+        model.selected.observe(this, Observer<span class="hljs-type">&lt;Item&gt;</span> { item -&gt;
+            <span class="hljs-comment">// Update the UI</span>
+        })
+    }
+}
+</code></pre>
+<p>Notice that both fragments retrieve the activity that contains them. That way, when the fragments each get the <code>ViewModelProvider</code>, they receive the same <code>SharedViewModel</code> instance, which is scoped to this activity.
+This approach offers the following benefits:</p>
+<ul>
+<li>The activity does not need to do anything, or know anything about this communication.</li>
+<li>Fragments don&apos;t need to know about each other besides the SharedViewModel contract. If one of the fragments disappears, the other one keeps working as usual.</li>
+<li>Each fragment has its own lifecycle, and is not affected by the lifecycle of the other one. If one fragment replaces the other one, the UI continues to work without any problems.</li>
+</ul>
+<h4 id="replacing-loaders-with-viewmodel">Replacing Loaders with ViewModel</h4>
+<p>Loader classes like <code>CursorLoader</code> are frequently used to keep the data in an app&apos;s UI in sync with a database. You can use <code>ViewModel</code>, with a few other classes, to replace the loader. Using a <code>ViewModel</code> separates your UI controller from the data-loading operation, which means you have fewer strong references between classes.</p>
+<p>In one common approach to using loaders, an app might use a <code>CursorLoader</code> to observe the contents of a database. When a value in the database changes, the loader automatically triggers a reload of the data and updates the UI. <code>ViewModel</code> works with Room and LiveData to replace the loader. The <code>ViewModel</code> ensures that the data survives a device configuration change. Room informs your <code>LiveData</code> when the database changes, and the LiveData, in turn, updates your UI with the revised data.</p>
+
                                 
                                 </section>
                             
@@ -1087,14 +1060,10 @@ protected void stopLocationUpdates() {
 
             
                 
-                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 15. Location and Sensors">
+                <a href="Navigation.md" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 19.4 Navigation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="15-2-sensors.html" class="navigation navigation-next " aria-label="Next page: 15.2 Sensors">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1103,7 +1072,7 @@ protected void stopLocationUpdates() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.1 Location API","level":"1.16.1","depth":2,"next":{"title":"15.2 Sensors","level":"1.16.2","depth":2,"path":"15-location-and-sensors/15-2-sensors.md","ref":"15-location-and-sensors/15-2-sensors.md","articles":[]},"previous":{"title":"15. Location and Sensors","level":"1.16","depth":1,"path":"15-location-and-sensors/intro.md","ref":"15-location-and-sensors/intro.md","articles":[{"title":"15.1 Location API","level":"1.16.1","depth":2,"path":"15-location-and-sensors/15-1-location.md","ref":"15-location-and-sensors/15-1-location.md","articles":[]},{"title":"15.2 Sensors","level":"1.16.2","depth":2,"path":"15-location-and-sensors/15-2-sensors.md","ref":"15-location-and-sensors/15-2-sensors.md","articles":[]},{"title":"15.3.1 Camera(Basic)","level":"1.16.3","depth":2,"path":"15-location-and-sensors/15-3-camera(basic","ref":"15-location-and-sensors/15-3-camera(basic","articles":[]},{"title":"15.3.2 Camera(Advanced)","level":"1.16.4","depth":2,"path":"15-location-and-sensors/15-3-camera(advanced","ref":"15-location-and-sensors/15-3-camera(advanced","articles":[]},{"title":"15.4 Assignments","level":"1.16.5","depth":2,"path":"15-location-and-sensors/assignments.md","ref":"15-location-and-sensors/assignments.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"15-location-and-sensors/15-1-location.md","mtime":"2019-01-31T17:14:38.926Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-31T17:15:37.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"19.5 ViewModel","level":"1.20.5","depth":2,"previous":{"title":"19.4 Navigation","level":"1.20.4","depth":2,"path":"19-android-architecture-components/Navigation.md","ref":"19-android-architecture-components/Navigation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"19-android-architecture-components/ViewModel.md","mtime":"2019-01-31T17:14:38.934Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-31T17:15:37.552Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

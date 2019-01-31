@@ -2,7 +2,7 @@
 
 Firebase provides easy to use methods to implement user authentication functionalities.
 
-This section is about registering new users and storing their data in the realtime .
+This section is about registering new users and storing their data in the realtime database .
 We will start from adding new users to database.
 
 After correctly setting up the dependencies, create a new class having all the user details in the form of attributes of the class.
@@ -110,7 +110,7 @@ mAuth!!.signInWithEmailAndPassword(email!!, password!!)
  ```
  ![](./images/Auth3.png)
  
- Similar to the process of signing up, create an activity asking for the email and  password of the user, both the strings are then passed on to the signInWithEmailAndPassword method as parameters. The addOnCompleteListener checks the success of the logging In process.
+ The process of signing-in is similar to that of signing-up, create an activity asking for the email and  password of the user, both the strings are then passed on to the signInWithEmailAndPassword method as parameters. The addOnCompleteListener checks for the success of the logging In process.
  
 ## Resetting password
 
@@ -133,11 +133,11 @@ mAuth!!.sendPasswordResetEmail(emailAddress)
 
 ## Signing Out
 
-The last part of the authentication process is signing out, it can be done with a single line of :
+The last part of the authentication process is signing out, it can be done with a single line of code:
 ```
 mAuth.signOut()
 ```
-* Note: *
+**Note:**
 
 The language of the verification E-mail that is sent to the user for password reset or for any other similar operation can be changed from the following section of the Authentication part of Firebase:
  

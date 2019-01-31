@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>15.1 Location API · GitBook</title>
+        <title>19.3 WorkManager · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -67,10 +67,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="15-2-sensors.html" />
+    <link rel="next" href="Navigation.md" />
     
     
-    <link rel="prev" href="intro.html" />
+    <link rel="prev" href="LiveData.md" />
     
 
     </head>
@@ -550,9 +550,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="intro.html">
+        <li class="chapter " data-level="1.16" data-path="../15-location-and-sensors/intro.html">
             
-                <a href="intro.html">
+                <a href="../15-location-and-sensors/intro.html">
             
                     
                     15. Location and Sensors
@@ -564,9 +564,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.16.1" data-path="15-1-location.html">
+        <li class="chapter " data-level="1.16.1" data-path="../15-location-and-sensors/15-1-location.html">
             
-                <a href="15-1-location.html">
+                <a href="../15-location-and-sensors/15-1-location.html">
             
                     
                     15.1 Location API
@@ -577,9 +577,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.2" data-path="15-2-sensors.html">
+        <li class="chapter " data-level="1.16.2" data-path="../15-location-and-sensors/15-2-sensors.html">
             
-                <a href="15-2-sensors.html">
+                <a href="../15-location-and-sensors/15-2-sensors.html">
             
                     
                     15.2 Sensors
@@ -590,7 +590,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.3" data-path="15-3-camera(basic">
+        <li class="chapter " data-level="1.16.3" data-path="../15-location-and-sensors/15-3-camera(basic">
             
                 <span>
             
@@ -603,7 +603,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.4" data-path="15-3-camera(advanced">
+        <li class="chapter " data-level="1.16.4" data-path="../15-location-and-sensors/15-3-camera(advanced">
             
                 <span>
             
@@ -616,9 +616,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.5" data-path="assignments.html">
+        <li class="chapter " data-level="1.16.5" data-path="../15-location-and-sensors/assignments.html">
             
-                <a href="assignments.html">
+                <a href="../15-location-and-sensors/assignments.html">
             
                     
                     15.4 Assignments
@@ -808,7 +808,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20" data-path="../19-android-architecture-components/intro.md">
+        <li class="chapter " data-level="1.20" data-path="intro.md">
             
                 <span>
             
@@ -822,7 +822,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.20.1" data-path="../19-android-architecture-components/room.md">
+        <li class="chapter " data-level="1.20.1" data-path="room.md">
             
                 <span>
             
@@ -835,7 +835,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.2" data-path="../19-android-architecture-components/LiveData.md">
+        <li class="chapter " data-level="1.20.2" data-path="LiveData.md">
             
                 <span>
             
@@ -848,9 +848,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.3" data-path="../19-android-architecture-components/WorkManager.html">
+        <li class="chapter active" data-level="1.20.3" data-path="WorkManager.html">
             
-                <a href="../19-android-architecture-components/WorkManager.html">
+                <a href="WorkManager.html">
             
                     
                     19.3 WorkManager
@@ -861,7 +861,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.4" data-path="../19-android-architecture-components/Navigation.md">
+        <li class="chapter " data-level="1.20.4" data-path="Navigation.md">
             
                 <span>
             
@@ -874,9 +874,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.20.5" data-path="../19-android-architecture-components/ViewModel.html">
+        <li class="chapter " data-level="1.20.5" data-path="ViewModel.html">
             
-                <a href="../19-android-architecture-components/ViewModel.html">
+                <a href="ViewModel.html">
             
                     
                     19.5 ViewModel
@@ -922,7 +922,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >15.1 Location API</a>
+        <a href=".." >19.3 WorkManager</a>
     </h1>
 </div>
 
@@ -937,130 +937,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="location">Location</h1>
-<p>Some key considerations to keep in mind while dealing with locations are :</p>
-<p>a. <strong>Location Information</strong>: There are a Multitude of location sources:</p>
-<p>GPS, Cell-ID, and Wi-Fi can each provide a clue to users&#x2019; location. Determining which to use and trust is a matter of trade-offs in accuracy, speed, and battery-efficiency.</p>
-<p>Another factor to consider is User movement, because the user location changes, you must account for movement by re-estimating user location every so often.</p>
-<p>b. <strong>Varying accuracy</strong>: Location estimates coming from each location source are not consistent in their accuracy. A location obtained 10 seconds ago from one source might be more accurate than the newest location from another or same source.</p>
-<p>We could choose one of the location providers (network or GPS) and request location updates or set up proximity alert. But there were two main issues with this approach:</p>
-<p>a. In case we need to define precise location, we had to switch between network and GPS location providers (as GPS doesn&#x2019;t work indoors).</p>
-<p>b. Proximity alerts were used to notify a user about proximity to a location, and this took its toll on the battery life.</p>
-<p>Hence, instead of using the default framework apis for location, we will be using <strong>FusedLocationAPI</strong> for the same.</p>
-<p>Advantages of Using FusedLocationAPI:</p>
-<p>a.<strong> Simple APIs</strong>: Lets us specify high-level needs like &#x201C;high accuracy&#x201D; or &#x201C;low power&#x201D;, instead of having to worry about location providers.</p>
-<p>b. <strong>Immediately available</strong>: Gives our apps immediate access to the best, most recent location.</p>
-<p>c. <strong>Power-efficiency</strong>: Minimize our app&#x2019;s use of power. Based on all incoming location requests and available sensors, fused location provider chooses the most efficient way to meet those needs.</p>
-<p>d. <strong>Versatility</strong>: Meets a wide range of needs, from foreground uses that need highly accurate location to background uses that need periodic location updates with negligible power impact.</p>
-<p><em><strong>Note</strong>: Make sure Google Play services is properly installed and working in our device. Please don&#x2019;t test this location api in emulator because this api is not working in the emulator</em></p>
-<h2 id="">#</h2>
-<h3 id="getting-the-last-known-location">Getting the <strong>Last Know</strong>n Location:</h3>
+                                <h1 id="workmanager">WorkManager</h1>
+<p>Scheduling tasks with work manager is part of Android Jetpack. The WorkManager API makes it easy to specify deferrable, asynchronous tasks and when they should run. These APIs let you create a task and hand it off to WorkManager to run immediately or at an appropriate time.
+WorkManager chooses the appropriate way to run your task based on such factors as the device API level and the app state. If WorkManager executes one of your tasks while the app is running, WorkManager can run your task in a new thread in your app&apos;s process. If your app is not running, WorkManager chooses an appropriate way to schedule a background task--depending on the device API level and included dependencies, WorkManager might use <code>JobScheduler</code>, <code>Firebase JobDispatcher</code>, or <code>AlarmManager</code>. You don&apos;t need to write device logic to figure out what capabilities the device has and choose an appropriate API; instead, you can just hand your task off to WorkManager and let it choose the best option. WorkManager is intended for tasks that require a guarantee that the system will run them even if the app exits, like uploading app data to a server. It is not intended for in-process background work that can safely be terminated if the app process goes away</p>
+<h4 id="classes-and-concepts">Classes and concepts:</h4>
+<p>The WorkManager API uses several different classes. In some cases, you&apos;ll need to subclass one of the API classes.
+These are the most important WorkManager classes:</p>
 <ul>
-<li>** **Import the google-play-services dependencies via gradle</li>
+<li><p><strong>Worker</strong>: specifies what task you need to perform. The WorkManager APIs include an abstract Worker class. You extend this class and perform the work here.</p>
+</li>
+<li><p><strong>WorkRequest</strong>: represents an individual task. At a minimum, a WorkRequest object specifies which Worker class should perform the task. However, you can also add details to the WorkRequest object, specifying things like the circumstances under which the task should run. Every WorkRequest has an autogenerated unique ID; you can use the ID to do things like cancel a queued task or get the task&apos;s state. WorkRequest is an abstract class; in your code, you&apos;ll be using one of the direct subclasses, OneTimeWorkRequest or PeriodicWorkRequest. </p>
+</li>
+<li><ul>
+<li><strong>WorkRequest.Builder</strong>: a helper class for creating WorkRequest objects. Again, you&apos;d be using one of the subclasses, OneTimeWorkRequest.Builder or PeriodicWorkRequest.Builder.</li>
 </ul>
-<p><code>implementation&apos;com.google.android.gms:play-services-location:8.4.0&apos;</code></p>
-<ul>
-<li>** **Add location Permissions to the Manifest file</li>
+</li>
+<li><ul>
+<li><strong>Constraints</strong>: specifies restrictions on when the task should run (for example, &quot;only when connected to the network&quot;). You create the Constraints object with Constraints.Builder, and pass the Constraints to the WorkRequest.Builder before creating the WorkRequest.</li>
 </ul>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot;/&gt;
-</code></pre><ul>
-<li>Connect to Google API client</li>
+</li>
+<li><p><strong>WorkManager</strong>: enqueues and manages the work requests. You pass your WorkRequest object to WorkManager to enqueue the task. WorkManager schedules the task in such a way as to spread out the load on system resources, while honoring the constraints you specify.</p>
+</li>
+<li><p><strong>WorkInfo</strong>: contains information about a particular task. The WorkManager provides a LiveData for each WorkRequest object. The LiveData holds a WorkInfo object; by observing that LiveData, you can determine the current status of the task, and get any returned values after the task finishes.</p>
+</li>
 </ul>
-<p>This requires implementation of some functions by the activity handling location<strong>:</strong></p>
-<p>The <strong>Google API Client</strong> provides a common entry point to all the Google Play services and manages the network connection between the user&apos;s device and each Google service.</p>
-<p><img src="img/sensor-coordinate.png" alt=""></p>
-<pre><code>if (mGoogleApiClient == null) {
-    mGoogleApiClient = new GoogleApiClient.Builder(this)
-    .addConnectionCallbacks(this)
-    .addOnConnectionFailedListener(this)
-    .addApi(LocationServices.API)
-    .build();
-}
-</code></pre><ul>
-<li>Next up, we should also disconnect the mGoogleApiClient , whenever the activity stops, and then reconnect in OnStart(). So add required actions in life cycle methods.</li>
-</ul>
-<pre><code>protected void onStart() {
-    super.onStart();
-    mGoogleApiClient.connect();
-}
+<h4 id="typical-workflow">Typical workflow:</h4>
+<p>Suppose that you&apos;re writing an app that needs to periodically compress its stored images. You want to use the WorkManager APIs to schedule the image compression. In this case, you don&apos;t particularly care when the compression happens; you want to set up the task and forget about it.</p>
+<p>First, you would define your Worker class, and override its doWork() method. Your worker class specifies how to perform the operation, but doesn&apos;t have any information about when the task should run.</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CompressWorker</span></span>(context : Context, params : WorkerParameters)
+    : Worker(context, params) {
 
-protected void onStop() {
-    mGoogleApiClient.disconnect();
-    super.onStop();
-}
-</code></pre><ul>
-<li>We will get Last Known Location in the OnConnected() method as discussed in class.
-The getLastLocation() method returns the best most recent location currently available (as per your permissions), it returns null if no location is available.</li>
-</ul>
-<pre><code>public void onConnected(@Nullable Bundle bundle) {
-    lastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-    if (lastLocation != null) {
-        Log.i(TAG, &quot;Latitude :&quot; + lastLocation.getLatitude());Log.i(TAG, &quot;Longitude :&quot; + lastLocation.getLongitude());
-    } else {
-        Log.i(TAG, &quot;Last Location Empty&quot;);
-    }
-    if (!requestedLocationUpdates) {
-        startLocationUpdates();
-    }
-}
-</code></pre><h2 id="">#</h2>
-<h3 id="setting-up-location-updates-"><strong>Setting Up Location Updates: </strong></h3>
-<p>In order to set up, we need to create a LocationRequest Object which takes some parameters.<br>The parameters determine the level of accuracy for location requests:</p>
-<h4 id="i-update-interval">i. Update interval</h4>
-<p><strong>setInterval(long interval)</strong> - This method sets the rate in milliseconds at which your app prefers to receive location updates. Note that the location updates may be faster than this rate if another app is receiving updates at a faster rate, or slower than this rate, or there may be no updates at all (if the device has no connectivity, for example).</p>
-<p>Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#setInterval%28long%29</p>
-<h4 id="ii-fastest-update-interval">ii. Fastest update interval</h4>
-<p><strong>setFastestInterval(long interval)</strong> - This method sets the fastest rate in milliseconds at which your app can handle location updates. You need to set this rate because other apps also affect the rate at which updates are sent. The Google Play services location APIs send out updates at the fastest rate that any app has requested with setInterval(). If this rate is faster than your app can handle, you may encounter problems with UI flicker or data overflow. To prevent this, call setFastestInterval() to set an upper limit to the update rate.</p>
-<p>Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval%28long%29</p>
-<h4 id="iii-priority">iii. Priority</h4>
-<p><strong>setPriority(int priority)</strong> - This method sets the priority of the request, which gives the Google Play services location services a strong hint about which location sources to use.</p>
-<p>Link: developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#setPriority%28int%29</p>
-<p>In the setPriority method, the following values are supported:</p>
-<p>i. <strong>Priority Balanced Power Accuracy</strong>: Use this setting to request location precision to within a city block, which is an accuracy of approximately 100 meters. This is considered a coarse level of accuracy, and is likely to consume less power. With this setting, the location services are likely to use WiFi and cell tower positioning.</p>
-<p>Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_BALANCED_POWER_ACCURACY</p>
-<p>ii. <strong>Priority High Accuracy</strong>: Use this setting to request the most precise location possible. With this setting, the location services are more likely to use GPS to determine the location.</p>
-<p>Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY</p>
-<p>iii. <strong>Priority Low Power</strong>: Use this setting to request city-level precision, which is an accuracy of approximately 10 kms. This is considered a coarse level of accuracy, and is likely to consume less power.</p>
-<p>Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_LOW_POWER</p>
-<p>iv. <strong>Priority No Power</strong>: Use this setting if you need negligible impact on power consumption, but want to receive location updates when available. With this setting, your app does not trigger any location updates, but receives locations triggered by other apps. Link:developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_NO_POWER</p>
-<h3 id="getting-the-location-updates-">Getting the location updates :</h3>
-<p>In the onConnected method,, check if you are already registered to listen to updates and if not, start listening to updates:</p>
-<pre><code>if(!requestingLocationUpdates){
-    startLocationUpdates();
-}
-</code></pre><p>Set up the following function to start listening to location updates:</p>
-<pre><code>private void startLocationUpdates() {
-    locationRequest = LocationRequest.create()
-    .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
-    .setInterval(10000)
-    .setFastestInterval(2000);
-locationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,locationRequest,this);
-}
-</code></pre><p>This gives a function callback onLocationChanged wherein you can do whatever you want with the new location:</p>
-<pre><code>@Override
-public void onLocationChanged(Location location) {
-    Log.e(&quot;Locatiopn Update&quot;, location.getLongitude() + &quot; &quot; + location.getLatitude());
-}
-</code></pre><p>Whenever out activity loses focus, we won&#x2019;t be requiring location updates, so we should stop location updates in onPause() lifecycle method, and start receiving updates in corresponding lifecycle method i.e in onResume().</p>
-<pre><code>@Override
-protected void onPause(){
-    super.onPause();
-    stopLocationUpdates();
-}
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">doWork</span><span class="hljs-params">()</span>: Result {</span>
 
-@Override
-public void onResume() {
-    super.onResume();
-    if (googleApiClient.isConnected() &amp;&amp; !requestingLocationUpdates) {
-        startLocationUpdates();
-    }
-}
+        <span class="hljs-comment">// Do the work here--in this case, compress the stored images.</span>
+        <span class="hljs-comment">// In this example no parameters are passed; the task is</span>
+        <span class="hljs-comment">// assumed to be &quot;compress the whole library.&quot;</span>
+        myCompress()
 
-protected void stopLocationUpdates() {
-    LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
+        <span class="hljs-comment">// Indicate success or failure with your return value:</span>
+        <span class="hljs-keyword">return</span> Result.success()
+
+        <span class="hljs-comment">// (Returning Result.retry() tells WorkManager to try this task again</span>
+        <span class="hljs-comment">// later; Result.failure() says not to try again.)</span>
+    }
 }
 </code></pre>
+<p>Next, you create a OneTimeWorkRequest object based on that Worker, then enqueue the task with WorkManager:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> compressionWork</span> = OneTimeWorkRequestBuilder<span class="hljs-type">&lt;CompressWorker&gt;</span>().build()
+WorkManager.getInstance().enqueue(compressionWork)
+</code></pre>
+<p>WorkManager chooses an appropriate time to run the task, balancing such considerations as the load on the system, whether the device is plugged in, and so on. In most cases, if you don&apos;t specify any constraints, WorkManager runs your task right away. If you need to check on the task status, you can get a WorkInfo object by getting a handle to the appropriate LiveData<workinfo>. For example, if you want to check if the task has finished, you could use code like this:</workinfo></p>
+<pre><code class="lang-kotlin">WorkManager.getInstance().getWorkInfoByIdLiveData(compressionWork.id)
+                .observe(lifecycleOwner, Observer { workInfo -&gt;
+                    <span class="hljs-comment">// Do something with the status</span>
+                    <span class="hljs-keyword">if</span> (workInfo != <span class="hljs-literal">null</span> &amp;&amp; workInfo.state.isFinished) {
+                        <span class="hljs-comment">// ...</span>
+                    }
+                })
+</code></pre>
+<h4 id="task-constraints">Task constraints:</h4>
+<p>If you wish, you can specify constraints on when the task should run. For example, you might want to specify that the task should only run when the device is idle, and connected to power. In this case, you&apos;d need to create a OneTimeWorkRequest.Builder object, and use that builder to create the actual OneTimeWorkRequest:</p>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// Create a Constraints object that defines when the task should run</span>
+<span class="hljs-variable"><span class="hljs-keyword">val</span> myConstraints</span> = Constraints.Builder()
+        .setRequiresDeviceIdle(<span class="hljs-literal">true</span>)
+        .setRequiresCharging(<span class="hljs-literal">true</span>)
+        <span class="hljs-comment">// Many other constraints are available, see the</span>
+        <span class="hljs-comment">// Constraints.Builder reference</span>
+        .build()
+
+<span class="hljs-comment">// ...then create a OneTimeWorkRequest that uses those constraints</span>
+<span class="hljs-variable"><span class="hljs-keyword">val</span> compressionWork</span> = OneTimeWorkRequestBuilder<span class="hljs-type">&lt;CompressWorker&gt;</span>()
+        .setConstraints(myConstraints)
+        .build()
+</code></pre>
+<p>Then pass the new <code>OneTimeWorkRequest</code> object to <code>WorkManager.enqueue()</code>, as before. WorkManager considers your constraints when finding a time to run the task.</p>
+<h4 id="canceling-a-task">Canceling a Task:</h4>
+<p>You can cancel a task after you enqueue it. To cancel the task, you need its work ID, which you can get from the WorkRequest object. For example, the following code cancels the compressionWork request from the previous section:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> compressionWorkId</span>:UUID = compressionWork.getId()
+WorkManager.getInstance().cancelWorkById(compressionWorkId)
+</code></pre>
+<p>WorkManager makes its best effort to cancel the task, but this is inherently uncertain--the task may already be running or finished when you attempt to cancel it. WorkManager also provides methods to cancel all tasks in a unique work sequence, or all tasks with a specified tag, also on a best-effort basis.</p>
+
                                 
                                 </section>
                             
@@ -1087,12 +1044,12 @@ protected void stopLocationUpdates() {
 
             
                 
-                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 15. Location and Sensors">
+                <a href="LiveData.md" class="navigation navigation-prev " aria-label="Previous page: 19.2 LiveData">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="15-2-sensors.html" class="navigation navigation-next " aria-label="Next page: 15.2 Sensors">
+                <a href="Navigation.md" class="navigation navigation-next " aria-label="Next page: 19.4 Navigation">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1103,7 +1060,7 @@ protected void stopLocationUpdates() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.1 Location API","level":"1.16.1","depth":2,"next":{"title":"15.2 Sensors","level":"1.16.2","depth":2,"path":"15-location-and-sensors/15-2-sensors.md","ref":"15-location-and-sensors/15-2-sensors.md","articles":[]},"previous":{"title":"15. Location and Sensors","level":"1.16","depth":1,"path":"15-location-and-sensors/intro.md","ref":"15-location-and-sensors/intro.md","articles":[{"title":"15.1 Location API","level":"1.16.1","depth":2,"path":"15-location-and-sensors/15-1-location.md","ref":"15-location-and-sensors/15-1-location.md","articles":[]},{"title":"15.2 Sensors","level":"1.16.2","depth":2,"path":"15-location-and-sensors/15-2-sensors.md","ref":"15-location-and-sensors/15-2-sensors.md","articles":[]},{"title":"15.3.1 Camera(Basic)","level":"1.16.3","depth":2,"path":"15-location-and-sensors/15-3-camera(basic","ref":"15-location-and-sensors/15-3-camera(basic","articles":[]},{"title":"15.3.2 Camera(Advanced)","level":"1.16.4","depth":2,"path":"15-location-and-sensors/15-3-camera(advanced","ref":"15-location-and-sensors/15-3-camera(advanced","articles":[]},{"title":"15.4 Assignments","level":"1.16.5","depth":2,"path":"15-location-and-sensors/assignments.md","ref":"15-location-and-sensors/assignments.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"15-location-and-sensors/15-1-location.md","mtime":"2019-01-31T17:14:38.926Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-31T17:15:37.552Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"19.3 WorkManager","level":"1.20.3","depth":2,"next":{"title":"19.4 Navigation","level":"1.20.4","depth":2,"path":"19-android-architecture-components/Navigation.md","ref":"19-android-architecture-components/Navigation.md","articles":[]},"previous":{"title":"19.2 LiveData","level":"1.20.2","depth":2,"path":"19-android-architecture-components/LiveData.md","ref":"19-android-architecture-components/LiveData.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"19-android-architecture-components/WorkManager.md","mtime":"2019-01-31T17:14:38.934Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-31T17:15:37.552Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
