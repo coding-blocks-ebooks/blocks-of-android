@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>16.1 Google Maps API · GitBook</title>
+        <title>8.2 Processing network responses · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -67,10 +67,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="16-2-creating-maps.html" />
+    <link rel="next" href="TroubleshootinginOkHTTP.html" />
     
     
-    <link rel="prev" href="intro.html" />
+    <link rel="prev" href="IntroductiontoOkHTTP.html" />
     
 
     </head>
@@ -286,9 +286,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../08-network-operations/IntroductionToNetworkOperations.html">
+        <li class="chapter " data-level="1.9" data-path="IntroductionToNetworkOperations.html">
             
-                <a href="../08-network-operations/IntroductionToNetworkOperations.html">
+                <a href="IntroductionToNetworkOperations.html">
             
                     
                     8. Network Operations
@@ -300,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../08-network-operations/IntroductiontoOkHTTP.html">
+        <li class="chapter " data-level="1.9.1" data-path="IntroductiontoOkHTTP.html">
             
-                <a href="../08-network-operations/IntroductiontoOkHTTP.html">
+                <a href="IntroductiontoOkHTTP.html">
             
                     
                     8.1 Introduction to OkHTTP
@@ -313,9 +313,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../08-network-operations/ProcessingNetworkResponses-OkHTTP.html">
+        <li class="chapter active" data-level="1.9.2" data-path="ProcessingNetworkResponses-OkHTTP.html">
             
-                <a href="../08-network-operations/ProcessingNetworkResponses-OkHTTP.html">
+                <a href="ProcessingNetworkResponses-OkHTTP.html">
             
                     
                     8.2 Processing network responses
@@ -326,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" data-path="../08-network-operations/TroubleshootinginOkHTTP.html">
+        <li class="chapter " data-level="1.9.3" data-path="TroubleshootinginOkHTTP.html">
             
-                <a href="../08-network-operations/TroubleshootinginOkHTTP.html">
+                <a href="TroubleshootinginOkHTTP.html">
             
                     
                     8.3 Troubleshooting in OkHTTP
@@ -647,9 +647,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="intro.html">
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
             
-                <a href="intro.html">
+                <a href="../16-google-maps/intro.html">
             
                     
                     16. Google Maps
@@ -661,9 +661,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.17.1" data-path="16-1-maps-api.html">
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
             
-                <a href="16-1-maps-api.html">
+                <a href="../16-google-maps/16-1-maps-api.html">
             
                     
                     16.1 Google Maps API
@@ -674,9 +674,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17.2" data-path="16-2-creating-maps.html">
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
             
-                <a href="16-2-creating-maps.html">
+                <a href="../16-google-maps/16-2-creating-maps.html">
             
                     
                     16.2 Creating Maps
@@ -935,7 +935,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >16.1 Google Maps API</a>
+        <a href=".." >8.2 Processing network responses</a>
     </h1>
 </div>
 
@@ -950,37 +950,101 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="google-maps-api">Google Maps API</h1>
-<p>The Google Maps Android API includes built-in support for accessibility.</p>
-<h1 id="setting-up-the-play-console">Setting up the play console</h1>
-<p>In order to use the Google Maps API, you must register your application on the Google Developer Console and enable the API. To do this, start by going to the Google Developer Console. If you already have a project created, you can skip the next section. If not, you can follow along and create a new project for your maps application.</p>
-<p><strong>Create a new project</strong></p>
-<ul>
-<li><p>Once you hit Create, a dialog appears in the lower right corner of the page with a loading indicator while the project is being created.
-<strong>Enable the Maps API</strong></p>
-</li>
-<li><p>When the project has been created, or you have selected an existing project, you are taken to the project Overview screen. From here you will want to expand the APIs &amp; auth item in the left navigation panel and click on APIs.</p>
-</li>
-<li><p>This takes you to a screen where you can click on the Enable API button in order to enable the Maps API for your project.</p>
-</li>
-</ul>
-<p><strong>Creating an Android API Key</strong></p>
-<ul>
-<li><p>After you&apos;ve enabled the Maps API, click on the Credentials item under APIs &amp; auth in the side navigation to get a key to access the Maps API in your application. When you are presented with the Credentials dialog, press the blue Add Credentials button and select API Key.</p>
-</li>
-<li><p>You need to select Android Key in the next dialog. If you were to create the same application using maps on different platforms, you could create a key for each platform.</p>
-</li>
-<li><p>Click Add package name and fingerprint. This provides two fields, one for adding a package name and another for adding the SHA1 from your application signing key.</p>
-</li>
-</ul>
-<p><strong>SHA-1 Certificate</strong></p>
-<ul>
-<li>To get the SHA1 signature, you need to open a terminal or command prompt and navigate to the location of your application&apos;s signing key. This can be either your release key or debug.keystore.</li>
-</ul>
-<p><code>keytool -list -v -keystore debug.keystore</code></p>
-<ul>
-<li>After you have created your SHA1 key and entered it into the text field, click on the Create button. You are then presented with a dialog containing the API key that you need to add to your Android app to access the Maps API.</li>
-</ul>
+                                <h2 id="processing-network-responses">Processing Network Responses</h2>
+<p>Assuming the request is not canceled and there are no connectivity issues, the onResponse() method will be fired. It passes a Response object that can be used to check the status code, the response body, and any headers that were returned. Calling isSuccessful() for instance if the code returned a status code of 2XX (i.e. 200, 201, etc.)</p>
+<pre><code class="lang-kotlin"><span class="hljs-keyword">if</span> (!response.isSuccessful())
+{
+  <span class="hljs-keyword">throw</span> IOException(<span class="hljs-string">&quot;Unexpected code &quot;</span> + response)
+}
+</code></pre>
+<p>The headers can also be access directly using response.header():</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">var</span> header</span> = response.header(<span class="hljs-string">&quot;Date&quot;</span>)
+</code></pre>
+<p>We can also get the response data by calling response.body() and then calling string() to read the entire payload. Note that response.body() can only be run once and should be done on a background thread.</p>
+<pre><code class="lang-kotlin">Log.d(<span class="hljs-string">&quot;DEBUG&quot;</span>, response.body().string());
+</code></pre>
+<h3 id="processing-json-data">Processing JSON data</h3>
+<p>Suppose we make a call to the GitHub API, which returns JSON-based data:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">var</span> request</span> = Request.Builder()
+              .url(<span class="hljs-string">&quot;https://api.github.com/users/codepath&quot;</span>)
+              .build()
+</code></pre>
+<p>We can also decode the data by converting it to a JSONObject or JSONArray, depending on the response data:</p>
+<pre><code class="lang-kotlin">client.newCall(request).enqueue(<span class="hljs-keyword">object</span>:Callback() {
+  @Throws(IOException::<span class="hljs-class"><span class="hljs-keyword">class</span>)</span>
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(call:<span class="hljs-type">Call, response:Response</span>)</span> {</span>
+    <span class="hljs-keyword">try</span>
+    {
+      <span class="hljs-variable"><span class="hljs-keyword">val</span> responseData</span> = response.body().string()
+      <span class="hljs-variable"><span class="hljs-keyword">val</span> json</span> = JSONObject(responseData)
+      <span class="hljs-variable"><span class="hljs-keyword">val</span> owner</span> = json.getString(<span class="hljs-string">&quot;name&quot;</span>)
+    }
+    <span class="hljs-keyword">catch</span> (e:JSONException) {
+    }
+  }
+})
+</code></pre>
+<h3 id="processing-json-data-with-gson">Processing JSON data with Gson</h3>
+<p>Note that the string() method on the response body will load the entire data into memory. To make more efficient use of memory, it is recommended that the response is processed as a stream by using charStream() instead. This approach, however, requires using the Gson library. See this guide for setup instructions.
+To use the Gson library, we first must declare a class that maps directly to the JSON response:</p>
+<pre><code class="lang-kotlin">internal <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GitUser</span> </span>{
+  <span class="hljs-variable"><span class="hljs-keyword">var</span> name</span>:String
+  <span class="hljs-variable"><span class="hljs-keyword">var</span> url</span>:String
+  <span class="hljs-variable"><span class="hljs-keyword">var</span> id</span>:<span class="hljs-keyword">Int</span> = <span class="hljs-number">0</span>
+}
+</code></pre>
+<p>We can then use the Gson parser to convert the data directly to a Java model:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> gson</span> = Gson()
+client.newCall(request).enqueue(<span class="hljs-keyword">object</span>:Callback() {
+  <span class="hljs-comment">// Parse response using gson deserializer</span>
+  @Throws(IOException::<span class="hljs-class"><span class="hljs-keyword">class</span>)</span>
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(call:<span class="hljs-type">Call, response:Response</span>)</span> {</span>
+    <span class="hljs-comment">// Process the data on the worker thread</span>
+    <span class="hljs-variable"><span class="hljs-keyword">val</span> user</span> = gson.fromJson(response.body().charStream(), GitUser::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+    <span class="hljs-comment">// Access deserialized user object here</span>
+  }
+})
+</code></pre>
+<h3 id="sending-authenticated-requests">Sending Authenticated Requests</h3>
+<p>OkHttp has a mechanism to modify outbound requests using interceptors. A common use case is the OAuth protocol, which requires requests to be signed using a private key. The OkHttp signpost library works with the SignPost library to use an interceptor to sign each request. This way, the caller does not need to remember to sign each request:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> consumer</span> = OkHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET)
+consumer.setTokenWithSecret(token, secret)
+okHttpClient.interceptors().add(SigningInterceptor(consumer))
+</code></pre>
+<h3 id="caching-network-responses">Caching Network Responses</h3>
+<p>We can setup network caching by passing in a cache when building the OkHttpClient:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">var</span> cacheSize</span> = <span class="hljs-number">10</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span> <span class="hljs-comment">// 10 MiB</span>
+<span class="hljs-variable"><span class="hljs-keyword">var</span> cache</span> = Cache(File(getApplication().getCacheDir(), <span class="hljs-string">&quot;cacheFileName&quot;</span>), cacheSize)
+<span class="hljs-variable"><span class="hljs-keyword">var</span> client</span> = OkHttpClient.Builder().cache(cache).build()
+</code></pre>
+<p>We can control whether to retrieve a cached response by setting the cacheControl property on the request. For instance, if we wish to only retrieve the request if data is cached, we could construct the Request object as follows:</p>
+<pre><code class="lang-java">var request = Request.Builder()
+              .url(<span class="hljs-string">&quot;http://publicobject.com/helloworld.txt&quot;</span>)
+              .cacheControl(CacheControl.Builder().onlyIfCached().build())
+              .build()
+</code></pre>
+<p>We can also force a network response by using noCache() for the request:</p>
+<pre><code class="lang-kotlin">  .cacheControl(new CacheControl.Builder().noCache().build())
+</code></pre>
+<p>We can also specify a maximum staleness age for the cached response:</p>
+<pre><code class="lang-kotlin">   .cacheControl(new CacheControl.Builder().maxStale(<span class="hljs-number">365</span>, TimeUnit.DAYS).build())
+</code></pre>
+<p>To retrieve the cached response, we can simply call cacheResponse() on the Response object:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> call</span> = client.newCall(request)
+call.enqueue(<span class="hljs-keyword">object</span>:Callback() {
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(call:<span class="hljs-type">Call, e:IOException</span>)</span> {</span>
+  }
+  @Throws(IOException::<span class="hljs-class"><span class="hljs-keyword">class</span>)</span>
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(call:<span class="hljs-type">Call, response:Response</span>)</span> {</span>
+    <span class="hljs-variable"><span class="hljs-keyword">val</span> text</span> = response.cacheResponse()
+    <span class="hljs-comment">// if no cached object, result will be null</span>
+    <span class="hljs-keyword">if</span> (text != <span class="hljs-literal">null</span>)
+    {
+      Log.d(<span class="hljs-string">&quot;here&quot;</span>, text.toString())
+    }
+  }
+})
+</code></pre>
 
                                 
                                 </section>
@@ -1008,12 +1072,12 @@
 
             
                 
-                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 16. Google Maps">
+                <a href="IntroductiontoOkHTTP.html" class="navigation navigation-prev " aria-label="Previous page: 8.1 Introduction to OkHTTP">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="16-2-creating-maps.html" class="navigation navigation-next " aria-label="Next page: 16.2 Creating Maps">
+                <a href="TroubleshootinginOkHTTP.html" class="navigation navigation-next " aria-label="Next page: 8.3 Troubleshooting in OkHTTP">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1024,7 +1088,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"next":{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]},"previous":{"title":"16. Google Maps","level":"1.17","depth":1,"path":"16-google-maps/intro.md","ref":"16-google-maps/intro.md","articles":[{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/16-1-maps-api.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.2 Processing network responses","level":"1.9.2","depth":2,"next":{"title":"8.3 Troubleshooting in OkHTTP","level":"1.9.3","depth":2,"path":"08-network-operations/TroubleshootinginOkHTTP.md","ref":"08-network-operations/TroubleshootinginOkHTTP.md","articles":[]},"previous":{"title":"8.1 Introduction to OkHTTP","level":"1.9.1","depth":2,"path":"08-network-operations/IntroductiontoOkHTTP.md","ref":"08-network-operations/IntroductiontoOkHTTP.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"08-network-operations/ProcessingNetworkResponses-OkHTTP.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

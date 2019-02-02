@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>16.1 Google Maps API · GitBook</title>
+        <title>8.1 Introduction to OkHTTP · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -67,10 +67,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="16-2-creating-maps.html" />
+    <link rel="next" href="ProcessingNetworkResponses-OkHTTP.html" />
     
     
-    <link rel="prev" href="intro.html" />
+    <link rel="prev" href="IntroductionToNetworkOperations.html" />
     
 
     </head>
@@ -286,9 +286,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../08-network-operations/IntroductionToNetworkOperations.html">
+        <li class="chapter " data-level="1.9" data-path="IntroductionToNetworkOperations.html">
             
-                <a href="../08-network-operations/IntroductionToNetworkOperations.html">
+                <a href="IntroductionToNetworkOperations.html">
             
                     
                     8. Network Operations
@@ -300,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../08-network-operations/IntroductiontoOkHTTP.html">
+        <li class="chapter active" data-level="1.9.1" data-path="IntroductiontoOkHTTP.html">
             
-                <a href="../08-network-operations/IntroductiontoOkHTTP.html">
+                <a href="IntroductiontoOkHTTP.html">
             
                     
                     8.1 Introduction to OkHTTP
@@ -313,9 +313,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../08-network-operations/ProcessingNetworkResponses-OkHTTP.html">
+        <li class="chapter " data-level="1.9.2" data-path="ProcessingNetworkResponses-OkHTTP.html">
             
-                <a href="../08-network-operations/ProcessingNetworkResponses-OkHTTP.html">
+                <a href="ProcessingNetworkResponses-OkHTTP.html">
             
                     
                     8.2 Processing network responses
@@ -326,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" data-path="../08-network-operations/TroubleshootinginOkHTTP.html">
+        <li class="chapter " data-level="1.9.3" data-path="TroubleshootinginOkHTTP.html">
             
-                <a href="../08-network-operations/TroubleshootinginOkHTTP.html">
+                <a href="TroubleshootinginOkHTTP.html">
             
                     
                     8.3 Troubleshooting in OkHTTP
@@ -647,9 +647,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="intro.html">
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
             
-                <a href="intro.html">
+                <a href="../16-google-maps/intro.html">
             
                     
                     16. Google Maps
@@ -661,9 +661,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.17.1" data-path="16-1-maps-api.html">
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
             
-                <a href="16-1-maps-api.html">
+                <a href="../16-google-maps/16-1-maps-api.html">
             
                     
                     16.1 Google Maps API
@@ -674,9 +674,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17.2" data-path="16-2-creating-maps.html">
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
             
-                <a href="16-2-creating-maps.html">
+                <a href="../16-google-maps/16-2-creating-maps.html">
             
                     
                     16.2 Creating Maps
@@ -935,7 +935,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >16.1 Google Maps API</a>
+        <a href=".." >8.1 Introduction to OkHTTP</a>
     </h1>
 </div>
 
@@ -950,38 +950,64 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="google-maps-api">Google Maps API</h1>
-<p>The Google Maps Android API includes built-in support for accessibility.</p>
-<h1 id="setting-up-the-play-console">Setting up the play console</h1>
-<p>In order to use the Google Maps API, you must register your application on the Google Developer Console and enable the API. To do this, start by going to the Google Developer Console. If you already have a project created, you can skip the next section. If not, you can follow along and create a new project for your maps application.</p>
-<p><strong>Create a new project</strong></p>
-<ul>
-<li><p>Once you hit Create, a dialog appears in the lower right corner of the page with a loading indicator while the project is being created.
-<strong>Enable the Maps API</strong></p>
-</li>
-<li><p>When the project has been created, or you have selected an existing project, you are taken to the project Overview screen. From here you will want to expand the APIs &amp; auth item in the left navigation panel and click on APIs.</p>
-</li>
-<li><p>This takes you to a screen where you can click on the Enable API button in order to enable the Maps API for your project.</p>
-</li>
-</ul>
-<p><strong>Creating an Android API Key</strong></p>
-<ul>
-<li><p>After you&apos;ve enabled the Maps API, click on the Credentials item under APIs &amp; auth in the side navigation to get a key to access the Maps API in your application. When you are presented with the Credentials dialog, press the blue Add Credentials button and select API Key.</p>
-</li>
-<li><p>You need to select Android Key in the next dialog. If you were to create the same application using maps on different platforms, you could create a key for each platform.</p>
-</li>
-<li><p>Click Add package name and fingerprint. This provides two fields, one for adding a package name and another for adding the SHA1 from your application signing key.</p>
-</li>
-</ul>
-<p><strong>SHA-1 Certificate</strong></p>
-<ul>
-<li>To get the SHA1 signature, you need to open a terminal or command prompt and navigate to the location of your application&apos;s signing key. This can be either your release key or debug.keystore.</li>
-</ul>
-<p><code>keytool -list -v -keystore debug.keystore</code></p>
-<ul>
-<li>After you have created your SHA1 key and entered it into the text field, click on the Create button. You are then presented with a dialog containing the API key that you need to add to your Android app to access the Maps API.</li>
-</ul>
+                                <h1 id="okhttp">OkHttp</h1>
+<p>Downloading images from the internet or fetching data from an API server or any other operation that involves sending or receiving data from the web requires networking. Earlier a lot of boilerplate code had to be prepared for doing networking but nowadays third party libraries like OkHttp, Retrofit, Moshi and Picasso have come into existence which not only makes the task easier but also faster and more efficient. In this tutorial, we will talk about the OKHttp library.</p>
+<p>OkHttp is a third party library that is used for sending and receing HTTP-based network requests. This open source library has been created by developers at Square. It is very easy to use and has the follwoing benefits:</p>
+<ol>
+<li>Performs the operation faster and also saves bandwidth.</li>
+<li>OkHttp allows sharing of socket, in case the calls are to the same host.</li>
+<li>Connection pooling reduces request latency (if HTTP/2 isn&#x2019;t available).</li>
+<li>Transparent GZIP shrinks download sizes.</li>
+<li>Response caching avoids the network completely for repeat requests.</li>
+</ol>
+<h2 id="setup">Setup</h2>
+<p>Firstly, ask for Internet permission in the Manifest file</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+</code></pre><p>Add the following dependency in the <code>app/build.gradle</code> file:</p>
+<pre><code>dependencies {
+  implementation &apos;com.squareup.okhttp3:okhttp:3.11.0&apos;
+}
+</code></pre><h2 id="making-network-calls">Making network calls</h2>
+<p>First of all, instantiate an OkHttp client and create a request object</p>
+<pre><code>val client = OkHttpClient()
 
+val request = Request.Builder()
+              .url(url)
+              .build()
+</code></pre><p>You can also add query parameters:</p>
+<pre><code> val urlBuilder = HttpUrl.parse(&quot;https://api.github.com&quot;).newBuilder()
+ urlBuilder.addQueryParameter(&quot;v&quot;, &quot;1.0&quot;)
+ urlBuilder.addQueryParameter(&quot;user&quot;, username)
+ val url = urlBuilder.build().toString()
+
+ val request = Request.Builder()
+                .url(url)
+                .build()
+</code></pre><p>The next step is to get the response from the server, this can be in asynchronus as well as synchronus manner.</p>
+<h3 id="synchronous-call">Synchronous call</h3>
+<p>The synchronous call to the network is made with the help of a an asyn task because android does not allow making network calls on the main thread. However, this is not the preferred way of doing the task because it leaks the context of the activity and also cancelling of requests is not suppported.</p>
+<pre><code> val response = client.newCall(request).execute()
+</code></pre><h3 id="asynchronous-call">Asynchronous call</h3>
+<p>This is the preferred way of asking calls to the network as it allows making multiple requests and cancelling them all with a single command.</p>
+<p>The point to be noted here is that the call is made via some other thread and the same thread is used to handle the response that is received. However, android does not allow any changes to be made to the UI of the application from any other thread except the main thread. Therefore, in order to publish the response of the newtwork call or to do any other change with the UI of the thread, use runOnUiThread method as shown in the snippet below:  </p>
+<pre><code>fun makeNetworkCall(url: String) {
+        val client = OkHttpClient()
+        val request = Request.Builder().url(url).build()
+
+        client.newCall(request).enqueue(object : Callback {
+
+            override fun onResponse(response: Response?) {
+                val result = response!!.body().string()
+                this@Main3Activity.runOnUiThread(java.lang.Runnable {
+                    textView.text = result
+                })
+            }
+            override fun onFailure(request: Request?, e: IOException?) {
+                e!!.printStackTrace()
+            }
+        })
+  }
+</code></pre>
                                 
                                 </section>
                             
@@ -1008,12 +1034,12 @@
 
             
                 
-                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 16. Google Maps">
+                <a href="IntroductionToNetworkOperations.html" class="navigation navigation-prev " aria-label="Previous page: 8. Network Operations">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="16-2-creating-maps.html" class="navigation navigation-next " aria-label="Next page: 16.2 Creating Maps">
+                <a href="ProcessingNetworkResponses-OkHTTP.html" class="navigation navigation-next " aria-label="Next page: 8.2 Processing network responses">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1024,7 +1050,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"next":{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]},"previous":{"title":"16. Google Maps","level":"1.17","depth":1,"path":"16-google-maps/intro.md","ref":"16-google-maps/intro.md","articles":[{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/16-1-maps-api.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.1 Introduction to OkHTTP","level":"1.9.1","depth":2,"next":{"title":"8.2 Processing network responses","level":"1.9.2","depth":2,"path":"08-network-operations/ProcessingNetworkResponses-OkHTTP.md","ref":"08-network-operations/ProcessingNetworkResponses-OkHTTP.md","articles":[]},"previous":{"title":"8. Network Operations","level":"1.9","depth":1,"path":"08-network-operations/IntroductionToNetworkOperations.md","ref":"08-network-operations/IntroductionToNetworkOperations.md","articles":[{"title":"8.1 Introduction to OkHTTP","level":"1.9.1","depth":2,"path":"08-network-operations/IntroductiontoOkHTTP.md","ref":"08-network-operations/IntroductiontoOkHTTP.md","articles":[]},{"title":"8.2 Processing network responses","level":"1.9.2","depth":2,"path":"08-network-operations/ProcessingNetworkResponses-OkHTTP.md","ref":"08-network-operations/ProcessingNetworkResponses-OkHTTP.md","articles":[]},{"title":"8.3 Troubleshooting in OkHTTP","level":"1.9.3","depth":2,"path":"08-network-operations/TroubleshootinginOkHTTP.md","ref":"08-network-operations/TroubleshootinginOkHTTP.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"08-network-operations/IntroductiontoOkHTTP.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

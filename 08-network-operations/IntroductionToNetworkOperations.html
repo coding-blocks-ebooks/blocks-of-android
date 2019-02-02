@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>16.1 Google Maps API · GitBook</title>
+        <title>8. Network Operations · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -67,10 +67,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="16-2-creating-maps.html" />
+    <link rel="next" href="IntroductiontoOkHTTP.html" />
     
     
-    <link rel="prev" href="intro.html" />
+    <link rel="prev" href="../07-asynctask/intro.html" />
     
 
     </head>
@@ -286,9 +286,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../08-network-operations/IntroductionToNetworkOperations.html">
+        <li class="chapter active" data-level="1.9" data-path="IntroductionToNetworkOperations.html">
             
-                <a href="../08-network-operations/IntroductionToNetworkOperations.html">
+                <a href="IntroductionToNetworkOperations.html">
             
                     
                     8. Network Operations
@@ -300,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../08-network-operations/IntroductiontoOkHTTP.html">
+        <li class="chapter " data-level="1.9.1" data-path="IntroductiontoOkHTTP.html">
             
-                <a href="../08-network-operations/IntroductiontoOkHTTP.html">
+                <a href="IntroductiontoOkHTTP.html">
             
                     
                     8.1 Introduction to OkHTTP
@@ -313,9 +313,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../08-network-operations/ProcessingNetworkResponses-OkHTTP.html">
+        <li class="chapter " data-level="1.9.2" data-path="ProcessingNetworkResponses-OkHTTP.html">
             
-                <a href="../08-network-operations/ProcessingNetworkResponses-OkHTTP.html">
+                <a href="ProcessingNetworkResponses-OkHTTP.html">
             
                     
                     8.2 Processing network responses
@@ -326,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" data-path="../08-network-operations/TroubleshootinginOkHTTP.html">
+        <li class="chapter " data-level="1.9.3" data-path="TroubleshootinginOkHTTP.html">
             
-                <a href="../08-network-operations/TroubleshootinginOkHTTP.html">
+                <a href="TroubleshootinginOkHTTP.html">
             
                     
                     8.3 Troubleshooting in OkHTTP
@@ -647,9 +647,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="intro.html">
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
             
-                <a href="intro.html">
+                <a href="../16-google-maps/intro.html">
             
                     
                     16. Google Maps
@@ -661,9 +661,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.17.1" data-path="16-1-maps-api.html">
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
             
-                <a href="16-1-maps-api.html">
+                <a href="../16-google-maps/16-1-maps-api.html">
             
                     
                     16.1 Google Maps API
@@ -674,9 +674,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17.2" data-path="16-2-creating-maps.html">
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
             
-                <a href="16-2-creating-maps.html">
+                <a href="../16-google-maps/16-2-creating-maps.html">
             
                     
                     16.2 Creating Maps
@@ -935,7 +935,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >16.1 Google Maps API</a>
+        <a href=".." >8. Network Operations</a>
     </h1>
 </div>
 
@@ -950,37 +950,89 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="google-maps-api">Google Maps API</h1>
-<p>The Google Maps Android API includes built-in support for accessibility.</p>
-<h1 id="setting-up-the-play-console">Setting up the play console</h1>
-<p>In order to use the Google Maps API, you must register your application on the Google Developer Console and enable the API. To do this, start by going to the Google Developer Console. If you already have a project created, you can skip the next section. If not, you can follow along and create a new project for your maps application.</p>
-<p><strong>Create a new project</strong></p>
-<ul>
-<li><p>Once you hit Create, a dialog appears in the lower right corner of the page with a loading indicator while the project is being created.
-<strong>Enable the Maps API</strong></p>
+                                <h1 id="android-network-operations">Android Network Operations</h1>
+<p>All the network requests have to be performed over a protocol. It can be over HTTP or FTP and this defines the format of the payload of the reuest. Like FTP will have a FTP payload/packet and will not be able to read HTTP payload. Hence, it is important to define a protocol in any network request. We will be using HTTP request.</p>
+<p>We need a protocol client to handle a protocol. We will set up an HTTP protocol client to send HTTP requests. This request are sent and the data recieved through the streams.
+Now we understand what actually streams are.</p>
+<p><strong>Stream</strong>-&gt; We require streams to read and write data to the files from your program. Whenever our program has to get data from an external source it is Input Stream. Whenever our program has to write data, it is output stream. The streams are always seen w.r.t to your program.</p>
+<p>Now the main question is, why do we need streams? Why can&apos;t we just simply read all data at once?
+There are basically two reasons</p>
+<ol>
+<li><p>The speed of the data to your program will be different from the rate at which your program can read. To synchronize this data speed we need streams.</p>
 </li>
-<li><p>When the project has been created, or you have selected an existing project, you are taken to the project Overview screen. From here you will want to expand the APIs &amp; auth item in the left navigation panel and click on APIs.</p>
+<li><p>We don&apos;t have large RAM space. So we can&apos;t always read or write a file in the RAM. Only some part of the file must be present, so when we read a file/write, we do it in chunks. And these chunks are what makes the stream.</p>
 </li>
-<li><p>This takes you to a screen where you can click on the Enable API button in order to enable the Maps API for your project.</p>
-</li>
-</ul>
-<p><strong>Creating an Android API Key</strong></p>
-<ul>
-<li><p>After you&apos;ve enabled the Maps API, click on the Credentials item under APIs &amp; auth in the side navigation to get a key to access the Maps API in your application. When you are presented with the Credentials dialog, press the blue Add Credentials button and select API Key.</p>
-</li>
-<li><p>You need to select Android Key in the next dialog. If you were to create the same application using maps on different platforms, you could create a key for each platform.</p>
-</li>
-<li><p>Click Add package name and fingerprint. This provides two fields, one for adding a package name and another for adding the SHA1 from your application signing key.</p>
-</li>
-</ul>
-<p><strong>SHA-1 Certificate</strong></p>
-<ul>
-<li>To get the SHA1 signature, you need to open a terminal or command prompt and navigate to the location of your application&apos;s signing key. This can be either your release key or debug.keystore.</li>
-</ul>
-<p><code>keytool -list -v -keystore debug.keystore</code></p>
-<ul>
-<li>After you have created your SHA1 key and entered it into the text field, click on the Create button. You are then presented with a dialog containing the API key that you need to add to your Android app to access the Maps API.</li>
-</ul>
+</ol>
+<p>We also need a buffer to store the file in a local buffer, which when full, data is read from it.</p>
+<p>Android performs network related operations on the background thread. Response from the server take variable time and UI thread can&apos;t be blocked for that long. So we use AsyncTask to send the network request in the background.</p>
+<p>So in Android we will be using all of the above for the network request. We open a URL connection. It gives a InputStream to read bytes from the network and to read data from Stream we use buffered reader.</p>
+<p>To make a network request in the app, we need to add permission in the manifest file.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.INTERNET&quot;</span>/&gt;</span>
+</code></pre>
+<p>We start by making a AsyncTask. And our downloaded Asynctask will look like</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DownloadAsyncTask</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AsyncTask</span>&lt;<span class="hljs-title">String</span>, <span class="hljs-title">Void</span>, <span class="hljs-title">String</span>&gt; </span>{
+
+
+    <span class="hljs-keyword">private</span> TextView tvResult;
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DownloadAsyncTask</span><span class="hljs-params">(TextView tvResult)</span> </span>{
+        <span class="hljs-keyword">this</span>.tvResult = tvResult;
+    }
+
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">doInBackground</span><span class="hljs-params">(String... strings)</span> </span>{
+        <span class="hljs-comment">// Some long-running task in backgorund</span>
+
+        URL url = <span class="hljs-keyword">null</span>;
+        String result = <span class="hljs-string">&quot;&quot;</span>;
+        <span class="hljs-keyword">try</span> {
+            url = <span class="hljs-keyword">new</span> URL(strings[<span class="hljs-number">0</span>]);
+        } <span class="hljs-keyword">catch</span> (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        HttpURLConnection connection = <span class="hljs-keyword">null</span>;
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">//Sets up HTTP URL connection</span>
+            connection = (HttpURLConnection) url.openConnection();
+            <span class="hljs-comment">//Gives the data in form of bytes</span>
+            InputStream netInputStream = connection.getInputStream();
+
+            <span class="hljs-comment">//Converts that byte data using charset</span>
+            InputStreamReader isr = <span class="hljs-keyword">new</span> InputStreamReader(netInputStream);
+
+            <span class="hljs-comment">//Helps read data in chunks</span>
+            BufferedReader br = <span class="hljs-keyword">new</span> BufferedReader(isr);
+
+            StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();
+            String buffer = <span class="hljs-string">&quot;&quot;</span>;
+
+            <span class="hljs-keyword">while</span>(buffer!=<span class="hljs-keyword">null</span>) {
+                sb.append(buffer);
+                buffer = br.readLine(); <span class="hljs-comment">// Returns null after all work</span>
+            }
+
+            result = sb.toString();
+
+        } <span class="hljs-keyword">catch</span> (IOException e) {
+            e.printStackTrace();
+        }
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPostExecute</span><span class="hljs-params">(String result)</span> </span>{
+        tvResult.setText(result);
+
+    }
+}
+</code></pre>
+<p>We call this AsyncTask from our activity like</p>
+<pre><code class="lang-java"><span class="hljs-keyword">new</span> DownloadAsyncTask((TextView) findViewById(R.id.tvResult))
+                .execute(<span class="hljs-string">&quot;http://example.com&quot;</span>);
+</code></pre>
+<p><img src="img/asynDownload.png" alt=""></p>
 
                                 
                                 </section>
@@ -1008,12 +1060,12 @@
 
             
                 
-                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 16. Google Maps">
+                <a href="../07-asynctask/intro.html" class="navigation navigation-prev " aria-label="Previous page: 7. AsyncTask">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="16-2-creating-maps.html" class="navigation navigation-next " aria-label="Next page: 16.2 Creating Maps">
+                <a href="IntroductiontoOkHTTP.html" class="navigation navigation-next " aria-label="Next page: 8.1 Introduction to OkHTTP">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1024,7 +1076,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"next":{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]},"previous":{"title":"16. Google Maps","level":"1.17","depth":1,"path":"16-google-maps/intro.md","ref":"16-google-maps/intro.md","articles":[{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/16-1-maps-api.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8. Network Operations","level":"1.9","depth":1,"next":{"title":"8.1 Introduction to OkHTTP","level":"1.9.1","depth":2,"path":"08-network-operations/IntroductiontoOkHTTP.md","ref":"08-network-operations/IntroductiontoOkHTTP.md","articles":[]},"previous":{"title":"7. AsyncTask","level":"1.8","depth":1,"path":"07-asynctask/intro.md","ref":"07-asynctask/intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"08-network-operations/IntroductionToNetworkOperations.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

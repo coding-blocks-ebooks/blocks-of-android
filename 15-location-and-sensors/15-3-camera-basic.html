@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>16.1 Google Maps API · GitBook</title>
+        <title>15.3.1 Camera(Basic) · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -67,10 +67,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="16-2-creating-maps.html" />
+    <link rel="next" href="15-3-camera-advanced.html" />
     
     
-    <link rel="prev" href="intro.html" />
+    <link rel="prev" href="15-2-sensors.html" />
     
 
     </head>
@@ -563,9 +563,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="../15-location-and-sensors/intro.html">
+        <li class="chapter " data-level="1.16" data-path="intro.html">
             
-                <a href="../15-location-and-sensors/intro.html">
+                <a href="intro.html">
             
                     
                     15. Location and Sensors
@@ -577,9 +577,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.16.1" data-path="../15-location-and-sensors/15-1-location.html">
+        <li class="chapter " data-level="1.16.1" data-path="15-1-location.html">
             
-                <a href="../15-location-and-sensors/15-1-location.html">
+                <a href="15-1-location.html">
             
                     
                     15.1 Location API
@@ -590,9 +590,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.2" data-path="../15-location-and-sensors/15-2-sensors.html">
+        <li class="chapter " data-level="1.16.2" data-path="15-2-sensors.html">
             
-                <a href="../15-location-and-sensors/15-2-sensors.html">
+                <a href="15-2-sensors.html">
             
                     
                     15.2 Sensors
@@ -603,9 +603,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.3" data-path="../15-location-and-sensors/15-3-camera-basic.html">
+        <li class="chapter active" data-level="1.16.3" data-path="15-3-camera-basic.html">
             
-                <a href="../15-location-and-sensors/15-3-camera-basic.html">
+                <a href="15-3-camera-basic.html">
             
                     
                     15.3.1 Camera(Basic)
@@ -616,9 +616,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.4" data-path="../15-location-and-sensors/15-3-camera-advanced.html">
+        <li class="chapter " data-level="1.16.4" data-path="15-3-camera-advanced.html">
             
-                <a href="../15-location-and-sensors/15-3-camera-advanced.html">
+                <a href="15-3-camera-advanced.html">
             
                     
                     15.3.2 Camera(Advanced)
@@ -629,9 +629,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.5" data-path="../15-location-and-sensors/assignments.html">
+        <li class="chapter " data-level="1.16.5" data-path="assignments.html">
             
-                <a href="../15-location-and-sensors/assignments.html">
+                <a href="assignments.html">
             
                     
                     15.4 Assignments
@@ -647,9 +647,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="intro.html">
+        <li class="chapter " data-level="1.17" data-path="../16-google-maps/intro.html">
             
-                <a href="intro.html">
+                <a href="../16-google-maps/intro.html">
             
                     
                     16. Google Maps
@@ -661,9 +661,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.17.1" data-path="16-1-maps-api.html">
+        <li class="chapter " data-level="1.17.1" data-path="../16-google-maps/16-1-maps-api.html">
             
-                <a href="16-1-maps-api.html">
+                <a href="../16-google-maps/16-1-maps-api.html">
             
                     
                     16.1 Google Maps API
@@ -674,9 +674,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17.2" data-path="16-2-creating-maps.html">
+        <li class="chapter " data-level="1.17.2" data-path="../16-google-maps/16-2-creating-maps.html">
             
-                <a href="16-2-creating-maps.html">
+                <a href="../16-google-maps/16-2-creating-maps.html">
             
                     
                     16.2 Creating Maps
@@ -935,7 +935,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >16.1 Google Maps API</a>
+        <a href=".." >15.3.1 Camera(Basic)</a>
     </h1>
 </div>
 
@@ -950,37 +950,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="google-maps-api">Google Maps API</h1>
-<p>The Google Maps Android API includes built-in support for accessibility.</p>
-<h1 id="setting-up-the-play-console">Setting up the play console</h1>
-<p>In order to use the Google Maps API, you must register your application on the Google Developer Console and enable the API. To do this, start by going to the Google Developer Console. If you already have a project created, you can skip the next section. If not, you can follow along and create a new project for your maps application.</p>
-<p><strong>Create a new project</strong></p>
-<ul>
-<li><p>Once you hit Create, a dialog appears in the lower right corner of the page with a loading indicator while the project is being created.
-<strong>Enable the Maps API</strong></p>
-</li>
-<li><p>When the project has been created, or you have selected an existing project, you are taken to the project Overview screen. From here you will want to expand the APIs &amp; auth item in the left navigation panel and click on APIs.</p>
-</li>
-<li><p>This takes you to a screen where you can click on the Enable API button in order to enable the Maps API for your project.</p>
-</li>
-</ul>
-<p><strong>Creating an Android API Key</strong></p>
-<ul>
-<li><p>After you&apos;ve enabled the Maps API, click on the Credentials item under APIs &amp; auth in the side navigation to get a key to access the Maps API in your application. When you are presented with the Credentials dialog, press the blue Add Credentials button and select API Key.</p>
-</li>
-<li><p>You need to select Android Key in the next dialog. If you were to create the same application using maps on different platforms, you could create a key for each platform.</p>
-</li>
-<li><p>Click Add package name and fingerprint. This provides two fields, one for adding a package name and another for adding the SHA1 from your application signing key.</p>
-</li>
-</ul>
-<p><strong>SHA-1 Certificate</strong></p>
-<ul>
-<li>To get the SHA1 signature, you need to open a terminal or command prompt and navigate to the location of your application&apos;s signing key. This can be either your release key or debug.keystore.</li>
-</ul>
-<p><code>keytool -list -v -keystore debug.keystore</code></p>
-<ul>
-<li>After you have created your SHA1 key and entered it into the text field, click on the Create button. You are then presented with a dialog containing the API key that you need to add to your Android app to access the Maps API.</li>
-</ul>
+                                <h1 id="camera-basics">CAMERA (basics)</h1>
+<p>You want to take photos but do not want to reinvent the camera. Luckily, most Android-powered devices already have at least one camera application installed.Android provides full access to the device camera hardware so you can build a wide range of camera or vision-based apps. Or if you just need a way for the user to capture a photo, you can simply request an existing camera app to capture a photo and return it to you. This lesson teaches how to capture a photo by using another camera app on the device </p>
+<h3 id="request-the-camera-feature">Request the camera feature:</h3>
+<p>To tell that your application depends on having a camera, put a <uses-feature> tag in your manifest file:</uses-feature></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">manifest</span> <span class="hljs-attr">...</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">uses-feature</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.hardware.camera&quot;</span>
+                  <span class="hljs-attr">android:required</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+    ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">manifest</span>&gt;</span>
+</code></pre>
+<h3 id="take-a-photo-with-a-camera-app">Take a photo with a camera app:</h3>
+<p>The Android way of delegating actions to other applications is to invoke an Intent that describes what you want to be done. This process involves three pieces: The Intent itself, a call to start the external Activity, and some code to handle the image data when focus returns to your activity.
+Here&apos;s a function that invokes an intent to capture a photo:</p>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> REQUEST_IMAGE_CAPTURE</span> = <span class="hljs-number">1</span>
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">dispatchTakePictureIntent</span><span class="hljs-params">()</span> {</span>
+    Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent -&gt;
+        takePictureIntent.resolveActivity(packageManager)?.also {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+        }
+    }
+}
+</code></pre>
+<h3 id="add-the-photo-to-a-gallery">Add the photo to a gallery:</h3>
+<p>When you create a photo through an intent, you should know where your image is located, because you said where to save it in the first place. For everyone else, perhaps the easiest way to make your photo accessible is to make it accessible from the system&apos;s Media Provider.
+The following example method demonstrates how to invoke the system&apos;s media scanner to add your photo to the Media Provider&apos;s database, making it available in the Android Gallery application and to other apps.</p>
+<pre><code class="lang-kotlin"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">galleryAddPic</span><span class="hljs-params">()</span> {</span>
+    Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent -&gt;
+        <span class="hljs-variable"><span class="hljs-keyword">val</span> f</span> = File(mCurrentPhotoPath)
+        mediaScanIntent.data = Uri.fromFile(f)
+        sendBroadcast(mediaScanIntent)
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -1008,12 +1010,12 @@
 
             
                 
-                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 16. Google Maps">
+                <a href="15-2-sensors.html" class="navigation navigation-prev " aria-label="Previous page: 15.2 Sensors">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="16-2-creating-maps.html" class="navigation navigation-next " aria-label="Next page: 16.2 Creating Maps">
+                <a href="15-3-camera-advanced.html" class="navigation navigation-next " aria-label="Next page: 15.3.2 Camera(Advanced)">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1024,7 +1026,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"next":{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]},"previous":{"title":"16. Google Maps","level":"1.17","depth":1,"path":"16-google-maps/intro.md","ref":"16-google-maps/intro.md","articles":[{"title":"16.1 Google Maps API","level":"1.17.1","depth":2,"path":"16-google-maps/16-1-maps-api.md","ref":"16-google-maps/16-1-maps-api.md","articles":[]},{"title":"16.2 Creating Maps","level":"1.17.2","depth":2,"path":"16-google-maps/16-2-creating-maps.md","ref":"16-google-maps/16-2-creating-maps.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"16-google-maps/16-1-maps-api.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15.3.1 Camera(Basic)","level":"1.16.3","depth":2,"next":{"title":"15.3.2 Camera(Advanced)","level":"1.16.4","depth":2,"path":"15-location-and-sensors/15-3-camera-advanced.md","ref":"15-location-and-sensors/15-3-camera-advanced.md","articles":[]},"previous":{"title":"15.2 Sensors","level":"1.16.2","depth":2,"path":"15-location-and-sensors/15-2-sensors.md","ref":"15-location-and-sensors/15-2-sensors.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["json","hints","mathjax-commonhtml","youtube"],"pluginsConfig":{"youtube":{},"json":{"output":"_book/book.json"},"search":{},"mathjax-commonhtml":{"defaultScaling":true},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"15-location-and-sensors/15-3-camera-basic.md","mtime":"2019-02-02T17:43:56.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-02T17:44:55.965Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
