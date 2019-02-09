@@ -101,7 +101,10 @@ override fun onNewToken(token: String?) {
 ```
 This method is invoked whenever a new token is generated.
 - After this, the client app is ready
+- Next, open the Firebase Console and start with the notifications.
 
+-After filling out the required fields appropriately click on `Test for device`.
+      
 - ### Sending out notifications to multiple devices
 
 This is done with the help of topic messaging, which allows you to send a message to multiple devices who have opted in to a particular topic.
@@ -118,6 +121,8 @@ Following is the code which is used to subscribe to a particular topic. It can b
             Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
         }
 ```
+Next, open the firebase console and fill in the topic whose subscribers you wish to notify.
+
 With this, we are done with sending out the notifications. The next part is about receiving the messages:
 ```
 override fun onMessageReceived(remoteMessage: RemoteMessage?) {
@@ -141,6 +146,8 @@ override fun onMessageReceived(remoteMessage: RemoteMessage?) {
     }
 }
 ```
+Lastly, monitor the impact of your notification on the dashboard.
+
 
 
 
