@@ -24,7 +24,7 @@ Whenever the state of lifecycle is changed, the observer is notified. Therefore 
 ## Implementation
 - Create an instance of LiveData object. Usually liveData object is stored in the object of ViewModel class and the getter method is used to extract the data
 
-```
+```kotlin
 class SampleViewModel : ViewModel() {
 
     val currentScore: MutableLiveData<Integer> by lazy {
@@ -38,7 +38,7 @@ Note: MutableLiveData is used beacuse LiveData has no methods for updating the s
 
 - For observation of data, create an observer of the data in the onCreate() method of MainActivity and override the observer's onChanged() method. onChanged() is executed when either the value of data is changed or the state of observer changes.
 
-```
+```kotlin
 class NameActivity : AppCompatActivity() {
 
     private lateinit var mModel: SampleViewModel
@@ -67,7 +67,7 @@ class NameActivity : AppCompatActivity() {
 - As mentioned above, the setValue(T) and postValue(T) methods of MutableLiveData class are used to edit the value stored in the LiveData object.
 After correctly setting up the observer relationship, the value of the LiveData object can be updated, as illustrated by the following example, which triggers all observers when the user taps a button:
 
-```
+```kotlin
 mButton.setOnClickListener {
     val newScore = 15
     mModel.currentScore.setValue(newScore)
@@ -85,7 +85,7 @@ In the custom class, onActive() and onInactive() functions will be used to handl
 
 Following is a custom LiveData class which observes for changes in the file and notifies on any change in the file content. We use FileObserver API to observe for file changes.
 
-```
+```kotlin
 class FileLiveData(private val context: Context) : LiveData<List<String>>() {
     private val fileObserver: FileObserver
 
